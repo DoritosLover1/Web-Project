@@ -1,0 +1,20 @@
+.btn:focus,
+.btn:active,
+.btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#searchBarContent{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
+}
+
+#searchBarContent.show {
+  max-height: 600px;
+}
+
+.head-bar {
+  background-color: #F2F2F2;
+}

@@ -1,9 +1,13 @@
-footer{
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: #121212;
-    color: #FFFFFF;
+.footer-sticky {
+  margin-top: auto;
+}
+
+.footer {
+background-color: #121212;
+  padding: 20px 0;
+color: #FFFFFF;
+}
+
+.with-fixed-footer {
+  padding-bottom: 80px;
 }

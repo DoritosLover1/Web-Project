@@ -59,29 +59,31 @@ export default function MainHeader() {
           </div>
         </div>
       </nav>
-      <ul className="text-center nav justify-content-between bg-white mx-3">
-        <li className="nav-item">
-          <Link className="nav-link" style={{color: '#4A494D'}} to="#">FORMATS</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" style={{color: '#4A494D'}} to="#">GENRE</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" style={{color: '#4A494D'}} to="#">ARTISTS</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" style={{color: '#4A494D'}} to="#">SALE</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" style={{color: '#4A494D'}} to="#">NEW ARRIVAL</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" style={{color: '#4A494D'}} to="#">TOP SELLERS</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" style={{color: '#4A494D'}} to="#">GUIDES</Link>
-        </li>
-      </ul>
+      <div className="container-fluid bg-white">
+        <ul className="nav bg-white row">
+          <li className="nav-item col-md col-sm col text-center padding-remover">
+            <Link className="nav-link link-color" to="#">FORMATS</Link>
+          </li>
+          <li className="nav-item col-md col-sm col text-center">
+            <Link className="nav-link link-color" to="#">GENRE</Link>
+          </li>
+          <li className="nav-item col-md col-sm col text-center">
+            <Link className="nav-link link-color" to="#">ARTISTS</Link>
+          </li>
+          <li className="nav-item col-md col-sm col text-center">
+              <Link className="nav-link link-color" to="#">SALE</Link>
+          </li>
+          <li className="nav-item col-md col-sm col text-center">
+              <Link className="nav-link link-color" to="#">NEW ARRIVAL</Link>
+          </li>
+          <li className="nav-itemcol-md col-sm col text-center">
+              <Link className="nav-link link-color" to="#">TOP SELLERS</Link>
+          </li>
+          <li className="nav-item col-md col-sm col text-center">
+            <Link className="nav-link link-color" to="#">GUIDES</Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

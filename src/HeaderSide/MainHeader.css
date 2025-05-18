@@ -18,3 +18,25 @@
 .head-bar {
   background-color: #F2F2F2;
 }
+
+.propagation-il-items{
+  text-align: center;
+}
+
+.link-color{
+  color: #4A494D !important;
+}
+.link-color:hover{
+  color: #F2F2F2 !important;
+  background-color: black;
+}
+
+.padding-remover{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.row > *{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}

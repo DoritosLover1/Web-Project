@@ -1,0 +1,11 @@
+.body-of-error-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    flex-grow: 1;
+}
+
+.text-center {
+    text-align: center;
+}

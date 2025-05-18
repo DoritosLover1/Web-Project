@@ -5,8 +5,6 @@ import FooterCreate from '../FooterSide/MainFooter';
 export default function Home() {
     return(
         <div>
-            <MainHeader></MainHeader>
-            <FooterCreate></FooterCreate>
         </div>
     );
 }

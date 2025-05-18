@@ -41,7 +41,7 @@ export default function MainHeader() {
             </div>
             <ul className="d-flex navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/sign-in">
                   <i className="bi bi-person" style={{ fontSize: 25 }}></i>
                 </Link>
               </li>

@@ -1,14 +1,12 @@
-import React from 'react';
 import './MainFooter.css';
-
 const FooterCreate = () => {
   return (
     <footer className="footer footer-sticky">
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <h5>Şirket Adı</h5>
-            <p>Kısa açıklama veya slogan.</p>
+            <h5>CerrahVINLY</h5>
+            <p1>1890'dan beri ailenizin</p1>
           </div>
           <div className="col-md-3">
             <h5>Hızlı Bağlantılar</h5>

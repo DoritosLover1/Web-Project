@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './SignIn.css';
-import MainHeader from '../HeaderSide/MainHeader';
-import FooterCreate from '../FooterSide/MainFooter';
 import { FaGoogle, FaTwitter, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
-import picture from '..//assets/backgrounds/background_signin.png';
+import picture from '../assets/backgrounds/background_signin.png';
 
 export default function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,8 +13,7 @@ export default function SignIn() {
     };
     
     return(
-        <div className='page-container'>
-            <MainHeader />
+        <div className='signin-page'>
             <div className='container-fluid p-0'>
                 <div className='row g-0'>
                     <div className='col-md-6'>
@@ -23,7 +21,7 @@ export default function SignIn() {
                             <img
                                 src={picture} 
                                 alt="Picture" 
-                                className='img-fluid w-100'
+                                className='img-fluid w-100 h-100'
                             />
                         </div>
                     </div>
@@ -68,19 +66,18 @@ export default function SignIn() {
                                 />
                             </div>
                             <div className="forgot-password-container">
-                                <a href="#" className="forgot-password-link">Forget your password</a>
+                                <Link href="#" className="forgot-password-link">Forget your password</Link>
                             </div>
                             <button type="submit" className="signin-btn">
                                 Sign In
                             </button>
                             <div className="signup-prompt">
-                                Don't have an account? <a href="#" className="signup-link">Sign up</a>
+                                Don't have an account? <Link href="#" className="signup-link">Sign up</Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <FooterCreate />
         </div>
     );
 }

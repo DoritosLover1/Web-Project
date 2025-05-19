@@ -7,6 +7,7 @@ import Error from './ErrorPage/Error';
 import SignIn from './SignInPage/SignIn';
 
 import MainHeader from '..//src/HeaderSide/MainHeader';
+import ResetPass from '..//src/ResetPasswordPage/ResetPass';
 import FooterCreate from '..//src/FooterSide/MainFooter';
 
 
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/sign-in" element={<SignIn/>}>
                 </Route>
                 <Route path="/404-error" element={<Error/>}></Route>
+                <Route path='/reset-password' element={<ResetPass/>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

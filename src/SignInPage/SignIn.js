@@ -13,7 +13,7 @@ export default function SignIn() {
     };
     
     return(
-        <div className='signin-page'>
+        <div>
             <div className='container-fluid p-0'>
                 <div className='row g-0'>
                     <div className='col-md-6'>

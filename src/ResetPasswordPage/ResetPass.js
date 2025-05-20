@@ -41,7 +41,7 @@ export default function ResetPass() {
                                 Send
                             </button>
                             <div className='pt-2' style={{fontSize: 14, color: '#3C4242'}}>
-                                Back to <Link href="#" className='login-link'>Login</Link>
+                                <Link href="#" className='login-link'>Back to Login</Link>
                             </div>
                         </div>
                     </div>

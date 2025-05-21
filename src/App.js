@@ -11,7 +11,7 @@ import ResetPass from '..//src/ResetPasswordPage/ResetPass';
 import FooterCreate from '..//src/FooterSide/MainFooter';
 import CheckEmailPage from './CheckEmailPage/CheckEmailPage';
 import VerificationPage from './VerificationPage/VerificationPage';
-
+import ChangePasswordPage from './ChangePasswordPage/ChangePasswordPage';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
                 <Route path='/reset-password' element={<ResetPass/>}></Route>
                 <Route path='/check-email' element={<CheckEmailPage/>}></Route>
                 <Route path='/code-verification' element={<VerificationPage/>}></Route>
+                <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

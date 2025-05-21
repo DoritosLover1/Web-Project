@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import './VerificationPage.css';
 import { Link } from "react-router-dom";
 
 import picture from '../assets/backgrounds/background_verification.png';
 
 export default function VerificationPage(){
+
+    const [input, setInput] = useState('');
+
+    const handleWithInput = (e) =>{
+        const onlyNumbers = e.target.value.replace(/[^0-9]/g, '');
+        setInput(onlyNumbers);
+    }
+
     return (
         <div>
             <div className='container-fluid p-0'>
@@ -22,8 +30,13 @@ export default function VerificationPage(){
                             </p>
                             <div className='py-3'>
                                 <p>Verification Code</p>
-                                {/*Buraya veri girdisi yapılacaktır form açılıp yapılabilir
-                                Ya da direkt yapabiliriz.*/}
+                                {/*Burada yapılan şey sadece bu sayfadan alınan verinin düzgünleştirlmesiyle alkalı
+                                .Lakin Backend kısmında ekstradan bunu dizayn edeceğiz.*/}
+                                <form>
+                                    <div className='mb-3'>
+                                        <input id='verify-code-place' className='form-control' type='text' value={input} onChange={handleWithInput}/>
+                                    </div>
+                                </form>
                             </div>
                             <button type='button' className='btn verify-btn'>
                                 Verfiy Code

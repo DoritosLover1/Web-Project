@@ -12,6 +12,8 @@ import FooterCreate from '..//src/FooterSide/MainFooter';
 import CheckEmailPage from './CheckEmailPage/CheckEmailPage';
 import VerificationPage from './VerificationPage/VerificationPage';
 import ChangePasswordPage from './ChangePasswordPage/ChangePasswordPage';
+import EmptyCart from './EmptyCartPage/EmptyCart';
+import OrderConfirmPage from './OrderConfirmPage/OrderConfirmPage';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
                 <Route path='/check-email' element={<CheckEmailPage/>}></Route>
                 <Route path='/code-verification' element={<VerificationPage/>}></Route>
                 <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
+                <Route path='/empty-cart' element={<EmptyCart/>}></Route>
+                <Route path='/confirm-order' element={<OrderConfirmPage/>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

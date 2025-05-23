@@ -1,4 +1,4 @@
-.body-of-error-wrapper {
+.body-of-confirm-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,33 +10,34 @@
     text-align: center;
 }
 
+.back-to-btn {
+    width: 30%;
+    padding: 12px;
+    background-color: #e53935;
+    color: white !important;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-to-btn:hover {
+  background-color: #d32f2f;
+  color: white !important;
+}
+
 .image-container {
     position: relative;
     display: inline-block;
 }
 
 .image-container img {
-    display: block;
-    width: 100%;
+    display: inline-flex;
+    width: 90%;
     height: auto;
-}
 
-.back-to-btn {
-  width: 50%;
-  padding: 12px;
-  background-color: #e53935;
-  color: white !important;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.back-to-btn:hover {
-  background-color: #d32f2f;
-  color: white !important;
 }
 
 @media (max-width: 767px) {

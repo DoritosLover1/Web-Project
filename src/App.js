@@ -14,6 +14,7 @@ import VerificationPage from './VerificationPage/VerificationPage';
 import ChangePasswordPage from './ChangePasswordPage/ChangePasswordPage';
 import EmptyCart from './EmptyCartPage/EmptyCart';
 import OrderConfirmPage from './OrderConfirmPage/OrderConfirmPage';
+import MainPage from './MainPage/Main';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <MainHeader></MainHeader>
           <main style={{flex: 1, display:'flex', flexDirection: 'column'}}>
               <Routes>
-                <Route path='/' element={<Home/>}></Route>
+                <Route path='/' element={<MainPage/>}></Route>
                 <Route path="/sign-in" element={<SignIn/>}></Route>
                 <Route path="/404-error" element={<Error/>}></Route>
                 <Route path='/reset-password' element={<ResetPass/>}></Route>

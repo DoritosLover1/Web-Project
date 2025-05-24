@@ -1,0 +1,17 @@
+.body-of-main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-grow: 1;
+}
+
+.carousel-caption{
+    border-radius: 12px;
+    bottom: 40vh;
+}
+
+.carousel-item img{
+    object-fit: cover;
+    height: 80vh;
+}

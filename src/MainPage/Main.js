@@ -2,6 +2,7 @@ import './Main.css';
 import picture from "../assets/backgrounds/background_maincaruosel.jpg";
 import picture2 from "../assets/backgrounds/background_maincaruosel-2.jpg";
 import picture3 from "../assets/backgrounds/background_maincaruosel-3.jpg";
+import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
 
 export default function MainPage() {
     return (
@@ -50,7 +51,7 @@ export default function MainPage() {
                                 </div>                           
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block w-100 img-sizer" src={picture2} alt="Slide 4" style={{height: '500px', objectFit: 'cover'}}/>
+                                <img className="d-block w-100 img-sizer" src={picture4} alt="Slide 4" style={{height: '500px', objectFit: 'cover'}}/>
                                 <div className='carousel-caption pb-2 pb-md-4 text-end txt-md-end'>
                                     <div className='p-2 p-md-3 mb-5 rounded text-center'>
                                         <p className='mb-1 mb-md-2 p-text'>Lorem Ipsums</p>

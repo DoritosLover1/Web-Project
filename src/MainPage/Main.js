@@ -6,7 +6,7 @@ import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
 
 export default function MainPage() {
     return (
-        <div className='d-flex'>
+        <div className='d-flex flex-column'>
             <div className="d-flex justify-content-center align-items-center w-100">
                 <div className="card w-100">
                     <div id="carouselExampleIndicator" className="carousel slide" data-bs-ride="carousel">
@@ -73,6 +73,37 @@ export default function MainPage() {
                     </div>
                 </div>
             </div>
+            <div className='d-flex justify-content-center align-items-start my-5'>
+                <div className='px-5 py-4 mx-5 d-flex align-items-start' style={{backgroundColor: "#F2EADF"}}>
+                    <div className='fw-bold me-2' style={{color: "#C3914A", fontSize: 60}}>1</div>
+                    <div className='mt-4'>
+                        <h6 className="mb-1 fw-bold text-dark fs-4">LOREM IPSU</h6>
+                        <p className="mb-0 text-muted small">Lorem Ipsum is.</p>
+                    </div>
+                </div>
+                <div className=' px-5 py-4 mx-5 d-flex align-items-start' style={{backgroundColor: "#E6EDDD"}}> 
+                    <div className='fw-bold me-2' style={{color: "#5F9101", fontSize: 60}}>1</div>   
+                    <div className='mt-4'>
+                        <h6 className="mb-1 fw-bold text-dark fs-4">LOREM IPSU</h6>
+                        <p className="mb-0 text-muted small">Lorem Ipsum is.</p>
+                    </div>
+                </div>
+                <div className=' px-5 py-4 mx-5 d-flex align-items-start' style={{backgroundColor: "#FDF2DE"}}>
+                    <div className='fw-bold me-2' style={{color: "#FEBA28", fontSize: 60}}>1</div>
+                    <div className='mt-4'>
+                        <h6 className="mb-1 fw-bold text-dark fs-4">LOREM IPSU</h6>
+                        <p className="mb-0 text-muted small">Lorem Ipsum is.</p>
+                    </div>
+                </div>
+                <div className=' px-5 py-4 mx-5 d-flex align-items-start' style={{backgroundColor: "#E1EDF9"}}>
+                    <div className='fw-bold me-2' style={{color: "#2E97FF", fontSize: 60}}>1</div>
+                    <div className='mt-4'>
+                        <h6 className="mb-1 fw-bold text-dark fs-4">LOREM IPSU</h6>
+                        <p className="mb-0 text-muted small">Lorem Ipsum is.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        
     );
 }

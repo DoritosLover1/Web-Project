@@ -73,29 +73,29 @@ export default function MainPage() {
                     </div>
                 </div>
             </div>
-            <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5'>                 
-                <div className='px-3 px-md-5 py-4  mx-md-5 mb-4 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#F2EADF"}}>                     
+            <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5 mx-5'>                 
+                <div className='px-3 px-md-5 py-4 mx-lg-3 mb-4 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#F2EADF"}}>                     
                     <div className='colorful-messages fw-bold me-2' style={{color: "#C3914A"}}>1</div>                     
                     <div className='mt-2 mt-md-4'>                         
                         <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         
                         <p className="mb-0 text-muted small">Lorem Ipsum is.</p>                     
                     </div>                 
                 </div>                 
-                <div className='px-3 px-md-5 py-4 mx-md-5 mb-4 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#E6EDDD"}}>                      
+                <div className='px-3 px-md-5 py-4 mb-4 mx-lg-3 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#E6EDDD"}}>                      
                     <div className='colorful-messages fw-bold me-2' style={{color: "#5F9101"}}>1</div>                        
                     <div className='mt-2 mt-md-4'>                         
                         <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         
                         <p className="mb-0 text-muted small">Lorem Ipsum is.</p>                     
                     </div>                 
                 </div>                 
-                <div className='px-3 px-md-5 py-4  mx-md-5 mb-4 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#FDF2DE"}}>                     
+                <div className='px-3 px-md-5 py-4 mb-4 mx-lg-3 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#FDF2DE"}}>                     
                     <div className='colorful-messages fw-bold me-2' style={{color: "#FEBA28"}}>1</div>                     
                     <div className='mt-2 mt-md-4'>                         
                         <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         
                         <p className="mb-0 text-muted small">Lorem Ipsum is.</p>                     
                     </div>                 
                 </div>                 
-                <div className='px-3 px-md-5 py-4  mx-md-5 mb-4 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#E1EDF9"}}>                     
+                <div className='px-3 px-md-5 py-4 mb-4 mx-lg-3 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#E1EDF9"}}>                     
                     <div className='colorful-messages fw-bold me-2' style={{color: "#2E97FF"}}>1</div>                     
                     <div className='mt-2 mt-md-4'>                         
                         <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         

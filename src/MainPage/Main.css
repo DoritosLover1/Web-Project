@@ -6,6 +6,10 @@
     flex-grow: 1;
 }
 
+.colorful-messages{
+    font-size: clamp(40px, 8vw, 60px);
+}
+
 .carousel {
     overflow: hidden;
 }

@@ -10,6 +10,9 @@
     font-size: clamp(40px, 8vw, 60px);
 }
 
+.trending-text{
+    font-size: clamp(50px, 10vw, 60px);
+}
 .carousel {
     overflow: hidden;
 }

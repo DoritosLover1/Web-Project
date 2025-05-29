@@ -1,3 +1,4 @@
+/* Mevcut Carousel Stilleri Korunuyor */
 .body-of-main-wrapper {
     display: flex;
     justify-content: center;
@@ -6,13 +7,6 @@
     flex-grow: 1;
 }
 
-.colorful-messages{
-    font-size: clamp(40px, 8vw, 60px);
-}
-
-.trending-text{
-    font-size: clamp(50px, 10vw, 60px);
-}
 .carousel {
     overflow: hidden;
 }
@@ -52,6 +46,126 @@
     font-size: clamp(12px, 2vw, 16px);
 }
 
+/* Ana Sayfa Container */
+.main-page {
+    min-height: 100vh;
+}
+
+/* Products Section */
+.products-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid #e9ecef;
+    color: #333;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+}
+
+.newsletter-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.newsletter-subtitle {
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.newsletter-form .input-group {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.newsletter-form .form-control {
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+}
+
+.newsletter-form .form-control:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.newsletter-form .btn {
+    border: none;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-weight: 600;
+}
+
+.newsletter-form .btn:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6c5ce7 100%);
+}
+
+/* Mevcut Responsive Carousel Stilleri Korunuyor */
 @media (min-width: 992px) {
     .carousel-caption {
         bottom: 2rem;

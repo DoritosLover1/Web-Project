@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './HomePage/Home';
 import Error from './ErrorPage/Error';
 import SignIn from './SignInPage/SignIn';
+import SignUp from './SignUpPage/SignUp';
 
 import MainHeader from '..//src/HeaderSide/MainHeader';
 import ResetPass from '..//src/ResetPasswordPage/ResetPass';
@@ -17,6 +18,7 @@ import EmptyCart from './EmptyCartPage/EmptyCart';
 import OrderConfirmPage from './OrderConfirmPage/OrderConfirmPage';
 import MainPage from './MainPage/Main';
 
+
 function App() {
   return (
     <Router>
@@ -26,6 +28,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<MainPage/>}></Route>
                 <Route path="/sign-in" element={<SignIn/>}></Route>
+                <Route path="/sign-up" element={<SignUp/>}></Route>
                 <Route path="/404-error" element={<Error/>}></Route>
                 <Route path='/reset-password' element={<ResetPass/>}></Route>
                 <Route path='/check-email' element={<CheckEmailPage/>}></Route>
@@ -42,4 +45,3 @@ function App() {
 }
 
 export default App;
-

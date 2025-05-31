@@ -3,6 +3,7 @@ import picture from "../assets/backgrounds/background_maincaruosel.jpg";
 import picture2 from "../assets/backgrounds/background_maincaruosel-2.jpg";
 import picture3 from "../assets/backgrounds/background_maincaruosel-3.jpg";
 import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
+import icon from "../assets/icon/brand_icon.png";
 import { useState } from 'react';
 
 // Mock database - gerçek uygulamada bu veriler API'den gelecek
@@ -137,7 +138,6 @@ export default function MainPage() {
 
     return (
         <div className='d-flex flex-column'>
-            {/* Mevcut Carousel Bölümü */}
             <div className="d-flex justify-content-center align-items-center w-100">
                 <div className="card w-100">
                     <div id="carouselExampleIndicator" className="carousel slide" data-bs-ride="carousel">
@@ -205,7 +205,6 @@ export default function MainPage() {
                 </div>
             </div>
 
-            {/* Mevcut Renkli Kartlar */}
             <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5 mx-5'>                 
                 <div className='px-3 px-md-5 py-4 mx-lg-3 mb-4 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#F2EADF"}}>                     
                     <div className='colorful-messages fw-bold me-2' style={{color: "#C3914A"}}>1</div>                     
@@ -237,7 +236,6 @@ export default function MainPage() {
                 </div>             
             </div>
 
-            {/* YENİ TRENDING SECTION */}
             <div className="products-section">
                 <section className="trending-section py-5">
                     <div className="container">
@@ -292,7 +290,6 @@ export default function MainPage() {
                     </div>
                 </section>
 
-                {/* YENİ ARTISTS SECTION */}
                 <section className="artists-section py-5" style={{background: '#f8f9fa'}}>
                     <div className="container">
                         <div className="section-header text-center mb-5">
@@ -346,6 +343,42 @@ export default function MainPage() {
                         </div>
                     </div>
                 </section>
+            </div>
+    
+            <div className='w-100 p-4' style={{backgroundColor: "#E3E3E3"}}>
+                <div className="container-fluid h-100">
+                    <div className='row h-100 align-items-center m-5'>
+                        <div className='col-lg-6 col-12'>
+                            <p className='fs1-text fw-bold fst-italic text-dark mt-4' style={{marginBottom: 0}}>LOREM IPSUM</p>
+                            <p className='fs1-text fw-bold fst-italic text-dark'>Simply</p>
+                        </div>
+                        <div className='col-lg-6 col-12 mt-4 mt-lg-0'>
+                            <img src={icon} className='icon-conf justify-content-center'/>
+                            <p class="text-muted lh-base">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting 
+                                industry. Lorem Ipsum has been the industry's standard dummy 
+                                text ever since the 1500s, when an unknown printer took a galley 
+                                of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>  
+                    </div>
+                     <p class="d-flex fs-6 text-dark mb-4">
+                        Lorem Ipsum is
+                        <div>
+                            <span class="divider-line"></span>                            
+                        </div>
+                    </p>
+                    <div class="d-flex justify-content-between flex-wrap m-1">
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                    </div>                 
+                </div>
             </div>
         </div>  
     );

@@ -95,34 +95,95 @@
     font-size: 20px;
 }
 
-/* Ürün Kartları */
+/* Ürün Kartları - ORTA BOYUT */
 .product-card {
     border-radius: 0 !important;
-    box-shadow: none !important;
-    transition: transform 0.3s ease;
-    margin-bottom: 2rem; /* Ürün kartları arası dikey boşluk */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important; /* Hafif gölge */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2.5rem;
     margin-right: 2rem;
+    min-height: 300px;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px); /* Orta seviye hover efekti */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12) !important;
 }
 
 .product-card:hover .product-overlay {
     opacity: 1 !important;
 }
 
-/* Artist Kartları */
+/* Ürün görsel konteyneri orta boyut */
+.product-image-container {
+    height: 240px !important; /* Orta boyut: 240px */
+}
+
+/* Ürün bilgi alanı */
+.product-info {
+    padding: 1.75rem 1.5rem !important;
+}
+
+/* Ürün başlıkları orta boyut */
+.product-title {
+    font-size: 16px !important; /* Orta boyut: 16px */
+    font-weight: 650 !important;
+    margin-bottom: 0.4rem !important;
+}
+
+.product-artist {
+    font-size: 13px !important; /* Orta boyut: 13px */
+    margin-bottom: 0.6rem !important;
+}
+
+.product-price {
+    font-size: 18px !important; /* Orta boyut: 18px */
+    font-weight: 650 !important;
+    color: #2c5aa0 !important;
+}
+
+/* Overlay butonları orta boyut */
+.product-overlay button {
+    width: 40px !important; /* Orta boyut: 40px */
+    height: 40px !important;
+    font-size: 16px !important; /* Orta boyut: 16px */
+}
+
+/* Artist Kartları - DİKEY OLARAK BÜYÜTÜLMÜŞ */
 .artist-card {
     border-radius: 0 !important;
-    box-shadow: none !important;
-    transition: transform 0.3s ease;
-    margin-bottom: 2.5rem; /* Sanatçı kartları arası daha fazla dikey boşluk */
-    margin-right: 5rem;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 3.5rem; /* Artırıldı */
+    margin-right: 2.5rem;
+    min-height: 450px; /* Minimum yükseklik eklendi */
 }
 
 .artist-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+/* Artist görsel konteyneri dikey olarak büyütüldü */
+.artist-image-container {
+    height: 400px !important; /* 300px'den 400px'e çıkarıldı */
+}
+
+/* Artist bilgi alanı */
+.artist-info {
+    padding: 2rem 1.5rem !important; /* Padding artırıldı */
+}
+
+/* Artist adı ve specialty büyütüldü */
+.artist-name {
+    font-size: 18px !important; /* 16px'den 18px'e çıkarıldı */
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.artist-specialty {
+    font-size: 15px !important; /* 14px'den 15px'e çıkarıldı */
+    margin-bottom: 0 !important;
 }
 
 /* Bölüm Başlıkları */
@@ -130,7 +191,7 @@
     position: relative;
     padding-bottom: 15px;
     text-transform: uppercase;
-    margin-bottom: 3rem !important; /* Başlık altı boşluğu artırıldı */
+    margin-bottom: 4rem !important; /* Başlık altı boşluğu daha da artırıldı */
 }
 
 .section-title::after {
@@ -160,48 +221,70 @@
 
 /* Ürün ve Sanatçı Bölümlerine Ek Boşluk */
 .trending-section {
-    padding: 5rem 0 !important; /* Üst ve alt padding artırıldı */
+    padding: 6rem 0 !important; /* Daha da artırıldı */
 }
 
 .artists-section {
-    padding: 5rem 0 !important; /* Üst ve alt padding artırıldı */
-}
-
-/* Kart içi boşlukları artırma */
-.product-info {
-    padding: 1.5rem !important;
-}
-
-.artist-info {
-    padding: 1.5rem !important;
+    padding: 5rem 0 !important;
 }
 
 /* Satırlar arası boşluk */
-.row.g-5 {
-    --bs-gutter-y: 3rem; /* Dikey boşluk artırıldı */
+.row.g-3 {
+    --bs-gutter-y: 3.5rem !important; /* Dikey boşluk artırıldı */
+    --bs-gutter-x: 2rem !important; /* Yatay boşluk da artırıldı */
 }
 
 /* Responsive ayarlar */
 @media (max-width: 768px) {
     .product-card {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        min-height: 280px;
+    }
+    
+    .product-image-container {
+        height: 220px !important;
+    }
+    
+    .product-title {
+        font-size: 15px !important;
+    }
+    
+    .product-artist {
+        font-size: 12px !important;
+    }
+    
+    .product-price {
+        font-size: 16px !important;
     }
     
     .artist-card {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+        min-height: 380px;
+    }
+    
+    .artist-image-container {
+        height: 320px !important; /* Artist mobilde de büyük */
+    }
+    
+    .artist-name {
+        font-size: 17px !important;
+    }
+    
+    .artist-specialty {
+        font-size: 14px !important;
     }
     
     .trending-section,
     .artists-section {
-        padding: 3rem 0 !important;
+        padding: 4rem 0 !important;
     }
     
     .section-title {
-        margin-bottom: 2rem !important;
+        margin-bottom: 3rem !important;
     }
     
-    .row.g-5 {
-        --bs-gutter-y: 2rem;
+    .row.g-3 {
+        --bs-gutter-y: 2.5rem !important;
     }
 }
 
@@ -224,5 +307,43 @@
     
     .colorful-cards-container > div {
         width: 100%;
+    }
+    
+    .product-card {
+        min-height: 250px;
+    }
+    
+    .product-image-container {
+        height: 180px !important;
+    }
+    
+    .product-title {
+        font-size: 14px !important;
+    }
+    
+    .product-price {
+        font-size: 15px !important;
+    }
+    
+    .product-overlay button {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 14px !important;
+    }
+    
+    .artist-card {
+        min-height: 320px;
+    }
+    
+    .artist-image-container {
+        height: 260px !important; /* Artist küçük ekranda da büyük */
+    }
+    
+    .artist-name {
+        font-size: 16px !important;
+    }
+    
+    .artist-specialty {
+        font-size: 13px !important;
     }
 }

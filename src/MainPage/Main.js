@@ -11,9 +11,9 @@ const productsDatabase = {
   trending: [
     {
       id: 1,
-      title: "Dream Waves On",
-      artist: "Lorem Ipsum",
-      price: "$60.00",
+      title: "Desire Walks On",
+      artist: "Heart Way",
+      price: "$00.00",
       image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop",
       likes: 24,
       views: 156,
@@ -23,7 +23,7 @@ const productsDatabase = {
       id: 2,
       title: "Lorem Ipsum",
       artist: "Lorem Ipsum",
-      price: "$90.00",
+      price: "$00.00",
       image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop",
       likes: 18,
       views: 89,
@@ -33,7 +33,7 @@ const productsDatabase = {
       id: 3,
       title: "Lorem Ipsum",
       artist: "Lorem Ipsum",  
-      price: "$90.00",
+      price: "$00.00",
       image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop",
       likes: 32,
       views: 201,
@@ -43,7 +43,7 @@ const productsDatabase = {
       id: 4,
       title: "Lorem Ipsum",
       artist: "Lorem Ipsum",
-      price: "$90.00", 
+      price: "$00.00", 
       image: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f?w=300&h=300&fit=crop",
       likes: 15,
       views: 67,
@@ -53,7 +53,7 @@ const productsDatabase = {
       id: 5,
       title: "Lorem Ipsum",
       artist: "Lorem Ipsum",
-      price: "$90.00",
+      price: "$00.00",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop",
       likes: 28,
       views: 134,
@@ -63,7 +63,7 @@ const productsDatabase = {
       id: 6,
       title: "Lorem Ipsum", 
       artist: "Lorem Ipsum",
-      price: "$90.00",
+      price: "$00.00",
       image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop",
       likes: 41,
       views: 298,
@@ -73,7 +73,7 @@ const productsDatabase = {
       id: 7,
       title: "Lorem Ipsum",
       artist: "Lorem Ipsum", 
-      price: "$90.00",
+      price: "$00.00",
       image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop",
       likes: 19,
       views: 76,
@@ -83,7 +83,7 @@ const productsDatabase = {
       id: 8,
       title: "Lorem Ipsum",
       artist: "Lorem Ipsum",
-      price: "$90.00",
+      price: "$00.00",
       image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop", 
       likes: 33,
       views: 187,
@@ -138,6 +138,7 @@ export default function MainPage() {
 
     return (
         <div className='d-flex flex-column'>
+            {/* Carousel Bölümü - Tam görseldeki gibi */}
             <div className="d-flex justify-content-center align-items-center w-100">
                 <div className="card w-100">
                     <div id="carouselExampleIndicator" className="carousel slide" data-bs-ride="carousel">
@@ -150,8 +151,8 @@ export default function MainPage() {
                         <div className="carousel-inner">
                             <div className="carousel-item active">
                                 <img className="d-block w-100 img-sizer" src={picture} alt="Slide 1" style={{height: '500px', objectFit: 'cover'}}/>
-                                <div className='carousel-caption pb-2 pb-md-4 text-end txt-md-end pb-2 pb-md-4'>
-                                    <div className='p-2 p-md-3 mb-5 rounded text-center '>
+                                <div className='carousel-caption custom-caption pb-2 pb-md-4 text-end'>
+                                    <div className='p-3 p-md-4 mb-5 rounded text-white bg-dark bg-opacity-75 d-inline-block'>
                                         <p className='mb-1 mb-md-2 p-text'>Lorem Ipsums</p>
                                         <h2 className="fw-bold mb-2 mb-md-3 h2-text">LOREM IPSUM</h2>
                                         <p className='mb-2 mb-md-3 d-none d-sm-block p-inside-text'>Lorem Ipsum is simply dummy text of the print.</p>
@@ -161,8 +162,8 @@ export default function MainPage() {
                             </div>
                             <div className="carousel-item">
                                 <img className="d-block w-100 img-sizer" src={picture2} alt="Slide 2" style={{height: '500px', objectFit: 'cover'}}/>
-                                <div className='carousel-caption pb-2 pb-md-4 text-end txt-md-end'>
-                                    <div className='p-2 p-md-3 mb-5 rounded text-center'>
+                                <div className='carousel-caption custom-caption pb-2 pb-md-4 text-end'>
+                                    <div className='p-3 p-md-4 mb-5 rounded text-white bg-dark bg-opacity-75 d-inline-block'>
                                         <p className='mb-1 mb-md-2 p-text'>Lorem Ipsums</p>
                                         <h2 className="fw-bold mb-2 mb-md-3 h2-text">LOREM IPSUM</h2>
                                         <p className='mb-2 mb-md-3 d-none d-sm-block p-inside-text'>Lorem Ipsum is simply dummy text of the print.</p>
@@ -172,8 +173,8 @@ export default function MainPage() {
                             </div>
                             <div className="carousel-item">
                                 <img className="d-block w-100 img-sizer" src={picture3} alt="Slide 3" style={{height: '500px', objectFit: 'cover'}}/>
-                                <div className='carousel-caption pb-2 pb-md-4 text-end txt-md-end'>
-                                    <div className='p-2 p-md-3 mb-5 rounded text-center'>
+                                <div className='carousel-caption custom-caption pb-2 pb-md-4 text-end'>
+                                    <div className='p-3 p-md-4 mb-5 rounded text-white bg-dark bg-opacity-75 d-inline-block'>
                                         <p className='mb-1 mb-md-2 p-text'>Lorem Ipsums</p>
                                         <h2 className="fw-bold mb-2 mb-md-3 h2-text">LOREM IPSUM</h2>
                                         <p className='mb-2 mb-md-3 d-none d-sm-block p-inside-text'>Lorem Ipsum is simply dummy text of the print.</p>
@@ -183,8 +184,8 @@ export default function MainPage() {
                             </div>
                             <div className="carousel-item">
                                 <img className="d-block w-100 img-sizer" src={picture4} alt="Slide 4" style={{height: '500px', objectFit: 'cover'}}/>
-                                <div className='carousel-caption pb-2 pb-md-4 text-end txt-md-end'>
-                                    <div className='p-2 p-md-3 mb-5 rounded text-center'>
+                                <div className='carousel-caption custom-caption pb-2 pb-md-4 text-end'>
+                                    <div className='p-3 p-md-4 mb-5 rounded text-white bg-dark bg-opacity-75 d-inline-block'>
                                         <p className='mb-1 mb-md-2 p-text'>Lorem Ipsums</p>
                                         <h2 className="fw-bold mb-2 mb-md-3 h2-text">LOREM IPSUM</h2>
                                         <p className='mb-2 mb-md-3 d-none d-sm-block p-inside-text'>Lorem Ipsum is simply dummy text of the print.</p>
@@ -205,79 +206,125 @@ export default function MainPage() {
                 </div>
             </div>
 
-            <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5 mx-5'>                 
-                <div className='px-3 px-md-5 py-4 mx-lg-3 mb-4 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#F2EADF"}}>                     
-                    <div className='colorful-messages fw-bold me-2' style={{color: "#C3914A"}}>1</div>                     
-                    <div className='mt-2 mt-md-4'>                         
-                        <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         
+            {/* Renkli Kartlar - Tam görseldeki gibi */}
+            <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5 mx-3 mx-lg-5 gap-3'>                 
+                <div className='px-3 px-md-5 py-4 d-flex align-items-start w-100' style={{backgroundColor: "#F2EADF"}}>                     
+                    <div className='colorful-number fw-bold me-2' style={{color: "#C3914A", backgroundColor: 'rgba(255,255,255,0.5)'}}>1</div>                     
+                    <div className='mt-1'>                         
+                        <h6 className="mb-1 fw-bold text-dark fs-6">LOREM IPSU</h6>                         
                         <p className="mb-0 text-muted small">Lorem Ipsum is.</p>                     
                     </div>                 
                 </div>                 
-                <div className='px-3 px-md-5 py-4 mb-4 mx-lg-3 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#E6EDDD"}}>                      
-                    <div className='colorful-messages fw-bold me-2' style={{color: "#5F9101"}}>1</div>                        
-                    <div className='mt-2 mt-md-4'>                         
-                        <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         
+                <div className='px-3 px-md-5 py-4 d-flex align-items-start w-100' style={{backgroundColor: "#E6EDDD"}}>                      
+                    <div className='colorful-number fw-bold me-2' style={{color: "#5F9101", backgroundColor: 'rgba(255,255,255,0.5)'}}>2</div>                        
+                    <div className='mt-1'>                         
+                        <h6 className="mb-1 fw-bold text-dark fs-6">LOREM IPSU</h6>                         
                         <p className="mb-0 text-muted small">Lorem Ipsum is.</p>                     
                     </div>                 
                 </div>                 
-                <div className='px-3 px-md-5 py-4 mb-4 mx-lg-3 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#FDF2DE"}}>                     
-                    <div className='colorful-messages fw-bold me-2' style={{color: "#FEBA28"}}>1</div>                     
-                    <div className='mt-2 mt-md-4'>                         
-                        <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         
+                <div className='px-3 px-md-5 py-4 d-flex align-items-start w-100' style={{backgroundColor: "#FDF2DE"}}>                     
+                    <div className='colorful-number fw-bold me-2' style={{color: "#FEBA28", backgroundColor: 'rgba(255,255,255,0.5)'}}>3</div>                     
+                    <div className='mt-1'>                         
+                        <h6 className="mb-1 fw-bold text-dark fs-6">LOREM IPSU</h6>                         
                         <p className="mb-0 text-muted small">Lorem Ipsum is.</p>                     
                     </div>                 
                 </div>                 
-                <div className='px-3 px-md-5 py-4 mb-4 mx-lg-3 mb-lg-0 d-flex align-items-start w-100' style={{backgroundColor: "#E1EDF9"}}>                     
-                    <div className='colorful-messages fw-bold me-2' style={{color: "#2E97FF"}}>1</div>                     
-                    <div className='mt-2 mt-md-4'>                         
-                        <h6 className="mb-1 fw-bold text-dark fs-6 fs-md-4">LOREM IPSU</h6>                         
+                <div className='px-3 px-md-5 py-4 d-flex align-items-start w-100' style={{backgroundColor: "#E1EDF9"}}>                     
+                    <div className='colorful-number fw-bold me-2' style={{color: "#2E97FF", backgroundColor: 'rgba(255,255,255,0.5)'}}>4</div>                     
+                    <div className='mt-1'>                         
+                        <h6 className="mb-1 fw-bold text-dark fs-6">LOREM IPSU</h6>                         
                         <p className="mb-0 text-muted small">Lorem Ipsum is.</p>                     
                     </div>                 
                 </div>             
             </div>
 
+            {/* TRENDING SECTION - Tam görseldeki gibi */}
             <div className="products-section">
                 <section className="trending-section py-5">
                     <div className="container">
                         <div className="section-header text-center mb-5">
-                            <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333'}}>TRENDING</h2>
-                            <p className="section-subtitle" style={{color: '#666', fontSize: '1.1rem'}}>Lorem Ipsum is blandit</p>
+                            <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333', letterSpacing: '2px'}}>TRENDING</h2>
+                            <p className="section-subtitle" style={{color: '#666', fontSize: '1rem'}}>Lorem Ipsum is blandit</p>
                         </div>
                         
-                        <div className="row g-4 mb-4">
+                        <div className="row g-3 mb-4">
                             {productsDatabase.trending.map(product => (
-                                <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div className="product-card h-100" style={{background: '#fff', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', overflow: 'hidden', transition: 'transform 0.3s ease'}}>
-                                        <div className="product-image-container position-relative" style={{height: '250px', overflow: 'hidden'}}>
+                                <div key={product.id} className="col-6 col-md-3">
+                                    <div 
+                                        className="product-card h-100 position-relative" 
+                                        style={{
+                                            background: '#fff', 
+                                            borderRadius: '0', 
+                                            overflow: 'hidden', 
+                                            cursor: 'pointer',
+                                            border: '1px solid #eee'
+                                        }}
+                                    >
+                                        <div className="product-image-container position-relative" style={{height: '200px', overflow: 'hidden'}}>
                                             <img 
                                                 src={product.image} 
                                                 alt={product.title} 
                                                 className="product-image w-100 h-100" 
-                                                style={{objectFit: 'cover', transition: 'transform 0.3s ease'}}
+                                                style={{objectFit: 'cover'}}
                                             />
                                             <div 
                                                 className="product-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center gap-2"
-                                                style={{background: 'rgba(0,0,0,0.7)', opacity: '0', transition: 'opacity 0.3s ease'}}
+                                                style={{
+                                                    background: 'rgba(0,0,0,0.6)', 
+                                                    opacity: '0', 
+                                                    transition: 'opacity 0.3s ease'
+                                                }}
                                             >
                                                 <button 
-                                                    className={`btn btn-outline-light btn-sm rounded-circle ${likedItems.has(product.id) ? 'btn-danger' : ''}`}
+                                                    className="btn btn-outline-light btn-sm rounded-circle p-2"
                                                     onClick={() => handleLike(product.id)}
-                                                    style={{width: '40px', height: '40px'}}
+                                                    style={{
+                                                        width: '35px', 
+                                                        height: '35px', 
+                                                        display: 'flex', 
+                                                        alignItems: 'center', 
+                                                        justifyContent: 'center',
+                                                        fontSize: '14px',
+                                                        border: '1px solid rgba(255,255,255,0.5)',
+                                                        background: likedItems.has(product.id) ? 'rgba(255,255,255,0.2)' : 'transparent'
+                                                    }}
                                                 >
                                                     ♡
                                                 </button>
-                                                <button className="btn btn-outline-light btn-sm rounded-circle" style={{width: '40px', height: '40px'}}>
+                                                <button 
+                                                    className="btn btn-outline-light btn-sm rounded-circle p-2"
+                                                    style={{
+                                                        width: '35px', 
+                                                        height: '35px', 
+                                                        display: 'flex', 
+                                                        alignItems: 'center', 
+                                                        justifyContent: 'center',
+                                                        fontSize: '14px',
+                                                        border: '1px solid rgba(255,255,255,0.5)'
+                                                    }}
+                                                >
                                                     👁
                                                 </button>
-                                                <button className="btn btn-outline-light btn-sm rounded-circle" style={{width: '40px', height: '40px'}}>
-                                                    ⤴
+                                                <button 
+                                                    className="btn btn-outline-light btn-sm rounded-circle p-2"
+                                                    style={{
+                                                        width: '35px', 
+                                                        height: '35px', 
+                                                        display: 'flex', 
+                                                        alignItems: 'center', 
+                                                        justifyContent: 'center',
+                                                        fontSize: '14px',
+                                                        border: '1px solid rgba(255,255,255,0.5)'
+                                                    }}
+                                                >
+                                                    🛒
                                                 </button>
                                             </div>
                                         </div>
                                         <div className="product-info p-3 text-center">
-                                            <h5 className="product-title mb-1" style={{fontSize: '16px', fontWeight: '600', color: '#333'}}>{product.title}</h5>
-                                            <p className="product-artist mb-2" style={{fontSize: '14px', color: '#666'}}>{product.artist}</p>
-                                            <p className="product-price mb-0" style={{fontSize: '18px', fontWeight: '600', color: '#333'}}>{product.price}</p>
+                                            <h5 className="product-title mb-1" style={{fontSize: '14px', fontWeight: '600', color: '#333'}}>{product.title}</h5>
+                                            <p className="product-artist mb-1" style={{fontSize: '12px', color: '#666'}}>{product.artist}</p>
+                                            <p className="product-price mb-0" style={{fontSize: '16px', fontWeight: '600', color: '#333'}}>{product.price}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -285,32 +332,53 @@ export default function MainPage() {
                         </div>
                         
                         <div className="text-center">
-                            <button className="btn btn-outline-dark px-4 py-2" style={{borderRadius: '25px', fontWeight: '500'}}>VIEW ALL</button>
+                            <button 
+                                className="btn btn-dark px-5 py-2" 
+                                style={{
+                                    borderRadius: '0', 
+                                    fontWeight: '500', 
+                                    fontSize: '14px',
+                                    letterSpacing: '1px',
+                                    background: '#000',
+                                    border: 'none'
+                                }}
+                            >
+                                VIEW ALL
+                            </button>
                         </div>
                     </div>
                 </section>
 
+                {/* ARTISTS SECTION - Tam görseldeki gibi */}
                 <section className="artists-section py-5" style={{background: '#f8f9fa'}}>
                     <div className="container">
                         <div className="section-header text-center mb-5">
-                            <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333'}}>ARTISTS</h2>
-                            <p className="section-subtitle" style={{color: '#666', fontSize: '1.1rem'}}>Lorem Ipsum</p>
+                            <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333', letterSpacing: '2px'}}>ARTISTS</h2>
                         </div>
                         
                         <div className="row g-4 mb-4">
                             {productsDatabase.artists.map(artist => (
-                                <div key={artist.id} className="col-12 col-md-6 col-lg-4">
-                                    <div className="artist-card h-100" style={{background: '#fff', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', overflow: 'hidden', transition: 'transform 0.3s ease'}}>
+                                <div key={artist.id} className="col-12 col-md-4">
+                                    <div 
+                                        className="artist-card h-100" 
+                                        style={{
+                                            background: '#fff', 
+                                            borderRadius: '0', 
+                                            overflow: 'hidden', 
+                                            cursor: 'pointer',
+                                            border: '1px solid #eee'
+                                        }}
+                                    >
                                         <div className="artist-image-container position-relative" style={{height: '300px', overflow: 'hidden'}}>
                                             <img 
                                                 src={artist.image} 
                                                 alt={artist.name} 
                                                 className="artist-image w-100 h-100" 
-                                                style={{objectFit: 'cover', transition: 'transform 0.3s ease'}}
+                                                style={{objectFit: 'cover'}}
                                             />
                                             <div 
                                                 className="artist-overlay position-absolute bottom-0 start-0 w-100 p-3"
-                                                style={{background: 'linear-gradient(transparent, rgba(0,0,0,0.8))', color: 'white'}}
+                                                style={{background: 'rgba(0,0,0,0.7)', color: 'white'}}
                                             >
                                                 <div className="d-flex justify-content-between">
                                                     <div className="text-center">
@@ -335,16 +403,17 @@ export default function MainPage() {
                         
                         <div className="text-center">
                             <div className="pagination-dots d-flex justify-content-center gap-2">
-                                <span className="dot bg-dark rounded-circle" style={{width: '10px', height: '10px'}}></span>
-                                <span className="dot bg-secondary rounded-circle" style={{width: '10px', height: '10px', opacity: '0.3'}}></span>
-                                <span className="dot bg-secondary rounded-circle" style={{width: '10px', height: '10px', opacity: '0.3'}}></span>
-                                <span className="dot bg-secondary rounded-circle" style={{width: '10px', height: '10px', opacity: '0.3'}}></span>
+                                <span className="dot bg-dark rounded-circle" style={{width: '8px', height: '8px'}}></span>
+                                <span className="dot bg-secondary rounded-circle" style={{width: '8px', height: '8px', opacity: '0.3'}}></span>
+                                <span className="dot bg-secondary rounded-circle" style={{width: '8px', height: '8px', opacity: '0.3'}}></span>
+                                <span className="dot bg-secondary rounded-circle" style={{width: '8px', height: '8px', opacity: '0.3'}}></span>
                             </div>
                         </div>
                     </div>
                 </section>
+
             </div>
-    
+
             <div className='w-100 p-4' style={{backgroundColor: "#E3E3E3"}}>
                 <div className="container-fluid h-100">
                     <div className='row h-100 align-items-center m-5'>
@@ -380,6 +449,8 @@ export default function MainPage() {
                     </div>                 
                 </div>
             </div>
+
         </div>  
     );
 }
+

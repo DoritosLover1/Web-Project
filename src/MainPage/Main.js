@@ -3,6 +3,7 @@ import picture from "../assets/backgrounds/background_maincaruosel.jpg";
 import picture2 from "../assets/backgrounds/background_maincaruosel-2.jpg";
 import picture3 from "../assets/backgrounds/background_maincaruosel-3.jpg";
 import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
+import icon from "../assets/icon/brand_icon.png";
 import { useState } from 'react';
 
 // Mock database - gerçek uygulamada bu veriler API'den gelecek
@@ -410,7 +411,45 @@ export default function MainPage() {
                         </div>
                     </div>
                 </section>
+
             </div>
+
+            <div className='w-100 p-4' style={{backgroundColor: "#E3E3E3"}}>
+                <div className="container-fluid h-100">
+                    <div className='row h-100 align-items-center m-5'>
+                        <div className='col-lg-6 col-12'>
+                            <p className='fs1-text fw-bold fst-italic text-dark mt-4' style={{marginBottom: 0}}>LOREM IPSUM</p>
+                            <p className='fs1-text fw-bold fst-italic text-dark'>Simply</p>
+                        </div>
+                        <div className='col-lg-6 col-12 mt-4 mt-lg-0'>
+                            <img src={icon} className='icon-conf justify-content-center'/>
+                            <p class="text-muted lh-base">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting 
+                                industry. Lorem Ipsum has been the industry's standard dummy 
+                                text ever since the 1500s, when an unknown printer took a galley 
+                                of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>  
+                    </div>
+                     <p class="d-flex fs-6 text-dark mb-4">
+                        Lorem Ipsum is
+                        <div>
+                            <span class="divider-line"></span>                            
+                        </div>
+                    </p>
+                    <div class="d-flex justify-content-between flex-wrap m-1">
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                        <div class="placeholder-box"></div>
+                    </div>                 
+                </div>
+            </div>
+
         </div>  
     );
 }

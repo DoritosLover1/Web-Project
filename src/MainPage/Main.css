@@ -347,3 +347,31 @@
         font-size: 13px !important;
     }
 }
+
+.icon-conf {
+    height: auto;
+    width: clamp(400px, 20vh, 500px);
+}
+
+.divider-line {
+    display: inline-block;
+    max-width: calc(100vw - 150px);
+    width: clamp(150vw, 60vw, 200px);
+    height: 2px;
+    background-color: "#E3E3E3";
+    margin-left: calc(30px - 40px);;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.placeholder-box { 
+    width: clamp(70px, 15vw,200px);
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right:  auto;
+    height: 60px; 
+    background-color: #999; 
+}
+.fs1-text{
+    font-size: clamp(40px, 5vw, 50px);
+}

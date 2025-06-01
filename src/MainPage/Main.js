@@ -545,7 +545,59 @@ export default function MainPage() {
                     </div>                 
                 </div>
             </div>
-
+            
+            <div className='w-100 p-4'>
+                <div className="container-fluid">
+                    <div className='d-flex justify-content-between align-items-center mb-5 pt-4'>
+                        <h1 className='fs-1 fw-bold fst-italic text-dark m-0' style={{fontSize: 40}}>
+                            LOREM IPSUM
+                        </h1>
+                        <button className='btn px-4' style={{
+                            backgroundColor: "black",
+                            borderColor: "black",
+                            borderRadius: 0,
+                            color: "white"
+                        }}>
+                            VIEW ALL
+                        </button>
+                    </div>
+                </div>
+                <div className="container-fluid px-2">
+                    <div className="row">
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div className='mt-2 mx-3'>
+                                <div style={{backgroundColor: "#c8c8c8", height: 200}}></div>
+                                <div className="mt-3">
+                                    <h5 className="fw-bold mb-3">Lorem Ipsum is simply dummy text of the</h5>
+                                    <p className="text-muted mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                                    <a href="#" className="text-danger text-decoration-none">Lorem Ipsum</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div className='mt-2 mx-3'>
+                                <div style={{backgroundColor: "#c8c8c8", height: 200}}>
+                                </div>
+                                <div className="mt-3">
+                                    <h5 className="fw-bold mb-3">Lorem Ipsum is simply dummy text of the</h5>
+                                    <p className="text-muted mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                                    <a href="#" className="text-danger text-decoration-none">Lorem Ipsum</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div className='mt-2 mx-3'>
+                                <div style={{backgroundColor: "#c8c8c8", height: 200}}></div>
+                                 <div className="mt-3">
+                                    <h5 className="fw-bold mb-3">Lorem Ipsum is simply dummy text of the</h5>
+                                    <p className="text-muted mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                                    <a href="#" className="text-danger text-decoration-none">Lorem Ipsum</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>  
     );
 }

@@ -4,6 +4,7 @@ import picture2 from "../assets/backgrounds/background_maincaruosel-2.jpg";
 import picture3 from "../assets/backgrounds/background_maincaruosel-3.jpg";
 import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
 import icon from "../assets/icon/brand_icon.png";
+import pictureartist from "../assets/artists/Kanye_West.png";
 import { useState } from 'react';
 
 // Mock database - gerçek uygulamada bu veriler API'den gelecek
@@ -113,7 +114,7 @@ const productsDatabase = {
       id: 3,
       name: "Artist Name",
       specialty: "Lorem Ipsum",
-      image: "https://images.unsplash.com/photo-1494790108755-2616c6a96820?w=400&h=500&fit=crop",
+      image: pictureartist,
       followers: "15.7K",
       works: 67,
       category: "artists"

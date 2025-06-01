@@ -234,7 +234,6 @@ export default function MainPage() {
                 </div>
             </div>
 
-            {/* Renkli Kartlar - Tam görseldeki gibi */}
             <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5 mx-3 mx-lg-5 gap-3'>                 
                 <div className='px-3 px-md-5 py-4 d-flex align-items-start w-100' style={{backgroundColor: "#F2EADF"}}>                     
                     <div className='colorful-number fw-bold me-2' style={{color: "#C3914A", backgroundColor: 'rgba(255,255,255,0.5)'}}>1</div>                     
@@ -265,8 +264,7 @@ export default function MainPage() {
                     </div>                 
                 </div>             
             </div>
-
-            {/* TRENDING SECTION - Tam görseldeki gibi */}
+            
             <div className="products-section">
                 <section className="trending-section py-5">
                     <div className="container">
@@ -376,9 +374,32 @@ export default function MainPage() {
                         </div>
                     </div>
                 </section>
+            </div>
 
-              {/* ARTISTS SECTION - Sadece Alt Indicator'lar ile */}
-                <section className="artists-section py-5" style={{background: '#f8f9fa'}}>
+            <div className='w-100 p-5' style={{backgroundColor: "#E3E3E3"}}>
+                <div className="container-fluid h-100">
+                    <div className='row h-100 align-items-center m-5'>
+                        <div className='col-lg-6 col-12'>
+                            <p className='fs1-text fw-bold fst-italic text-dark mt-5' style={{marginBottom: 0}}>NEW ARRIVALS</p>
+                            <p className="text-muted lh-base">
+                                Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. <br></br>Lorem Ipsum has been the
+                                industry's standard <br></br>dummy text ever since the 1500s
+                                when an unknown printer took a galley of type
+                            </p>
+                            <p className="text-muted lh-base">
+                                Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. <br></br>Lorem Ipsum has been the
+                                industry's standard.
+                            </p>
+                            <button className='btn btn-outline-secondary fw-bold btn-new-arrivals' style={{borderColor: "black", borderRadius: 0}}>Your Ends</button>
+                        </div>    
+                    </div>       
+                </div>
+            </div>
+
+            <div className='artist-section'>
+                <section className="artists-section py-5">
                     <div className="container">
                         <div className="section-header text-center mb-5">
                             <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333', letterSpacing: '2px'}}>ARTISTS</h2>
@@ -487,9 +508,8 @@ export default function MainPage() {
                         </div>
                     </div>
                 </section>
-
             </div>
-
+            
             <div className='w-100 p-4' style={{backgroundColor: "#E3E3E3"}}>
                 <div className="container-fluid h-100">
                     <div className='row h-100 align-items-center m-5'>

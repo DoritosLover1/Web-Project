@@ -118,6 +118,33 @@ const productsDatabase = {
       followers: "15.7K",
       works: 67,
       category: "artists"
+    },
+    {
+      id: 4,
+      name: "Isim girin",
+      specialty: "Lorem Ipsum", 
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
+      followers: "12.5K",
+      works: 45,
+      category: "artists"
+    },
+    {
+      id: 5,
+      name: "Isim girin",
+      specialty: "Lorem Ipsum",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
+      followers: "8.2K", 
+      works: 32,
+      category: "artists"
+    },
+    {
+      id: 6,
+       name: "Isim girin",
+      specialty: "Lorem Ipsum",
+      image: pictureartist,
+      followers: "15.7K",
+      works: 67,
+      category: "artists"
     }
   ]
 };
@@ -350,64 +377,112 @@ export default function MainPage() {
                     </div>
                 </section>
 
-                {/* ARTISTS SECTION - Tam görseldeki gibi */}
+              {/* ARTISTS SECTION - Sadece Alt Indicator'lar ile */}
                 <section className="artists-section py-5" style={{background: '#f8f9fa'}}>
                     <div className="container">
                         <div className="section-header text-center mb-5">
                             <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333', letterSpacing: '2px'}}>ARTISTS</h2>
                         </div>
                         
-                        <div className="row g-4 mb-4">
-                            {productsDatabase.artists.map(artist => (
-                                <div key={artist.id} className="col-12 col-md-4">
-                                    <div 
-                                        className="artist-card h-100" 
-                                        style={{
-                                            background: '#fff', 
-                                            borderRadius: '0', 
-                                            overflow: 'hidden', 
-                                            cursor: 'pointer',
-                                            border: '1px solid #eee'
-                                        }}
-                                    >
-                                        <div className="artist-image-container position-relative" style={{height: '300px', overflow: 'hidden'}}>
-                                            <img 
-                                                src={artist.image} 
-                                                alt={artist.name} 
-                                                className="artist-image w-100 h-100" 
-                                                style={{objectFit: 'cover'}}
-                                            />
-                                            <div 
-                                                className="artist-overlay position-absolute bottom-0 start-0 w-100 p-3"
-                                                style={{background: 'rgba(0,0,0,0.7)', color: 'white'}}
-                                            >
-                                                <div className="d-flex justify-content-between">
-                                                    <div className="text-center">
-                                                        <div style={{fontSize: '18px', fontWeight: 'bold'}}>{artist.followers}</div>
-                                                        <div style={{fontSize: '12px', opacity: '0.8'}}>Followers</div>
+                        <div id="artistsCarousel" className="carousel slide" data-bs-ride="carousel">
+                            <div className="carousel-inner">
+                                <div className="carousel-item active">
+                                    <div className="row g-4 justify-content-center">
+                                        {productsDatabase.artists.slice(0, 3).map(artist => (
+                                            <div key={artist.id} className="col-12 col-md-4">
+                                                <div 
+                                                    className="artist-card h-100" 
+                                                    style={{
+                                                        background: '#fff', 
+                                                        borderRadius: '0', 
+                                                        overflow: 'hidden', 
+                                                        cursor: 'pointer',
+                                                        border: '1px solid #eee'
+                                                    }}
+                                                >
+                                                    <div className="artist-image-container position-relative" style={{height: '300px', overflow: 'hidden'}}>
+                                                        <img 
+                                                            src={artist.image} 
+                                                            alt={artist.name} 
+                                                            className="artist-image w-100 h-100" 
+                                                            style={{objectFit: 'cover'}}
+                                                        />
+                                                        <div 
+                                                            className="artist-overlay position-absolute bottom-0 start-0 w-100 p-3"
+                                                            style={{background: 'rgba(0,0,0,0.7)', color: 'white'}}
+                                                        >
+                                                            <div className="d-flex justify-content-between">
+                                                                <div className="text-center">
+                                                                    <div style={{fontSize: '18px', fontWeight: 'bold'}}>{artist.followers}</div>
+                                                                    <div style={{fontSize: '12px', opacity: '0.8'}}>Followers</div>
+                                                                </div>
+                                                                <div className="text-center">
+                                                                    <div style={{fontSize: '18px', fontWeight: 'bold'}}>{artist.works}</div>
+                                                                    <div style={{fontSize: '12px', opacity: '0.8'}}>Works</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div className="text-center">
-                                                        <div style={{fontSize: '18px', fontWeight: 'bold'}}>{artist.works}</div>
-                                                        <div style={{fontSize: '12px', opacity: '0.8'}}>Works</div>
+                                                    <div className="artist-info p-3 text-center">
+                                                        <h5 className="artist-name mb-1" style={{fontSize: '16px', fontWeight: '600', color: '#333'}}>{artist.name}</h5>
+                                                        <p className="artist-specialty mb-0" style={{fontSize: '14px', color: '#666'}}>{artist.specialty}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="artist-info p-3 text-center">
-                                            <h5 className="artist-name mb-1" style={{fontSize: '16px', fontWeight: '600', color: '#333'}}>{artist.name}</h5>
-                                            <p className="artist-specialty mb-0" style={{fontSize: '14px', color: '#666'}}>{artist.specialty}</p>
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-                        
-                        <div className="text-center">
-                            <div className="pagination-dots d-flex justify-content-center gap-2">
-                                <span className="dot bg-dark rounded-circle" style={{width: '8px', height: '8px'}}></span>
-                                <span className="dot bg-secondary rounded-circle" style={{width: '8px', height: '8px', opacity: '0.3'}}></span>
-                                <span className="dot bg-secondary rounded-circle" style={{width: '8px', height: '8px', opacity: '0.3'}}></span>
-                                <span className="dot bg-secondary rounded-circle" style={{width: '8px', height: '8px', opacity: '0.3'}}></span>
+                                <div className="carousel-item">
+                                    <div className="row g-4 justify-content-center">
+                                        {productsDatabase.artists.slice(3, 6).map(artist => (
+                                            <div key={artist.id} className="col-12 col-md-4">
+                                                <div 
+                                                    className="artist-card h-100" 
+                                                    style={{
+                                                        background: '#fff', 
+                                                        borderRadius: '0', 
+                                                        overflow: 'hidden', 
+                                                        cursor: 'pointer',
+                                                        border: '1px solid #eee'
+                                                    }}
+                                                >
+                                                    <div className="artist-image-container position-relative" style={{height: '300px', overflow: 'hidden'}}>
+                                                        <img 
+                                                            src={artist.image} 
+                                                            alt={artist.name} 
+                                                            className="artist-image w-100 h-100" 
+                                                            style={{objectFit: 'cover'}}
+                                                        />
+                                                        <div 
+                                                            className="artist-overlay position-absolute bottom-0 start-0 w-100 p-3"
+                                                            style={{background: 'rgba(0,0,0,0.7)', color: 'white'}}
+                                                        >
+                                                            <div className="d-flex justify-content-between">
+                                                                <div className="text-center">
+                                                                    <div style={{fontSize: '18px', fontWeight: 'bold'}}>{artist.followers}</div>
+                                                                    <div style={{fontSize: '12px', opacity: '0.8'}}>Followers</div>
+                                                                </div>
+                                                                <div className="text-center">
+                                                                    <div style={{fontSize: '18px', fontWeight: 'bold'}}>{artist.works}</div>
+                                                                    <div style={{fontSize: '12px', opacity: '0.8'}}>Works</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="artist-info p-3 text-center">
+                                                        <h5 className="artist-name mb-1" style={{fontSize: '16px', fontWeight: '600', color: '#333'}}>{artist.name}</h5>
+                                                        <p className="artist-specialty mb-0" style={{fontSize: '14px', color: '#666'}}>{artist.specialty}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Sadece Alt Indicator'lar */}
+                            <div className="carousel-indicators" style={{position: 'relative', margin: '30px 0 0 0'}}>
+                                <button type="button" data-bs-target="#artistsCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#artistsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             </div>
                         </div>
                     </div>
@@ -454,4 +529,3 @@ export default function MainPage() {
         </div>  
     );
 }
-

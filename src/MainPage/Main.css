@@ -377,3 +377,16 @@
 }
 
 
+/* Artist carousel indicator'ları için özel stil */
+#artistsCarousel .carousel-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    opacity: 1 !important;
+}
+
+#artistsCarousel .carousel-indicators button.active {
+    opacity: 1 !important;
+    background-color: #000 !important;
+}

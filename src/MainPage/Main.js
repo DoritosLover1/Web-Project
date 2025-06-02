@@ -166,9 +166,8 @@ export default function MainPage() {
 
     return (
         <div className='d-flex flex-column'>
-            {/* Carousel Bölümü - Tam görseldeki gibi */}
             <div className="d-flex justify-content-center align-items-center w-100">
-                <div className="card w-100">
+                <section className="card w-100">
                     <div id="carouselExampleIndicator" className="carousel slide" data-bs-ride="carousel">
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -231,7 +230,7 @@ export default function MainPage() {
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>
-                </div>
+                </section>
             </div>
 
             <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5 mx-3 mx-lg-5 gap-3'>                 
@@ -377,7 +376,7 @@ export default function MainPage() {
             </div>
 
             <div className='w-100 p-5' style={{backgroundColor: "#E3E3E3"}}>
-                <div className="container-fluid h-100">
+                <section className="container-fluid h-100">
                     <div className='row h-100 align-items-center m-5'>
                         <div className='col-lg-6 col-12'>
                             <p className='fs1-text fw-bold fst-italic text-dark mt-5' style={{marginBottom: 0}}>NEW ARRIVALS</p>
@@ -395,7 +394,7 @@ export default function MainPage() {
                             <button className='btn btn-outline-secondary fw-bold btn-new-arrivals' style={{borderColor: "black", borderRadius: 0}}>Your Ends</button>
                         </div>    
                     </div>       
-                </div>
+                </section>
             </div>
 
             <div className='artist-section'>
@@ -511,7 +510,7 @@ export default function MainPage() {
             </div>
             
             <div className='w-100 p-4' style={{backgroundColor: "#E3E3E3"}}>
-                <div className="container-fluid h-100">
+                <section className="container-fluid h-100">
                     <div className='row h-100 align-items-center m-5'>
                         <div className='col-lg-6 col-12'>
                             <p className='fs1-text fw-bold fst-italic text-dark mt-4' style={{marginBottom: 0}}>LOREM IPSUM</p>
@@ -543,7 +542,7 @@ export default function MainPage() {
                         <div class="placeholder-box"></div>
                         <div class="placeholder-box"></div>
                     </div>                 
-                </div>
+                </section>
             </div>
             
             <div className='w-100 p-4'>
@@ -598,6 +597,53 @@ export default function MainPage() {
                     </div>
                 </div>
             </div>
-        </div>  
+
+            <div class='w-100 p-4'>
+                <div class='container-fluid'>
+                    <div class='row'>
+                        <div class='d-flex justify-content-center align-items-center mb-4'>
+                            <p class='fs1-text fw-bold text-dark m-0'>LATEST SEEN</p>
+                        </div>
+                    </div>
+            
+                    <div class='row mb-5'>
+                        <div class='col-12'>
+                            <div class='row g-3'>
+                                <div class='col-6 col-md-4 col-lg-2'>
+                                    <div class='placeholder-box' style={{height: 200}}>
+                                        <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </div>
+    </div>  
     );
 }

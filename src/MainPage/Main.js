@@ -4,7 +4,12 @@ import picture2 from "../assets/backgrounds/background_maincaruosel-2.jpg";
 import picture3 from "../assets/backgrounds/background_maincaruosel-3.jpg";
 import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
 import icon from "../assets/icon/brand_icon.png";
-import pictureartist from "../assets/artists/Kanye_West.png";
+import pictureartist from "../assets/artists/morveötesi.jpg";
+import pictureartist2 from "../assets/artists/slowdive.jpg";
+import pictureartist3 from "../assets/artists/güllü.jpg";
+import pictureartist4 from "../assets/artists/Kanye_West.png";
+import pictureartist5 from "../assets/artists/nejat_isler.jpg";
+import pictureartist6 from "../assets/artists/volkan_konak.jpg";
 import { useState } from 'react';
 
 // Mock database - gerçek uygulamada bu veriler API'den gelecek
@@ -96,7 +101,7 @@ const productsDatabase = {
       id: 1,
       name: "Artist Name",
       specialty: "Lorem Ipsum", 
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
+      image: pictureartist,
       followers: "12.5K",
       works: 45,
       category: "artists"
@@ -105,7 +110,7 @@ const productsDatabase = {
       id: 2,
       name: "Artist Name",
       specialty: "Lorem Ipsum",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
+      image: pictureartist2,
       followers: "8.2K", 
       works: 32,
       category: "artists"
@@ -114,7 +119,7 @@ const productsDatabase = {
       id: 3,
       name: "Artist Name",
       specialty: "Lorem Ipsum",
-      image: pictureartist,
+      image: pictureartist3,
       followers: "15.7K",
       works: 67,
       category: "artists"
@@ -123,7 +128,7 @@ const productsDatabase = {
       id: 4,
       name: "Isim girin",
       specialty: "Lorem Ipsum", 
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
+      image: pictureartist4,
       followers: "12.5K",
       works: 45,
       category: "artists"
@@ -132,7 +137,7 @@ const productsDatabase = {
       id: 5,
       name: "Isim girin",
       specialty: "Lorem Ipsum",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
+      image: pictureartist5,
       followers: "8.2K", 
       works: 32,
       category: "artists"
@@ -141,7 +146,7 @@ const productsDatabase = {
       id: 6,
        name: "Isim girin",
       specialty: "Lorem Ipsum",
-      image: pictureartist,
+      image: pictureartist6,
       followers: "15.7K",
       works: 67,
       category: "artists"

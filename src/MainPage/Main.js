@@ -4,13 +4,7 @@ import picture2 from "../assets/backgrounds/background_maincaruosel-2.jpg";
 import picture3 from "../assets/backgrounds/background_maincaruosel-3.jpg";
 import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
 import icon from "../assets/icon/brand_icon.png";
-import pictureartist from "../assets/artists/morveötesi.jpg";
-import pictureartist2 from "../assets/artists/slowdive.jpg";
-import pictureartist3 from "../assets/artists/güllü.jpg";
-import pictureartist4 from "../assets/artists/Kanye_West.png";
-import pictureartist5 from "../assets/artists/nejat_isler.jpg";
-import pictureartist6 from "../assets/artists/volkan_konak.jpg";
-
+import pictureartist from "../assets/artists/Kanye_West.png";
 import { useState } from 'react';
 
 // Mock database - gerçek uygulamada bu veriler API'den gelecek
@@ -102,7 +96,7 @@ const productsDatabase = {
       id: 1,
       name: "Artist Name",
       specialty: "Lorem Ipsum", 
-      image: pictureartist,
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
       followers: "12.5K",
       works: 45,
       category: "artists"
@@ -111,7 +105,7 @@ const productsDatabase = {
       id: 2,
       name: "Artist Name",
       specialty: "Lorem Ipsum",
-      image: pictureartist2,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
       followers: "8.2K", 
       works: 32,
       category: "artists"
@@ -120,7 +114,7 @@ const productsDatabase = {
       id: 3,
       name: "Artist Name",
       specialty: "Lorem Ipsum",
-      image: pictureartist3,
+      image: pictureartist,
       followers: "15.7K",
       works: 67,
       category: "artists"
@@ -129,7 +123,7 @@ const productsDatabase = {
       id: 4,
       name: "Isim girin",
       specialty: "Lorem Ipsum", 
-      image: pictureartist4,
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
       followers: "12.5K",
       works: 45,
       category: "artists"
@@ -138,7 +132,7 @@ const productsDatabase = {
       id: 5,
       name: "Isim girin",
       specialty: "Lorem Ipsum",
-      image: pictureartist5,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
       followers: "8.2K", 
       works: 32,
       category: "artists"
@@ -147,7 +141,7 @@ const productsDatabase = {
       id: 6,
        name: "Isim girin",
       specialty: "Lorem Ipsum",
-      image: pictureartist6,
+      image: pictureartist,
       followers: "15.7K",
       works: 67,
       category: "artists"
@@ -172,9 +166,8 @@ export default function MainPage() {
 
     return (
         <div className='d-flex flex-column'>
-            {/* Carousel Bölümü - Tam görseldeki gibi */}
             <div className="d-flex justify-content-center align-items-center w-100">
-                <div className="card w-100">
+                <section className="card w-100">
                     <div id="carouselExampleIndicator" className="carousel slide" data-bs-ride="carousel">
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -237,10 +230,9 @@ export default function MainPage() {
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>
-                </div>
+                </section>
             </div>
 
-            {/* Renkli Kartlar - Tam görseldeki gibi */}
             <div className='d-flex flex-column flex-lg-row justify-content-center align-items-start my-5 mx-3 mx-lg-5 gap-3'>                 
                 <div className='px-3 px-md-5 py-4 d-flex align-items-start w-100' style={{backgroundColor: "#F2EADF"}}>                     
                     <div className='colorful-number fw-bold me-2' style={{color: "#C3914A", backgroundColor: 'rgba(255,255,255,0.5)'}}>1</div>                     
@@ -271,8 +263,7 @@ export default function MainPage() {
                     </div>                 
                 </div>             
             </div>
-
-            {/* TRENDING SECTION - Tam görseldeki gibi */}
+            
             <div className="products-section">
                 <section className="trending-section py-5">
                     <div className="container">
@@ -382,9 +373,32 @@ export default function MainPage() {
                         </div>
                     </div>
                 </section>
+            </div>
 
-              {/* ARTISTS SECTION - Sadece Alt Indicator'lar ile */}
-                <section className="artists-section py-5" style={{background: '#f8f9fa'}}>
+            <div className='w-100 p-5' style={{backgroundColor: "#E3E3E3"}}>
+                <section className="container-fluid h-100">
+                    <div className='row h-100 align-items-center m-5'>
+                        <div className='col-lg-6 col-12'>
+                            <p className='fs1-text fw-bold fst-italic text-dark mt-5' style={{marginBottom: 0}}>NEW ARRIVALS</p>
+                            <p className="text-muted lh-base">
+                                Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. <br></br>Lorem Ipsum has been the
+                                industry's standard <br></br>dummy text ever since the 1500s
+                                when an unknown printer took a galley of type
+                            </p>
+                            <p className="text-muted lh-base">
+                                Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. <br></br>Lorem Ipsum has been the
+                                industry's standard.
+                            </p>
+                            <button className='btn btn-outline-secondary fw-bold btn-new-arrivals' style={{borderColor: "black", borderRadius: 0}}>Your Ends</button>
+                        </div>    
+                    </div>       
+                </section>
+            </div>
+
+            <div className='artist-section'>
+                <section className="artists-section py-5">
                     <div className="container">
                         <div className="section-header text-center mb-5">
                             <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333', letterSpacing: '2px'}}>ARTISTS</h2>
@@ -485,19 +499,18 @@ export default function MainPage() {
                                     </div>
                                 </div>
                             </div>
-                                  {/* Sadece Alt Indicator'lar */}
-                                    <div className="carousel-indicators" style={{position: 'relative', margin: '30px 0 0 0'}}>
-                                     <button type="button" data-bs-target="#artistsCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1" style={{backgroundColor: '#000'}}></button>
-                                     <button type="button" data-bs-target="#artistsCarousel" data-bs-slide-to="1" aria-label="Slide 2" style={{backgroundColor: '#666'}}></button>
-                                    </div>
+                            {/* Sadece Alt Indicator'lar */}
+                            <div className="carousel-indicators" style={{position: 'relative', margin: '30px 0 0 0'}}>
+                                <button type="button" data-bs-target="#artistsCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#artistsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             </div>
                         </div>
-                     </section>
-
+                    </div>
+                </section>
             </div>
-
+            
             <div className='w-100 p-4' style={{backgroundColor: "#E3E3E3"}}>
-                <div className="container-fluid h-100">
+                <section className="container-fluid h-100">
                     <div className='row h-100 align-items-center m-5'>
                         <div className='col-lg-6 col-12'>
                             <p className='fs1-text fw-bold fst-italic text-dark mt-4' style={{marginBottom: 0}}>LOREM IPSUM</p>
@@ -529,9 +542,109 @@ export default function MainPage() {
                         <div class="placeholder-box"></div>
                         <div class="placeholder-box"></div>
                     </div>                 
+                </section>
+            </div>
+            
+            <div className='w-100 p-4'>
+                <div className="container-fluid">
+                    <div className='d-flex justify-content-between align-items-center mb-5 pt-4'>
+                        <h1 className='fs-1 fw-bold fst-italic text-dark m-0' style={{fontSize: 40}}>
+                            LOREM IPSUM
+                        </h1>
+                        <button className='btn px-4' style={{
+                            backgroundColor: "black",
+                            borderColor: "black",
+                            borderRadius: 0,
+                            color: "white"
+                        }}>
+                            VIEW ALL
+                        </button>
+                    </div>
+                </div>
+                <div className="container-fluid px-2">
+                    <div className="row">
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div className='mt-2 mx-3'>
+                                <div style={{backgroundColor: "#c8c8c8", height: 200}}></div>
+                                <div className="mt-3">
+                                    <h5 className="fw-bold mb-3">Lorem Ipsum is simply dummy text of the</h5>
+                                    <p className="text-muted mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                                    <a href="#" className="text-danger text-decoration-none">Lorem Ipsum</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div className='mt-2 mx-3'>
+                                <div style={{backgroundColor: "#c8c8c8", height: 200}}>
+                                </div>
+                                <div className="mt-3">
+                                    <h5 className="fw-bold mb-3">Lorem Ipsum is simply dummy text of the</h5>
+                                    <p className="text-muted mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                                    <a href="#" className="text-danger text-decoration-none">Lorem Ipsum</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div className='mt-2 mx-3'>
+                                <div style={{backgroundColor: "#c8c8c8", height: 200}}></div>
+                                 <div className="mt-3">
+                                    <h5 className="fw-bold mb-3">Lorem Ipsum is simply dummy text of the</h5>
+                                    <p className="text-muted mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                                    <a href="#" className="text-danger text-decoration-none">Lorem Ipsum</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+         
 
-        </div>  
+            <div class='w-100 p-4'>
+                <div class='container-fluid'>
+                    <div class='row'>
+                        <div class='d-flex justify-content-center align-items-center mb-4'>
+                            <p class='fs1-text fw-bold text-dark m-0'>LATEST SEEN</p>
+                        </div>
+                    </div>
+            
+                    <div class='row mb-5'>
+                        <div class='col-12'>
+                            <div class='row g-3'>
+                                <div class='col-6 col-md-4 col-lg-2'>
+                                    <div class='placeholder-box' style={{height: 200}}>
+                                        <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                            <div class='col-6 col-md-4 col-lg-2'>
+                                <div class='placeholder-box'>
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </div>
+    </div>  
     );
 }

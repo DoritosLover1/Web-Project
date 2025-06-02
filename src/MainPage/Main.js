@@ -5,6 +5,11 @@ import picture3 from "../assets/backgrounds/background_maincaruosel-3.jpg";
 import picture4 from "../assets/backgrounds/background_maincaruosel-4.jpg";
 import icon from "../assets/icon/brand_icon.png";
 import pictureartist from "../assets/artists/Kanye_West.png";
+import pictureartist from "../assets/artists/Kanye_West.png";
+import pictureartist from "../assets/artists/Kanye_West.png";
+import pictureartist from "../assets/artists/Kanye_West.png";
+import pictureartist from "../assets/artists/Kanye_West.png";
+import pictureartist from "../assets/artists/Kanye_West.png";
 import { useState } from 'react';
 
 // Mock database - gerçek uygulamada bu veriler API'den gelecek

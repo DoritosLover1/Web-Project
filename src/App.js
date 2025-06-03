@@ -17,6 +17,7 @@ import ChangePasswordPage from './ChangePasswordPage/ChangePasswordPage';
 import EmptyCart from './EmptyCartPage/EmptyCart';
 import OrderConfirmPage from './OrderConfirmPage/OrderConfirmPage';
 import MainPage from './MainPage/Main';
+import ContactPage from './ContactPage/Contact';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                 <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
                 <Route path='/empty-cart' element={<EmptyCart/>}></Route>
                 <Route path='/confirm-order' element={<OrderConfirmPage/>}></Route>
+                <Route path='/contact-us' element={<ContactPage/>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

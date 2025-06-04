@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
-import { FaGoogle, FaTwitter, FaEye, FaEyeSlash, FaPhone, FaEnvelope ,FaMapMarkerAlt } from 'react-icons/fa';
+import { FaGoogle, FaTwitter, FaInstagram, FaEye, FaEyeSlash, FaPhone, FaEnvelope ,FaMapMarkerAlt, FaDiscord } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
 import picture from '../assets/backgrounds/joseph-joestar-moveset-concept-v0-abehwg567hea1.png';
@@ -51,7 +51,7 @@ export default function Contact() {
                                 alt="Contact Background" 
                                 className='img-fluid w-100 h-100'
                             />
-                            <div className='contact-overlay'>
+                                    <div className='contact-overlay'>
                                 <div className='contact-info'>
                                     <h2 className='contact-overlay-title'>Contact Information</h2>
                                     <p className='contact-overlay-subtitle'>
@@ -76,7 +76,17 @@ export default function Contact() {
                                         </div>
                                     </div>
                                     
-                                    
+                                    <div className='social-links'>
+                                        <a href="#" className='social-link'>
+                                            <FaTwitter />
+                                        </a>
+                                        <a href="#" className='social-link'>
+                                            <FaInstagram />
+                                        </a>
+                                             <a href="#" className='social-link'>
+                                            <FaDiscord />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

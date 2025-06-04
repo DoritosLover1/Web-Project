@@ -14,15 +14,17 @@
 
 .contact-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(229, 57, 53, 0.9), rgba(139, 69, 19, 0.8));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-width: 90%;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 90px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  opacity: 80%;
 }
 
 .contact-info {

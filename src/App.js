@@ -7,6 +7,7 @@ import Home from './HomePage/Home';
 import Error from './ErrorPage/Error';
 import SignIn from './SignInPage/SignIn';
 import SignUp from './SignUpPage/SignUp';
+import ProductPage from './ProductPage/ProductPage';
 
 import MainHeader from '..//src/HeaderSide/MainHeader';
 import ResetPass from '..//src/ResetPasswordPage/ResetPass';
@@ -38,6 +39,7 @@ function App() {
                 <Route path='/empty-cart' element={<EmptyCart/>}></Route>
                 <Route path='/confirm-order' element={<OrderConfirmPage/>}></Route>
                 <Route path='/contact-us' element={<ContactPage/>}></Route>
+                <Route path='/product-page' element={<ProductPage/>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

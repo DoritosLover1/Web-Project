@@ -380,3 +380,16 @@
     color: #000000;
     background-color: #999999;
 }
+
+.insta-placeholder-box{
+    aspect-ratio: 1;
+    border-radius: 8px;
+    display: flex;
+    height: 200px;
+    align-items: end;
+    justify-content: end;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    width: 90%;
+    background-color: #999; 
+}

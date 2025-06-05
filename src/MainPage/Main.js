@@ -603,53 +603,48 @@ export default function MainPage() {
                 </div>
             </div>
          
-
-            <div class='w-100 p-4'>
-                <div class='container-fluid'>
-                    <div class='row'>
-                        <div class='d-flex justify-content-center align-items-center mb-4'>
-                            <p class='fs1-text fw-bold text-dark m-0'>LATEST SEEN</p>
+            <div className='w-100 p-2 d-flex justify-content-center'>
+                <div className='container-fluid'>
+                    <div className='row'>
+                        <div className='col-12 d-flex justify-content-center align-items-center mb-4'>
+                            <p className='fs1-text fw-bold text-dark m-0'>LATEST SEEN</p>
                         </div>
                     </div>
-            
-                    <div class='row mb-5'>
-                        <div class='col-12'>
-                            <div class='row g-3'>
-                                <div class='col-6 col-md-4 col-lg-2'>
-                                    <div class='placeholder-box' style={{height: 200}}>
-                                        <i class="fas fa-image"></i>
-                                </div>
+    
+                    <div className='row mb-5 justify-content-center g-3'>
+                        <div className='col-4 col-md-3 col-lg-2 col-xl-2'>
+                            <div className='placeholder-box insta-placeholder-box'>
+                                <i className="bi bi-instagram" style={{color: "white"}}></i>
                             </div>
-                            <div class='col-6 col-md-4 col-lg-2'>
-                                <div class='placeholder-box'>
-                                    <i class="fas fa-image"></i>
-                                </div>
+                        </div>
+                        <div className='col-4 col-md-3 col-lg-2 col-xl-2'>
+                            <div className='placeholder-box insta-placeholder-box'>
+                                <i className="bi bi-instagram" style={{color: "white"}}></i>
                             </div>
-                            <div class='col-6 col-md-4 col-lg-2'>
-                                <div class='placeholder-box'>
-                                    <i class="fas fa-image"></i>
-                                </div>
+                        </div>
+                        <div className='col-4 col-md-3 col-lg-2 col-xl-2'>
+                            <div className='placeholder-box insta-placeholder-box'>
+                                <i className="bi bi-instagram" style={{color: "white"}}></i>
                             </div>
-                            <div class='col-6 col-md-4 col-lg-2'>
-                                <div class='placeholder-box'>
-                                    <i class="fas fa-image"></i>
-                                </div>
+                        </div>
+                        <div className='col-4 col-md-3 col-lg-2 col-xl-2'>
+                            <div className='placeholder-box insta-placeholder-box'>
+                                <i className="bi bi-instagram" style={{color: "white"}}></i>
                             </div>
-                            <div class='col-6 col-md-4 col-lg-2'>
-                                <div class='placeholder-box'>
-                                    <i class="fas fa-image"></i>
-                                </div>
+                        </div>
+                        <div className='col-4 col-md-3 col-lg-2 col-xl-2'>
+                            <div className='placeholder-box insta-placeholder-box'>
+                                <i className="bi bi-instagram" style={{color: "white"}}></i>
                             </div>
-                            <div class='col-6 col-md-4 col-lg-2'>
-                                <div class='placeholder-box'>
-                                    <i class="fas fa-image"></i>
-                                </div>
+                        </div>
+                        <div className='col-4 col-md-3 col-lg-2 col-xl-2'>
+                            <div className='placeholder-box insta-placeholder-box'>
+                                <i className="bi bi-instagram" style={{color: "white"}}></i>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>       
-        </div>
-    </div>  
+                </div>       
+            </div>
+        </div>  
     );
 }

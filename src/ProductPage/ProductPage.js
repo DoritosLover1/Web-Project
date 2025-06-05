@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export default function ProductPage() {
+
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState('');
@@ -41,9 +42,9 @@ export default function ProductPage() {
 
   
   return (
-    <div className="container-fluid bg-light min-vh-100">
+    <div className="container-fluid bg-white min-vh-100">
       <div className="container py-4">
-        <div className="row bg-white rounded shadow-sm p-3 p-md-4 mb-4">
+        <div className="row bg-white rounded  p-3 p-md-4 mb-4">
           <div className="col-12 col-lg-6 mb-4 mb-lg-0">
             <div className="mb-3">
               <img 
@@ -124,70 +125,136 @@ export default function ProductPage() {
           </div>
         </div>
         
-        {/*ALT TARAF PROTOTYPE BU BİR YERDEN*/}
-        <div className="bg-white rounded shadow-sm p-3 p-md-4 mb-4">
+        {/*FONKSİYONEL KISMI KALDI*/}
+        <div className='p-3 p-md-4 mb-4'>
           <ul className="nav nav-tabs border-0 mb-4 flex-column flex-sm-row">
             <li className="nav-item mb-2 mb-sm-0">
-              <button className="nav-link active bg-danger text-white px-3 px-md-4 w-100">Ürün Bilgileri</button>
+              <button className="nav-link active bg-danger text-white px-3 px-md-4 w-100 fw-bold">Lorem Impus Sim</button>
             </li>
             <li className="nav-item mb-2 mb-sm-0">
-              <button className="nav-link text-dark px-3 px-md-4 w-100">Değerlendirmeler</button>
+              <button className="nav-link active text-white bg-dark px-3 px-md-4 w-100 fw-bold">Lorem Impus Simply</button>
             </li>
-            <li className="nav-item">
-              <button className="nav-link text-dark px-3 px-md-4 w-100">Kargo</button>
+            <li className="nav-item mb-2 mb-sm-0">
+              <button className="nav-link active text-white bg-dark px-3 px-md-4 w-100 fw-bold">Lorem</button>
             </li>
           </ul>
-          
-          <div className="tab-content">
-            <p className="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+          <div className="rounded shadow-sm p-3 p-md-4 mb-4">   
+            <div className="tab-content">
+              <p className="text-muted">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+software like Aldus PageMaker including versions of Lorem Ipsum.<br></br>
+<br></br>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+essentially unchanged. It was popularised in the 1960s with the release.<br></br>
+<br></br> 
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+software like Aldus PageMaker including versions of Lorem Ipsum.<br></br>
+              <br></br>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="container-fluid py-4">
+          <div className="divider d-flex align-items-center justify-content-center">
+            <div className="flex-grow-1 border-top"></div>
+            <div className="mx-3 fw-bold fst-italic fs-1">Lorem Ipsum Is</div>
+            <div className="flex-grow-1 border-top"></div>
           </div>
         </div>
 
-        <div className="bg-white rounded shadow-sm p-3 p-md-4 mb-4">
-          <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-4">
-            <h4 className="mb-2 mb-sm-0">Lorem Ipsum Is</h4>
-            <div className="d-flex align-items-center">
-              {renderStars(4)}
-              <span className="text-muted ms-2 small">124 Değerlendirme</span>
+        <div className="container my-4">
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <div>
+            <h4 className="fw-bold mb-0 fs-2">0.0 <span className="text-warning fs-2">★★★★★</span></h4>
+            <small className="text-muted">Lorem Ipsum is simply dummy</small>
+            </div>
+            <div>
+              <button className="btn btn-danger me-2">Lorem Ipsums</button>
+              <button className="btn btn-dark">Lorem Ipsums</button>
             </div>
           </div>
 
-          <div className="mb-4">
-            <h6>Değerlendirme Yaz</h6>
-            <div className="row g-3">
-              <div className="col-12 col-md-6">
-                <input type="text" className="form-control" placeholder="Adınız" />
-              </div>
-              <div className="col-12 col-md-6">
-                <input type="email" className="form-control" placeholder="E-posta" />
-              </div>
-              <div className="col-12">
-                <textarea className="form-control" rows="3" placeholder="Yorumunuz"></textarea>
-              </div>
-              <div className="col-12">
-                <button className="btn btn-danger">Gönder</button>
+          <ul className="nav nav-tabs">
+            <li className="nav-item">
+              <a className="nav-link active" href="#">Lorem</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Versions</a>
+            </li>
+          </ul>
+
+          <div className="d-flex text-center my-4">
+            <h5 className="fw-bold fst-italic fs-2">Lorem Ipsum Is</h5>
+          </div>
+          <form className="container gap-2 mb-4">
+            <div className='row w-50'>
+              <div className='col-lg-12 col-md-8 col-sm-12'>
+                <input type="text" style={{borderRadius: 20, paddingTop: 5, paddingBottom: 5}} className="form-control" placeholder="🔍 Lorem Ipsum is" />             
               </div>
             </div>
-          </div>
+            <div className='row w-50'>
+              <div className='col-lg-6 col-md-8 col-sm-12'>
+                <select className="form-select form-item-paddinger" style={{borderRadius: 20, paddingTop: 5, paddingBottom: 5}} >
+                  <option>Lorems</option>
+                </select>
+              </div>
+              <div className='col-lg-6 col-md-8 col-sm-12'>
+                <select className="form-select form-item-paddinger" style={{borderRadius: 20, paddingTop: 5, paddingBottom: 5}} >
+                  <option>Lorems</option>
+                </select>   
+              </div>            
+            </div>
+          </form>
+          <hr />
 
-          <div className="reviews">
-            {reviews.map(review => (
-              <div key={review.id} className="border-bottom pb-3 mb-3">
-                <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start mb-2">
-                  <div className="mb-2 mb-sm-0">
-                    <h6 className="mb-1">{review.user}</h6>
-                    <div className="d-flex align-items-center">
-                      {renderStars(review.rating)}
-                      <span className="text-muted ms-2 small">{review.date}</span>
-                    </div>
-                  </div>
+
+          {[1, 2].map(i => (
+            <div key={i} className="mb-4 border-bottom pb-3">
+              <div className="d-flex justify-content-between text-muted small mb-1">
+                <span>Lorem Ipsum is simply</span>
+                <span>Lorem Ipsum</span>
+              </div>
+
+            <div className="d-flex">
+              <div className="rounded-circle bg-dark text-white d-flex justify-content-center align-items-center me-3" style={{ width: '40px', height: '40px' }}>
+                S
+              </div>
+              <div>
+                <div className="fw-bold">Lorem Ipsum <span className="text-warning small">★★★★★</span></div>
+                <div className="fw-bold">Lorem Ipsum</div>
+                <div className="text-muted small">Lorem</div>
+                <div className="small mt-2 text-muted">
+                  Lorem Ipsum is simply do? 👎 0 👍 0
                 </div>
-                <p className="text-muted mb-0 small">{review.comment}</p>
               </div>
+            </div>
+        </div>
+      ))}
+
+
+      <div className="text-center">
+        <nav>
+          <ul className="pagination justify-content-center">
+            <li className="page-item"><a className="page-link" href="#">&lt;</a></li>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map(n => (
+              <li key={n} className="page-item"><a className="page-link" href="#">{n}</a></li>
             ))}
-          </div>
+            <li className="page-item"><a className="page-link" href="#">&gt;</a></li>
+          </ul>
+        </nav>
+      </div>
         </div>
 
         <div className="bg-white rounded shadow-sm p-3 p-md-4">

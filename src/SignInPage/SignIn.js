@@ -72,7 +72,7 @@ export default function SignIn() {
                                 Sign In
                             </button>
                             <div className="signup-prompt">
-                                Don't have an account? <Link href="#" className="signup-link">Sign up</Link>
+                                Don't have an account? <Link to="/sign-up" className="signup-link"> Sign up</Link>
                             </div>
                         </div>
                     </div>

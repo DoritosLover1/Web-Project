@@ -22,6 +22,7 @@ import ContactPage from './ContactPage/Contact';
 import CheckOut from './CheckOutPage/CheckOut';
 import ContactDetails from './ContactDetailsPage/ContactDetails';
 import AddAddressPage from './AddAddressPage/AddAddressPage';
+import WishlistPage from './WishlistPage/WishlistPage';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
                 <Route path='/checkout-page' element={<CheckOut/>}></Route>
                 <Route path="/contact-details" element={<ContactDetails></ContactDetails>}></Route>
                 <Route path="/add-address" element={<AddAddressPage/>}></Route>
+                <Route path='/wishlist' element={<WishlistPage></WishlistPage>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

@@ -21,6 +21,7 @@ import MainPage from './MainPage/Main';
 import ContactPage from './ContactPage/Contact';
 import CheckOut from './CheckOutPage/CheckOut';
 import ContactDetails from './ContactDetailsPage/ContactDetails';
+import AddAddressPage from './AddAddressPage/AddAddressPage';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
                 <Route path='/product-page' element={<ProductPage/>}></Route>
                 <Route path='/checkout-page' element={<CheckOut/>}></Route>
                 <Route path="/contact-details" element={<ContactDetails></ContactDetails>}></Route>
+                <Route path="/add-address" element={<AddAddressPage/>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

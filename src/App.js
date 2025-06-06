@@ -20,6 +20,7 @@ import OrderConfirmPage from './OrderConfirmPage/OrderConfirmPage';
 import MainPage from './MainPage/Main';
 import ContactPage from './ContactPage/Contact';
 import CheckOut from './CheckOutPage/CheckOut';
+import ContactDetails from './ContactDetailsPage/ContactDetails';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
                 <Route path='/contact-us' element={<ContactPage/>}></Route>
                 <Route path='/product-page' element={<ProductPage/>}></Route>
                 <Route path='/checkout-page' element={<CheckOut/>}></Route>
+                <Route path="/contact-details" element={<ContactDetails></ContactDetails>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

@@ -52,7 +52,6 @@ return (
                   </ul>
                </div>
             </div>
-            {/* Form Alanı */}
             <div className="col-lg-9 col-md-8 col-sm-8">
                <div className="bg-white p-4">
                   <h4 className="mb-4 fw-bold fs-2">My Info</h4>

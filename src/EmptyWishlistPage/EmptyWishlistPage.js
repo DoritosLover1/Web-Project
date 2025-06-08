@@ -13,7 +13,7 @@ return (
             <li className="breadcrumb-item">
                <a href="#" className="text-muted text-decoration-none">My Account</a>
             </li>
-            <li className="breadcrumb-item active" aria-current="page">Wishlist</li>
+            <li className="breadcrumb-item active text-dark" aria-current="page">Wishlist</li>
          </ol>
       </nav>
    </div>

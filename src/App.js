@@ -24,6 +24,7 @@ import ContactDetails from './ContactDetailsPage/ContactDetails';
 import AddAddressPage from './AddAddressPage/AddAddressPage';
 import WishlistPage from './WishlistPage/WishlistPage';
 import EmptyWishlistPage from './EmptyWishlistPage/EmptyWishlistPage';
+import OrderPage from './OrdersPage/OrdersPage';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
                 <Route path="/add-address" element={<AddAddressPage/>}></Route>
                 <Route path='/wishlist' element={<WishlistPage></WishlistPage>}></Route>
                 <Route path='/empty-wishlist' element={<EmptyWishlistPage></EmptyWishlistPage>}></Route>
+                <Route path="/order-page" element={<OrderPage></OrderPage>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

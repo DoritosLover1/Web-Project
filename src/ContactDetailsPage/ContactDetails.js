@@ -8,7 +8,7 @@ return(
             <ol className="breadcrumb mb-0 px-3">
                <li className="breadcrumb-item"><a href="#" className="text-muted text-decoration-none">Home</a></li>
                <li className="breadcrumb-item"><a href="#" className="text-muted text-decoration-none">My Account</a></li>
-               <li className="breadcrumb-item active" aria-current="page">Personal Info</li>
+               <li className="breadcrumb-item active text-dark" aria-current="page">Personal Info</li>
             </ol>
          </nav>
       </div>

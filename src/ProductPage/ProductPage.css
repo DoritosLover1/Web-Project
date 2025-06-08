@@ -1,3 +1,10 @@
 .divider{
     text-align: center;
 }
+
+.pagination{
+    --bs-pagination-padding-x: 5px;
+    --bs-pagination-border-width: 0px;
+    --bs-pagination-color: dark;
+    --bs-pagination-hover-bg: none;
+}

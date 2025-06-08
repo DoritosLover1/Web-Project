@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './ProductPage.css';
 export default function ProductPage() {
 
   const [selectedImage, setSelectedImage] = useState(0);
@@ -219,7 +219,7 @@ only five centuries, but also the leap into electronic typesetting, remaining es
           </form>
           <hr />
 
-
+          {/*BURAYA VERİ TABANI İLE ETKİLEŞİMLİ OLAN VERSİYONU GELECEK*/}
           {[1, 2].map(i => (
             <div key={i} className="mb-4 border-bottom pb-3">
               <div className="d-flex justify-content-between text-muted small mb-1">
@@ -236,7 +236,7 @@ only five centuries, but also the leap into electronic typesetting, remaining es
                 <div className="fw-bold">Lorem Ipsum</div>
                 <div className="text-muted small">Lorem</div>
                 <div className="small mt-2 text-muted">
-                  Lorem Ipsum is simply do? 👎 0 👍 0
+                  Lorem Ipsum is simply do?<i className='bi bi-hand-thumbs-up'/> 0 <i className='bi bi-hand-thumbs-down'/> 0
                 </div>
               </div>
             </div>
@@ -248,6 +248,7 @@ only five centuries, but also the leap into electronic typesetting, remaining es
         <nav>
           <ul className="pagination justify-content-center">
             <li className="page-item"><a className="page-link" href="#">&lt;</a></li>
+            {/*BURAYADA YORUM MİTAKRI KADAR DEĞER GELECEK*/}
             {[1, 2, 3, 4, 5, 6, 7, 8].map(n => (
               <li key={n} className="page-item"><a className="page-link" href="#">{n}</a></li>
             ))}

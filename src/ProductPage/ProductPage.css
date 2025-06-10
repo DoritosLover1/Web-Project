@@ -8,3 +8,10 @@
     --bs-pagination-color: dark;
     --bs-pagination-hover-bg: none;
 }
+
+.nav-link.bg-danger:hover,
+.nav-link.bg-danger:focus,
+.nav-link.bg-dark:hover,
+.nav-link.bg-dark:focus{
+    color: white !important;
+}

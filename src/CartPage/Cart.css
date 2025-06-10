@@ -1,0 +1,399 @@
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.cart-header {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+  color: #999;
+}
+
+.cart-instructions {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.login-prompt {
+  color: #666;
+  font-size: 14px;
+}
+
+.login-link {
+  color: #e53e3e;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.cart-table-container {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  margin-bottom: 20px;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.5fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f1f3f4;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.5fr;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  align-items: center;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.product-artist,
+.product-format {
+  font-size: 14px;
+  color: #666;
+  margin: 2px 0;
+}
+
+.item-price {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.quantity-value {
+  font-weight: 500;
+  min-width: 20px;
+  text-align: center;
+}
+
+.item-shipping {
+  text-align: center;
+}
+
+.free-shipping {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.paid-shipping {
+  color: #6b7280;
+}
+
+.item-subtotal {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: #fef2f2;
+}
+
+.cart-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.discount-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  
+}
+
+.discount-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.discount-subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.coupon-input-container {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.coupon-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.coupon-input:focus {
+  border-color: #e53e3e;
+}
+
+.apply-coupon-btn {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.apply-coupon-btn:hover {
+  background-color: #c53030;
+}
+
+.continue-shopping-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.continue-shopping-btn:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.order-summary {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  
+  height: fit-content;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-row:last-of-type {
+  border-bottom: none;
+}
+
+.grand-total-row {
+  border-top: 2px solid #e2e8f0;
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
+.summary-label {
+  color: #666;
+  font-size: 14px;
+}
+
+.grand-total-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.summary-value {
+  font-weight: 500;
+  color: #333;
+}
+
+.grand-total-value {
+  font-weight: 700;
+  font-size: 18px;
+  color: #333;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+
+.checkout-btn:hover {
+  background-color: #c53030;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 10px;
+  }
+
+  .table-header {
+    display: none;
+  }
+
+  .cart-item {
+    display: block;
+    padding: 15px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  .product-details {
+    margin-bottom: 15px;
+  }
+
+  .cart-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .quantity-controls {
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .item-price,
+  .item-shipping,
+  .item-subtotal {
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+  }
+
+  .item-action {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-header {
+    padding: 15px;
+  }
+
+  .product-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .product-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .coupon-input-container {
+    flex-direction: column;
+  }
+
+  .coupon-input {
+    border-radius: 6px;
+    border-right: 1px solid #d1d5db;
+    margin-bottom: 10px;
+  }
+
+  .apply-coupon-btn {
+    border-radius: 6px;
+  }
+}

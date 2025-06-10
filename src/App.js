@@ -38,14 +38,16 @@ function App() {
                 <Route path="/sign-in" element={<SignIn/>}></Route>
                 <Route path="/sign-up" element={<SignUp/>}></Route>
                 <Route path="/404-error" element={<Error/>}></Route>
-                <Route path='/reset-password' element={<ResetPass/>}></Route>
-                <Route path='/check-email' element={<CheckEmailPage/>}></Route>
-                <Route path='/code-verification' element={<VerificationPage/>}></Route>
+                <Route path='/reset-password' element={<ResetPass/>}>
+                  <Route path='check-email' element={<CheckEmailPage/>}>
+                    <Route path='code-verification' element={<VerificationPage/>}></Route>
+                  </Route>
+                </Route>
                 <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
                 <Route path='/empty-cart' element={<EmptyCart/>}></Route>
                 <Route path='/confirm-order' element={<OrderConfirmPage/>}></Route>
                 <Route path='/contact-us' element={<ContactPage/>}></Route>
-                <Route path='/product-page' element={<ProductPage/>}></Route>
+                <Route path='/product-page/:id' element={<ProductPage/>}></Route>
                 <Route path='/checkout-page' element={<CheckOut/>}></Route>
                 <Route path="/contact-details" element={<ContactDetails></ContactDetails>}></Route>
                 <Route path="/add-address" element={<AddAddressPage/>}></Route>

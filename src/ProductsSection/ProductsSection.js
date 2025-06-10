@@ -1,5 +1,7 @@
 import './ProductsSection.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import Axios from 'axios';
 
 // Mock database - gerçek uygulamada bu veriler API'den gelecek
 const productsDatabase = {
@@ -117,7 +119,22 @@ const productsDatabase = {
 };
 
 export default function ProductCard() {
+
   const [likedItems, setLikedItems] = useState(new Set());
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+        // Sayfa yüklendiğinde ürünleri getir
+        const fetchProducts = async () => {
+            try {
+                const response = await Axios.get('http://localhost:5000/products');
+                setProducts(response.data);
+            } catch (error) {
+                console.error('Ürünler alınamadı:', error);
+            }
+        };
+        fetchProducts();
+    }, []);
 
   const handleLike = (itemId) => {
     setLikedItems(prev => {
@@ -141,15 +158,15 @@ export default function ProductCard() {
         </div>
         
         <div className="products-grid">
-          {productsDatabase.trending.map(product => (
-            <div key={product.id} className="product-card">
+          {products.map(products => (
+            <div key={products.id} className="product-card">
               <div className="product-image-container">
-                <img src={product.image} alt={product.title} className="product-image" />
+                <img src={products.image} alt={products.title} className="product-image" />
                 <div className="product-overlay">
                   <div className="product-actions">
                     <button 
-                      className={`action-btn like-btn ${likedItems.has(product.id) ? 'liked' : ''}`}
-                      onClick={() => handleLike(product.id)}
+                      className={`action-btn like-btn ${likedItems.has(products.id) ? 'liked' : ''}`}
+                      onClick={() => handleLike(products.id)}
                     >
                       <i className="heart-icon">♡</i>
                     </button>
@@ -163,9 +180,9 @@ export default function ProductCard() {
                 </div>
               </div>
               <div className="product-info">
-                <h3 className="product-title">{product.title}</h3>
-                <p className="product-artist">{product.artist}</p>
-                <p className="product-price">{product.price}</p>
+                <h3 className="product-title">{products.title}</h3>
+                <p className="product-artist">{products.artist}</p>
+                <p className="product-price">{products.price}</p>
               </div>
             </div>
           ))}

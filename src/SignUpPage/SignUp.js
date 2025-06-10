@@ -1,14 +1,45 @@
 import React, { useState } from 'react';
 import './SignUp.css';
 import { FaGoogle, FaTwitter, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import  Axios from "axios";
 
 import picture from '../assets/backgrounds/background_signup.png';
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [firstName, setFirstName] = useState("");
+    const [email, setEmail] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+    const register = (e) => {
+        e.preventDefault();
+        // Axios ile React tarafında server'a ulaşılır
+        // Axios, HTTP istemcisi olarak kullanılır.
+        //Axios, API istekleri yapmanıza olanak tanıyan bir HTTP istemcisidir.
+        Axios.post("http://localhost:5000/sign-up", {  
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            password: password,
+        })
+        .then((response) => {
+            console.log(response);
+            if(response.data.message){
+                console.log("OLMADI");
+            }else{
+                console.log("OLDU");
+                navigate("/sign-in");
+            }
+
+        })
+    }
     
+
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -55,9 +86,11 @@ export default function SignUp() {
                                     <label htmlFor="firstName">First name</label>
                                     <input 
                                         type="text" 
-                                        id="firstName" 
+                                        id="firstName"
+                                        name="firstName"
                                         className="form-control"
                                         placeholder="Enter your first name"
+                                        onChange={(e) => {setFirstName(e.target.value)}}
                                     />
                                 </div>
                                 
@@ -65,9 +98,11 @@ export default function SignUp() {
                                     <label htmlFor="lastName">Last name</label>
                                     <input 
                                         type="text" 
-                                        id="lastName" 
+                                        id="lastName"
+                                        name="lastName"
                                         className="form-control"
                                         placeholder="Enter your last name"
+                                        onChange={(e) => {setLastName(e.target.value)}}
                                     />
                                 </div>
                                 
@@ -75,9 +110,11 @@ export default function SignUp() {
                                     <label htmlFor="email">Email address</label>
                                     <input 
                                         type="email" 
-                                        id="email" 
+                                        id="email"
+                                        name="email"
                                         className="form-control"
                                         placeholder="Enter your email"
+                                        onChange={(e) => {setEmail(e.target.value)}}
                                     />
                                 </div>
                                 
@@ -94,9 +131,11 @@ export default function SignUp() {
                                     </div>
                                     <input 
                                         type={showPassword ? "text" : "password"} 
-                                        id="password" 
+                                        id="password"
+                                        name="password"
                                         className="form-control"
                                         placeholder="Create a password"
+                                        onChange={(e) => {setPassword(e.target.value)}}
                                     />
                                 </div>
                                 
@@ -130,7 +169,7 @@ export default function SignUp() {
                                     </label>
                                 </div>
                                 
-                                <button type="submit" className="signup-btn">
+                                <button type="submit" className="signup-btn" onClick={register}>
                                     Create Account
                                 </button>
                             </form>

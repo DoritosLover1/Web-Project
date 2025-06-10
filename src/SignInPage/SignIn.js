@@ -1,17 +1,43 @@
 import React, { useState } from 'react';
 import './SignIn.css';
 import { FaGoogle, FaTwitter, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import  Axios from "axios";
 
 import picture from '../assets/backgrounds/background_signin.png';
 
 export default function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
-    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
     
+    const navigate = useNavigate();
+    const login = (e) => {
+        e.preventDefault();
+        // Axios ile React tarafında server'a ulaşılır
+        // Axios, HTTP istemcisi olarak kullanılır.
+        //Axios, API istekleri yapmanıza olanak tanıyan bir HTTP istemcisidir.
+        Axios.post("http://localhost:5000/sign-in", {  
+            email: email,
+            password: password,
+        })
+        .then((response) => {
+            console.log(response);
+            if(response.data.message){
+                console.log("OLMADI");
+            }else{
+                console.log("OLDU");
+                navigate("/");
+            }
+
+        })
+    }
+
     return(
         <div>
             <div className='container-fluid p-0'>
@@ -42,11 +68,13 @@ export default function SignIn() {
                                 <span className="divider-line"></span>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="username">User name or email address</label>
+                                <label htmlFor="email">Email address</label>
                                 <input 
                                     type="text" 
-                                    id="username" 
+                                    id="email"
+                                    name="email"
                                     className="form-control"
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div className="form-group password-group">
@@ -63,12 +91,13 @@ export default function SignIn() {
                                     type={showPassword ? "text" : "password"} 
                                     id="password" 
                                     className="form-control"
+                                    onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
                             <div className="forgot-password-container">
                                 <Link href="#" className="forgot-password-link">Forget your password</Link>
                             </div>
-                            <button type="submit" className="signin-btn">
+                            <button type="submit" className="signin-btn" onClick={login}>
                                 Sign In
                             </button>
                             <div className="signup-prompt">

@@ -40,7 +40,7 @@ if (loading) {
             <div className="spinner-border" role="status">
                <span className="visually-hidden">Loading...</span>
             </div>
-            <p>Loading product for ID: {id}...</p>
+            <p>Loading product for ID: {user.id}...</p>
          </div>
       </div>
    );

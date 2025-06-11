@@ -1,11 +1,22 @@
 import './MainHeader.css';
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '..//assets/icon/brand_icon.png';
+import { useAuth } from "..//ScriptsFolder/AuthContext";
 
 export default function MainHeader() {
   const [expanded, setExpanded] = useState(false);
   const [openBar, setOpenBar] = useState(false);
+  const {user, logout, loading} = useAuth();
+  const navigate = useNavigate();
+
+  const handlePersonClick = () =>{
+    if(user){
+      navigate("/account/contact-details");
+    }else{
+      navigate("/sign-in");
+    }
+  }
 
   return (
     <div>
@@ -41,9 +52,9 @@ export default function MainHeader() {
             </div>
             <ul className="d-flex navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/sign-in">
+                <button className="nav-link" onClick={handlePersonClick}>
                   <i className="bi bi-person" style={{ fontSize: 25 }}></i>
-                </Link>
+                </button>
               </li>
               <li className="nav-item">
                 <button className="nav-link" onClick={() => setOpenBar(!openBar)}>

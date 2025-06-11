@@ -1,5 +1,58 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import Axios from "axios";
+import { useAuth } from "..//ScriptsFolder/AuthContext";
+
 export default function ContactDetailsPage(){
+   const navigate = useNavigate();
+   const { user } = useAuth();
+   const [userDetails, setUserDetails] = useState(null);
+   const [addresses, setAddresses] = useState([]);
+   const [loading, setLoading] = useState(true);
+   
+   useEffect(() =>{
+      const fetchUserDetails = async () => {
+         if (!user) return;
+         const token = localStorage.getItem('authToken');
+
+         try{
+            const detailsResponse = await Axios.get(`/api/user-details/${user.id}`, {
+               headers: {
+                  'Authorization': `Bearer ${token}`
+               }
+            });
+
+            setUserDetails(detailsResponse.data);
+         }catch(error){
+            console.error("Error at getting user informations: ", error);
+         } finally{
+            setLoading(false);
+         }
+      };
+
+      fetchUserDetails();
+   }, [user]);
+
+if (loading) {
+   return (
+      <div className="container py-4">
+         <div className="text-center">
+            <div className="spinner-border" role="status">
+               <span className="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading product for ID: {id}...</p>
+         </div>
+      </div>
+   );
+}
+
+if(!user){
+   navigate("/404-error");
+}
+
+//Buraya belirli bilgiler gelecek artık yatmaya gidiyprum.
+//YARIN YANİ 12.06.2025 EKLENECEK BURAYA BİLGİLER.
+
 return(
 <div>
    <div className="min-vh-100 px-5">

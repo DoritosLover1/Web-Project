@@ -1,8 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useAuth } from "..//ScriptsFolder/AuthContext";
+import Axios from "axios";
 
 export default function ContactDetailsPage() {
+  
+async function updateUserField(fieldKey, newValue, token){
+  console.log("Updating field:", fieldKey, "with value:", newValue);
+  console.log("Token:", token);
+  try {
+    const response = await Axios.post('http://localhost:5000/change-user-information', 
+      {field: fieldKey, value: newValue},
+      {headers: {Authorization: `Bearer ${token}`}}
+    );
+    console.log("Update response:", response.data);
+    return response.data;
+  } catch(error) {
+    console.error('Update failed:', error.response?.data || error.message);
+    throw error;
+  }
+}
+
+
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const { userDetails } = useAuth();
@@ -24,7 +43,6 @@ export default function ContactDetailsPage() {
     setUser(userData);
     setLoading(false);
 
-    console.log(user);
   }, [userDetails]);
 
   if (loading) {
@@ -136,8 +154,8 @@ export default function ContactDetailsPage() {
                         <div className="text-muted small">{item.label}</div>
                         {isEditing ? (
                           <>
-                              <input
-                                 type={
+                            <input
+                              type={
                                 item.label === "Password"
                                   ? "password"
                                   : item.label === "Birth Date"
@@ -146,11 +164,11 @@ export default function ContactDetailsPage() {
                               }
                               className="form-control mb-2"
                               value={inputValue}
-                                 onChange={(e) => setInputValue(e.target.value)}
-                              />
-                              <button
+                              onChange={(e) => setInputValue(e.target.value)}
+                            />
+                            <button
                               className="btn btn-danger btn-sm fw-bold mx-1"
-                              onClick={() => {
+                              onClick={async () => {
                                 let newValue = inputValue;
 
                                 if (item.label === "Birth Date") {
@@ -170,14 +188,34 @@ export default function ContactDetailsPage() {
                                   return;
                                 }
 
-                                setUser((prev) => ({ ...prev, [item.key]: newValue }));
-                                setEditIndex(null);
+                                try {
+                                  const token = localStorage.getItem("authToken") || userDetails?.token;
+
+                                  if (!token) {
+                                    alert("User not authenticated!");
+                                    return;
+                                  }
+
+                                  await updateUserField(item.key, newValue, token);
+
+                                  setUser((prev) => ({ ...prev, [item.key]: newValue }));
+
+                                  setEditIndex(null);
+                                } catch (error) {
+                                  alert(
+                                    "Update failed: " + (error.response?.data?.message || error.message)
+                                  );
+                                }
                               }}
                             >
                               Submit
-                              </button>
-                              <button className="btn btn-dark btn-sm fw-bold"
-                              onClick={() => setEditIndex(false)}>Cancel</button>
+                            </button>
+                            <button
+                              className="btn btn-dark btn-sm fw-bold"
+                              onClick={() => setEditIndex(null)}
+                            >
+                              Cancel
+                            </button>
                           </>
                         ) : (
                           <div>{item.value}</div>

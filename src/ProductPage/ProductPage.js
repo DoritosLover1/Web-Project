@@ -167,14 +167,6 @@ return (
                         <strong>Stock:</strong> 
                         <span className="text-muted">{products.stock || "No stock information"}</span>
                     </p>
-                    <p className="mb-1 fs-5">
-                        <strong>Likes:</strong> 
-                        <span className="text-muted">{products.likes || 0}</span>
-                    </p>
-                    <p className="mb-1 fs-5">
-                        <strong>Views:</strong> 
-                        <span className="text-muted">{products.views || 0}</span>
-                    </p>
                 </div>
                 <div className="mb-2">
                     <div className="row">

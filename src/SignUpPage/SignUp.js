@@ -11,34 +11,56 @@ export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [firstName, setFirstName] = useState("");
-    const [email, setEmail] = useState("");
     const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [birthdate, setBirthDate] = useState("");
+    const [gender, setGender] = useState("");
+    const [phonenum, setPhoneNum] = useState("");
+    const [address, setAddresses] = useState("");
 
     const navigate = useNavigate();
-    const register = (e) => {
-        e.preventDefault();
-        // Axios ile React tarafında server'a ulaşılır
-        // Axios, HTTP istemcisi olarak kullanılır.
-        //Axios, API istekleri yapmanıza olanak tanıyan bir HTTP istemcisidir.
-        Axios.post("http://localhost:5000/sign-up", {  
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
-            password: password,
-        })
-        .then((response) => {
-            console.log(response);
-            if(response.data.message){
-                console.log("OLMADI");
-            }else{
-                console.log("OLDU");
-                navigate("/sign-in");
-            }
-
-        })
-    }
     
+    const register = (e) => {
+    e.preventDefault();
+    if (
+        !firstName.trim() ||
+        !lastName.trim() ||
+        !email.trim() ||
+        !password.trim() ||
+        !birthdate.trim() ||
+        !gender.trim() ||
+        !phonenum.trim() ||
+        !address.trim()
+    ) {
+        alert("Lütfen tüm alanları doldurun.");
+        return;
+    }
+
+    Axios.post("http://localhost:5000/sign-up", {  
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        password: password,
+        birth_date: birthdate,
+        gender: gender,
+        phone_number: phonenum,
+        customer_address: address
+    })
+    .then((response) => {
+        console.log(response);
+        if(response.data.message){
+            alert("Kayıt başarısız: " + response.data.message);
+        } else {
+            alert("Kayıt başarılı!");
+            navigate("/sign-in");
+        }
+    })
+    .catch(err => {
+        console.error("Hata:", err);
+        alert("Sunucu hatası.");
+    });
+    };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -62,7 +84,7 @@ export default function SignUp() {
                         </div>
                     </div>
                     <div className='col-md-6'>
-                        <div className='signup-form-container p-4'>
+                        <div className='signup-form-container'>
                             <h1 className="signup-title">Sign Up</h1>
                             <p className="signup-subtitle">Create your account to get started</p>
                             
@@ -91,6 +113,7 @@ export default function SignUp() {
                                         className="form-control"
                                         placeholder="Enter your first name"
                                         onChange={(e) => {setFirstName(e.target.value)}}
+                                        required
                                     />
                                 </div>
                                 
@@ -103,6 +126,7 @@ export default function SignUp() {
                                         className="form-control"
                                         placeholder="Enter your last name"
                                         onChange={(e) => {setLastName(e.target.value)}}
+                                        required
                                     />
                                 </div>
                                 
@@ -115,9 +139,10 @@ export default function SignUp() {
                                         className="form-control"
                                         placeholder="Enter your email"
                                         onChange={(e) => {setEmail(e.target.value)}}
+                                        required
                                     />
                                 </div>
-                                
+
                                 <div className="form-group password-group">
                                     <div className="password-label-container">
                                         <label htmlFor="password">Password</label>
@@ -136,6 +161,7 @@ export default function SignUp() {
                                         className="form-control"
                                         placeholder="Create a password"
                                         onChange={(e) => {setPassword(e.target.value)}}
+                                        required
                                     />
                                 </div>
                                 
@@ -155,9 +181,64 @@ export default function SignUp() {
                                         id="confirmPassword" 
                                         className="form-control"
                                         placeholder="Confirm your password"
+                                        required
                                     />
                                 </div>
                                 
+                                <div className="form-group">
+                                    <label htmlFor="birthdate">Birth Date</label>
+                                    <input 
+                                        type="date" 
+                                        id="date"
+                                        name="date"
+                                        className="form-control"
+                                        onChange={(e) => {setBirthDate(e.target.value)}}
+                                        required
+                                    />
+                                </div>   
+
+                                <div className="form-group">
+                                    <label htmlFor="gender">Gender</label>
+                                    <input 
+                                        type="text" 
+                                        id="gender"
+                                        name="gender"
+                                        className="form-control"
+                                        placeholder="M or F"
+                                        pattern="[MF]"  // sadece M ya da F kabul edilir
+                                        title="Please enter only 'M' or 'F'"
+                                        onChange={(e) => { setGender(e.target.value) }}
+                                        required
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="phonenum">Phone Number</label>
+                                    <input 
+                                        type="tel" 
+                                        id="tel"
+                                        name="tel"
+                                        className="form-control"
+                                        placeholder='123-45-678'
+                                        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                        onChange={(e) => {setPhoneNum(e.target.value)}}
+                                        required
+                                    />
+                                </div>
+
+                                <div className='form-group'>
+                                    <label htmlFor='address'>Address</label>
+                                    <input
+                                        type='text'
+                                        id="address"
+                                        name="address"
+                                        className='form-control'
+                                        placeholder='Enter your home address'
+                                        onChange={(e) =>{setAddresses(e.target.value)}}
+                                        required
+                                    />
+                                </div>
+
                                 <div className="checkbox-group">
                                     <input 
                                         type="checkbox" 

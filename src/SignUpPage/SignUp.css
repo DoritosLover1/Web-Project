@@ -17,7 +17,6 @@
 .signup-form-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: clamp(20px, 4vw, 40px) !important;
   height: 100%;
   min-height: calc(100vh - 136px);
@@ -74,19 +73,21 @@
 .divider {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 20px 0;
+  gap: 15px;
 }
 
 .divider-line {
-  flex-grow: 1;
+  flex: 1;
   height: 1px;
   background-color: #ddd;
 }
 
 .divider-text {
   color: #777;
-  margin: 0 15px;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .form-group {

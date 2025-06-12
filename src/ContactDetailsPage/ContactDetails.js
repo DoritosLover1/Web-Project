@@ -1,37 +1,28 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
-import Axios from "axios";
 import { useAuth } from "..//ScriptsFolder/AuthContext";
 
 export default function ContactDetailsPage(){
    const navigate = useNavigate();
-   const { user } = useAuth();
-   const [userDetails, setUserDetails] = useState(null);
-   const [addresses, setAddresses] = useState([]);
+   const [user, setUser] = useState(null);
+   const {userDetails} = useAuth();
    const [loading, setLoading] = useState(true);
-   
-   useEffect(() =>{
-      const fetchUserDetails = async () => {
-         if (!user) return;
-         const token = localStorage.getItem('authToken');
 
-         try{
-            const detailsResponse = await Axios.get(`/api/user-details/${user.id}`, {
-               headers: {
-                  'Authorization': `Bearer ${token}`
-               }
-            });
+   useEffect(() => {
+   const userDataString = localStorage.getItem('userData');
+  
+   if (!userDataString) {
+      setLoading(false);
+      return;
+   }
 
-            setUserDetails(detailsResponse.data);
-         }catch(error){
-            console.error("Error at getting user informations: ", error);
-         } finally{
-            setLoading(false);
-         }
-      };
+   const userData = JSON.parse(userDataString);
+   // Örneğin bir state'e set etmek istiyorsan:
+   setUser(userData);
+   setLoading(false);
 
-      fetchUserDetails();
-   }, [user]);
+   console.log(user);
+   },[userDetails]);
 
 if (loading) {
    return (
@@ -40,7 +31,7 @@ if (loading) {
             <div className="spinner-border" role="status">
                <span className="visually-hidden">Loading...</span>
             </div>
-            <p>Loading product for ID: {user.id}...</p>
+            <p>Looking for user data...</p>
          </div>
       </div>
    );
@@ -72,7 +63,7 @@ return(
                   <div className="row">
                      <h5 className="text-dark fw-bold fs-2">
                         <div className="mb-3 border-start border-4 rounded-1 border-danger ps-2">
-                           Hello Jhanvi
+                           Hello {user.first_name}
                         </div>
                      </h5>
                   </div>
@@ -105,23 +96,24 @@ return(
                <div className="bg-white p-4">
                   <h4 className="mb-4 fw-bold fs-2">My Info</h4>
                   <h6 className="mb-4 fw-bold fs-4">Contact Details</h6>
-                  {[
-                  { label: "Your Name", value: "Jhanvi Shah" },
-                  { label: "Email Address", value: "Jhanvi@gmail.com" },
-                  { label: "Phone Number", value: "8980252445" },
-                  { label: "Password", value: "••••••••" },
-                  ].map((item, idx) => (
-                  <div className="row border-bottom py-3 mb-3" key={idx}>
-                     <div className="d-flex flex-column">
-                        <div className="col-sm-3 col-lg-3 text-muted">{item.label}</div>
-                        <div className="col-sm-6">{item.value}</div>
-                        <div className="col-sm-3 text-end"></div>
+                  {user && [
+                     { label: "Your Name", value: user.name },
+                     { label: "Email Address", value: user.email },
+                     { label: "Phone Number", value: user.phone_number },
+                     { label: "Address", value: user.address }, // Added address here
+                     { label: "Birth Date", value: new Date(user.birth_date).toLocaleDateString() }, // Formatted birth date
+                     { label: "Gender", value: user.gender === "M" ? "Male" : user.gender === "F" ? "Female" : "N/A" }, // Formatted gender
+                     { label: "Password", value: "••••••••" }, // Password typically isn't displayed directly
+                     ].map((item, idx) => (
+                     <div className="row border-bottom py-3 mb-3" key={idx}>
+                        <div className="d-flex flex-column">
+                           <div className="col-sm-3 col-lg-3 text-muted">{item.label}</div>
+                           <div className="col-sm-6">{item.value}</div>
+                           <div className="d-flex justify-content-end">
+                              <button className="btn btn-link text-dark text-decoration-none p-0 fw-bold">Change</button>
+                           </div>
+                        </div>
                      </div>
-                     <div className="d-flex justify-content-end">
-                        <button className="btn btn-link text-dark text-decoration-none p-0 fw-bold">Change</button>
-                     </div>
-                     <span></span>   
-                  </div>
                   ))}
                   <div className="d-flex justify-content-between align-items-center mt-5 mb-4">
                      <h6 className="mb-0 fs-3 fw-bold">Address</h6>

@@ -17,7 +17,6 @@ export default function SignUp() {
     const [birthdate, setBirthDate] = useState("");
     const [gender, setGender] = useState("");
     const [phonenum, setPhoneNum] = useState("");
-    const [address, setAddresses] = useState("");
 
     const navigate = useNavigate();
     
@@ -30,8 +29,7 @@ export default function SignUp() {
         !password.trim() ||
         !birthdate.trim() ||
         !gender.trim() ||
-        !phonenum.trim() ||
-        !address.trim()
+        !phonenum.trim()
     ) {
         alert("Lütfen tüm alanları doldurun.");
         return;
@@ -45,7 +43,6 @@ export default function SignUp() {
         birth_date: birthdate,
         gender: gender,
         phone_number: phonenum,
-        customer_address: address
     })
     .then((response) => {
         console.log(response);
@@ -97,7 +94,7 @@ export default function SignUp() {
                                 Continue With Twitter
                             </button>
                             
-                            <div className="divider">
+                                <div className="divider">
                                 <span className="divider-line"></span>
                                 <span className="divider-text">OR</span>
                                 <span className="divider-line"></span>
@@ -222,19 +219,6 @@ export default function SignUp() {
                                         placeholder='123-45-678'
                                         pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                                         onChange={(e) => {setPhoneNum(e.target.value)}}
-                                        required
-                                    />
-                                </div>
-
-                                <div className='form-group'>
-                                    <label htmlFor='address'>Address</label>
-                                    <input
-                                        type='text'
-                                        id="address"
-                                        name="address"
-                                        className='form-control'
-                                        placeholder='Enter your home address'
-                                        onChange={(e) =>{setAddresses(e.target.value)}}
                                         required
                                     />
                                 </div>

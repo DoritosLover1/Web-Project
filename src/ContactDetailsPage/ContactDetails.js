@@ -45,8 +45,9 @@ export default function ContactDetailsPage() {
   }
 
   const fields = [
-    { key: "name", label: "Your Name", value: user.name },
-    { key: "email", label: "Email Address", value: user.email },
+    { key: "first_name", label: "First Name", value: user.first_name },
+    { key: "last_name", label: "Last Name", value: user.last_name },
+    { key: "e_mail", label: "Email Address", value: user.email },
     { key: "phone_number", label: "Phone Number", value: user.phone_number },
     {
       key: "birth_date",

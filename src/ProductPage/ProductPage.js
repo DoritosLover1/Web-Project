@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Axios from "axios";
 import './ProductPage.css';
 
@@ -48,27 +48,36 @@ fetchComments();
 }, [id]);
 
 useEffect(() => {
-const fetchRelatedProducts = async () => {
-try {
-console.log('Fetching related products...');
-const response = await Axios.get('http://localhost:5000/products');
-console.log('All products response:', response.data);
+    const fetchRelatedProducts = async () => {
+        if (!products || !products.format) {
+            console.log('Products not loaded yet or no format');
+            return;
+        }
+        
+        try {
+            console.log('Fetching related products for format:', products.format);
+            const response = await Axios.get(`http://localhost:5000/products-get-related/${(products.format)}`);
+            console.log('All products response:', response.data);
 
-const filtered = response.data
-  .filter(product => product.id != id)
-  .slice(0, 4); 
-  
-setRelatedProducts(filtered);
-} catch (error) {
-console.error('Error loading related products:', error);
-setRelatedProducts([]);
-}
-}
+            const filtered = response.data
+                .filter(product => product.id !== parseInt(id))
+                .slice(0, 4); 
+            
+            console.log('Filtered related products:', filtered);
+            setRelatedProducts(filtered);
+        } catch (error) {
+            console.error('Error loading related products:', error);
+            setRelatedProducts([]);
+        }
+    }
 
-if (id) {
-fetchRelatedProducts();
-}
-}, [id]);
+    fetchRelatedProducts();
+}, [products, id]); 
+
+const navigate = useNavigate();
+const handleViewProduct = (productId) =>{
+   navigate(`/product-page/${productId}`);
+};
 
 const [selectedImage, setSelectedImage] = useState(0);
 const [quantity, setQuantity] = useState(1);
@@ -156,16 +165,20 @@ return (
                 </div>
                 <div className="mb-3">
                     <p className="mb-1 fs-5">
-                        <strong>Description:</strong> 
+                        <strong>Description: </strong> 
                         <span className="text-muted">{products.description || "Description not found"}</span>
                     </p>
                     <p className="mb-1 fs-5">
-                        <strong>Category:</strong> 
+                        <strong>Category: </strong> 
                         <span className="text-muted">{products.category || "Category not specified"}</span>
                     </p>
                     <p className="mb-1 fs-5">
-                        <strong>Stock:</strong> 
+                        <strong>Stock: </strong> 
                         <span className="text-muted">{products.stock || "No stock information"}</span>
+                    </p>
+                    <p className='mb-1 fs-5'>
+                        <strong>Format: </strong>
+                        <span className="text-muted">{products.format || "No format information"}</span>
                     </p>
                 </div>
                 <div className="mb-2">
@@ -352,39 +365,75 @@ return (
 
 <div className="bg-white rounded  p-3 p-md-4">
     <h4 className="text-center mb-4 fw-bold">RELATED PRODUCTS</h4>
-    {relatedProducts.length > 0 ? (
-    <div className="row g-3 g-md-4">
-        {relatedProducts.map(product => (
-        <div key={product.id} className="col-6 col-md-4 col-lg-3 mx-1">
-            <div className="card h-100 border-0 shadow-sm">
-                <img 
-                src={product.image || '/api/placeholder/200/200'} 
-                className="card-img-top" 
-                alt={product.name || 'Product'}
-                style={{ height: '150px', objectFit: 'fill'}}
-                onError={(e) => {
-                    e.target.src = '/api/placeholder/200/200';
-                }}
-                />
-                <div className="card-body text-center p-2 p-md-3">
-                    <h6 className="card-title small">{product.name || 'Product Name'}</h6>
-                    <p className="text-muted small mb-2 d-none d-md-block">
-                        {product.description ? product.description.substring(0, 50) + '...' : 'Lorem ipsum dolor sit amet'}
-                    </p>
-                    <p className="fw-bold text-danger mb-2 mb-md-3 small">
-                        ${product.price || '0.00'}
-                    </p>
-                    <button className="btn btn-outline-dark btn-sm w-100">Add to Cart</button>
-                </div>
+{relatedProducts.length > 0 ? (
+  <div className="row g-3 g-md-4">
+    {relatedProducts.map(product => (
+      <div key={product.id} className="col-6 col-md-4 col-lg-3">
+        <div className="product-card h-100 position-relative d-flex flex-column">
+          <div className="product-image-container position-relative flex-shrink-0">
+            <img 
+              src={product.image || '/api/placeholder/200/200'} 
+              alt={product.name || 'Product'}
+              className="product-image w-100 h-100" 
+              style={{ height: '150px', objectFit: 'fill'}}
+              onError={(e) => {
+                e.target.src = '/api/placeholder/200/200';
+              }}
+            />
+            <div className="product-actions">
+              <button 
+                className="action-btn"
+                onClick={() => ""}
+                title="Add to Cart"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="m1 1 4 4 2.9 13.1h10.4l3.6-7.4H6.9L5.4 2H2"></path>
+                </svg>
+              </button>
+              <button 
+                className="action-btn"
+                onClick={() => handleViewProduct && handleViewProduct(product.id)}
+                title="Quick View"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </button>
+              <button 
+                className={`action-btn ${product.isWishlisted ? 'wishlisted' : ''}`}
+                onClick={() => ""}
+                title="Add to Wishlist"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill={product.isWishlisted ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
             </div>
+          </div>
+          <div className="product-info p-2 p-md-3 text-center d-flex flex-column flex-grow-1">
+            <div className="product-details flex-grow-1">
+              <h3 className="product-name card-title mb-2" style={{fontSize: '0.9rem'}}>{product.name || 'Product Name'}</h3>
+              {product.artist && <p className="product-artist text-muted mb-1" style={{fontSize: '0.8rem'}}>{product.artist}</p>}
+              <p className="product-price fw-bold text-danger" style={{fontSize: '0.9rem'}}>
+                ${typeof product.price === 'number' ? product.price.toFixed(2) : (product.price || '0.00')}
+              </p>
+            </div>
+            <div className="product-cart-section mt-auto">
+              <button className="btn btn-outline-dark w-100" style={{fontSize: '0.8rem', padding: '0.4rem 0.8rem'}}>Add to Cart</button>
+            </div>
+          </div>
         </div>
-        ))}
-    </div>
-    ) : (
-    <div className="text-center py-4">
-        <p className="text-muted">No related products found.</p>
-    </div>
-    )}
+      </div>
+    ))}
+  </div>
+) : (
+  <div className="text-center py-4">
+    <p className="text-muted">No related products found.</p>
+  </div>
+)}
 </div>
 </div>
 </div>

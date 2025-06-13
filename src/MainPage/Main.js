@@ -292,89 +292,58 @@ return (
                 <h2 className="section-title mb-3" style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#333', letterSpacing: '2px'}}>TRENDING</h2>
                 <p className="section-subtitle" style={{color: '#666', fontSize: '1rem'}}>Lorem Ipsum is blandit</p>
             </div>
-            <div className="row g-3 mb-4">
-                {products.map(product => (
-                <div key={product.id} className="col-6 col-md-3">
-                    <div 
-                    className="product-card h-100 position-relative" 
-                    style={{
-                    background: '#fff', 
-                    borderRadius: '0', 
-                    overflow: 'hidden', 
-                    cursor: 'pointer',
-                    border: '1px solid #eee'
-                    }}
-                    >
-                    <div className="product-image-container position-relative" style={{height: '200px', overflow: 'hidden'}}>
-                    <img 
-                    src={product.image} 
-                    alt={product.title} 
-                    className="product-image w-100 h-100" 
-                    style={{objectFit: 'cover'}}
-                    />
-                    <div 
-                    className="product-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center gap-2"
-                    style={{
-                    background: 'rgba(0,0,0,0.6)', 
-                    opacity: '0', 
-                    transition: 'opacity 0.3s ease'
-                    }}
-                    >
-                    <button 
-                        className="btn btn-outline-light btn-sm rounded-circle p-2"
-                        onClick={() => handleLike(product.id)}
-                    style={{
-                    width: '35px', 
-                    height: '35px', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    fontSize: '14px',
-                    border: '1px solid rgba(255,255,255,0.5)',
-                    background: likedItems.has(product.id) ? 'rgba(255,255,255,0.2)' : 'transparent'
-                    }}
-                    >
-                    ♡
-                    </button>
-                    <button 
-                    className="btn btn-outline-light btn-sm rounded-circle p-2"
-                    onClick={() => handleViewProduct(product.id)}
-                    style={{
-                    width: '35px', 
-                    height: '35px', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    fontSize: '14px',
-                    border: '1px solid rgba(255,255,255,0.5)'
-                    }}
-                    >
-                    👁
-                    </button>
-                    <button 
-                    className="btn btn-outline-light btn-sm rounded-circle p-2"
-                    style={{
-                    width: '35px', 
-                    height: '35px', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    fontSize: '14px',
-                    border: '1px solid rgba(255,255,255,0.5)'
-                    }}
-                    >
-                    🛒
-                    </button>
-                </div>
-            </div>
-            <div className="product-info p-3 text-center">
-                <h5 className="product-title mb-1" style={{fontSize: '14px', fontWeight: '600', color: '#333'}}>{product.name}</h5>
-                <p className="product-artist mb-1" style={{fontSize: '12px', color: '#666'}}>{product.artist}</p>
-                <p className="product-price mb-0" style={{fontSize: '16px', fontWeight: '600', color: '#333'}}>${product.price}</p>
-            </div>
+<div className="row g-2 mb-4">
+  {products.map(product => (
+    <div key={product.id} className="col-6 col-lg-3">
+      <div className="product-card h-100 position-relative">
+        <div className="product-image-container position-relative">
+          <img 
+            src={product.image} 
+            alt={product.name || product.title}
+            className="product-image w-100 h-100" 
+          />
+          <div className="product-actions">
+            <button 
+              className="action-btn"
+              onClick={() => ""}
+              title="Add to Cart"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="m1 1 4 4 2.9 13.1h10.4l3.6-7.4H6.9L5.4 2H2"></path>
+              </svg>
+            </button>
+            <button 
+              className="action-btn"
+              onClick={() => handleViewProduct(product.id)}
+              title="Quick View"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <button 
+              className={`action-btn ${product.isWishlisted ? 'wishlisted' : ''}`}
+              onClick={() =>""}
+              title="Add to Wishlist"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill={product.isWishlisted ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-</div>
-))}
+        <div className="product-info p-3">
+          <h3 className="product-name">{product.name || product.title}</h3>
+          {product.artist && <p className="product-artist">{product.artist}</p>}
+          {product.format && <p className="product-format">{product.format}</p>}
+          <p className="product-price">${product.price.toFixed(2)}</p>
+        </div>
+      </div>
+    </div>
+  ))}
 </div>
 <div className="text-center">
 <button 

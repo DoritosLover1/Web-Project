@@ -1,395 +1,407 @@
 .carousel-caption.custom-caption {
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    left: auto;
-    bottom: auto;
-    text-align: center;
-    width: auto;
+     position: absolute;
+     top: 50%;
+     right: 10%;
+     transform: translateY(-50%);
+     left: auto;
+     bottom: auto;
+     text-align: center;
+     width: auto;
 }
-
-.carousel-caption.custom-caption > div {
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 0;
-    background: rgba(0, 0, 0, 0.7) !important;
+ .carousel-caption.custom-caption > div {
+     max-width: 400px;
+     padding: 20px;
+     border-radius: 0;
+     background: rgba(0, 0, 0, 0.7) !important;
 }
-
-@media (max-width: 767px) {
-    .carousel-caption.custom-caption {
-        top: auto;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        transform: none;
-        padding: 10px;
+ @media (max-width: 767px) {
+     .carousel-caption.custom-caption {
+         top: auto;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         transform: none;
+         padding: 10px;
     }
-    
-    .carousel-caption.custom-caption > div {
-        max-width: 100%;
-        padding: 15px;
+     .carousel-caption.custom-caption > div {
+         max-width: 100%;
+         padding: 15px;
     }
 }
-
-.carousel {
-    overflow: hidden;
+ .carousel {
+     overflow: hidden;
 }
-.carousel-caption{
-    border-radius: 0;
-    overflow: hidden;
+ .carousel-caption{
+     border-radius: 0;
+     overflow: hidden;
 }
-.carousel-indicators button{
-    width: clamp(8px, 2vw, 12px);
-    height: clamp(8px, 2vw, 12px);
-    border-radius: 50%;
+ .carousel-indicators button{
+     width: clamp(8px, 2vw, 12px);
+     height: clamp(8px, 2vw, 12px);
+     border-radius: 50%;
 }
-.carousel-control-prev,
-.carousel-control-next {
-    width: clamp(30px, 8vw, 45px);
-    opacity: 0.8;
+ .carousel-control-prev, .carousel-control-next {
+     width: clamp(30px, 8vw, 45px);
+     opacity: 0.8;
 }
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    opacity: 1;
+ .carousel-control-prev:hover, .carousel-control-next:hover {
+     opacity: 1;
 }
-.carousel-item img{
-    object-fit: cover;
-    height: 80vh;
+ .carousel-item img{
+     object-fit: cover;
+     height: 80vh;
 }
-
-.img-sizer{
-    height: clamp(200px, 50vw, 500px);
-    object-fit: cover;
+ .img-sizer{
+     height: clamp(200px, 50vw, 500px);
+     object-fit: cover;
 }
-.p-text{
-    font-size: clamp(16px, 4vw, 24px);
-    letter-spacing: 2px;
+ .p-text{
+     font-size: clamp(16px, 4vw, 24px);
+     letter-spacing: 2px;
 }
-.h2-text{
-    font-size: clamp(20px, 5vw, 35px);
-    letter-spacing: 4px;
-    text-transform: uppercase;
+ .h2-text{
+     font-size: clamp(20px, 5vw, 35px);
+     letter-spacing: 4px;
+     text-transform: uppercase;
 }
-.p-inside-text{
-    font-size: clamp(12px, 2vw, 16px);
-    letter-spacing: 1px;
+ .p-inside-text{
+     font-size: clamp(12px, 2vw, 16px);
+     letter-spacing: 1px;
 }
-
-.main-page {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff;
-    min-height: 100vh;
+ .main-page {
+     font-family: 'Arial', sans-serif;
+     background-color: #fff;
+     min-height: 100vh;
 }
-
-.colorful-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
+ .colorful-number {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 20px;
 }
-
 .product-card {
-    border-radius: 0 !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 2.5rem;
-    margin-right: 2rem;
-    min-height: 300px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 445px;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12) !important;
-}
-
-.product-card:hover .product-overlay {
-    opacity: 1 !important;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
 .product-image-container {
-    height: 240px !important;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.product-image {
+    object-fit: fill;
+    transition: transform 0.3s ease;
+}
+
+.product-actions {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .product-actions {
+    opacity: 1;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.action-btn:hover {
+    background: #E2352E;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.action-btn.wishlisted {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.action-btn svg {
+    width: 18px;
+    height: 18px;
 }
 
 .product-info {
-    padding: 1.75rem 1.5rem !important;
+    padding: 20px;
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.product-title {
-    font-size: 16px !important;
-    font-weight: 650 !important;
-    margin-bottom: 0.4rem !important;
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px 0;
+    text-align: center;
 }
 
 .product-artist {
-    font-size: 13px !important;
-    margin-bottom: 0.6rem !important;
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.product-format {
+    font-size: 12px;
+    color: #999;
+    margin: 0 0 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .product-price {
-    font-size: 18px !important; 
-    font-weight: 650 !important;
-    color: #2c5aa0 !important;
+    font-size: 18px;
+    font-weight: bold;
+    color: #E2352E;
+    margin: 0;
+    text-align: center;
 }
-
-.product-overlay button {
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 16px !important;
+ .artist-card {
+     border-radius: 0 !important;
+     box-shadow: 0 3px 12px rgba(0,0,0,0.1) !important;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     margin-bottom: 3.5rem;
+     margin-right: 2.5rem;
+     min-height: 450px;
 }
-
-.artist-card {
-    border-radius: 0 !important;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 3.5rem; 
-    margin-right: 2.5rem;
-    min-height: 450px; 
+ .artist-card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
 }
-
-.artist-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+ .artist-image-container {
+     height: 400px !important;
 }
-
-.artist-image-container {
-    height: 400px !important; 
+ .artist-info {
+     padding: 2rem 1.5rem !important;
 }
-
-.artist-info {
-    padding: 2rem 1.5rem !important; 
+ .artist-name {
+     font-size: 18px !important;
+     font-weight: 700 !important;
+     margin-bottom: 0.5rem !important;
 }
-
-.artist-name {
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    margin-bottom: 0.5rem !important;
+ .artist-specialty {
+     font-size: 15px !important;
+     margin-bottom: 0 !important;
 }
-
-.artist-specialty {
-    font-size: 15px !important;
-    margin-bottom: 0 !important;
+ .section-title {
+     position: relative;
+     padding-bottom: 15px;
+     text-transform: uppercase;
+     margin-bottom: 4rem !important;
 }
-
-.section-title {
-    position: relative;
-    padding-bottom: 15px;
-    text-transform: uppercase;
-    margin-bottom: 4rem !important; 
+ .section-title::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 80px;
+     height: 3px;
+     background: #333;
 }
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: #333;
+ .section-subtitle {
+     letter-spacing: 1px;
 }
-
-.section-subtitle {
-    letter-spacing: 1px;
+ .btn-outline-light {
+     transition: all 0.3s ease;
+     border-radius: 0;
 }
-
-.btn-outline-light {
-    transition: all 0.3s ease;
-    border-radius: 0;
+ .btn-outline-light:hover {
+     background-color: rgba(255,255,255,0.1);
 }
-
-.btn-outline-light:hover {
-    background-color: rgba(255,255,255,0.1);
+ .trending-section {
+     padding: 6rem 0 !important;
 }
-
-.trending-section {
-    padding: 6rem 0 !important;
+ .artists-section {
+     padding: 5rem 0 !important;
 }
-
-.artists-section {
-    padding: 5rem 0 !important;
+ .row.g-3 {
+     --bs-gutter-y: 3.5rem !important;
+     --bs-gutter-x: 2rem !important;
 }
-
-.row.g-3 {
-    --bs-gutter-y: 3.5rem !important;
-    --bs-gutter-x: 2rem !important;
-}
-
 /* Responsive ayarlar */
-@media (max-width: 768px) {
-    .product-card {
-        margin-bottom: 2rem;
-        min-height: 280px;
+ @media (max-width: 768px) {
+     .product-card {
+         margin-bottom: 2rem;
+         min-height: 280px;
     }
-    
-    .product-image-container {
-        height: 220px !important;
+     .product-image-container {
+         height: 220px !important;
     }
-    
-    .product-title {
-        font-size: 15px !important;
+     .product-name {
+         font-size: 15px !important;
     }
-    
-    .product-artist {
-        font-size: 12px !important;
+     .product-artist {
+         font-size: 12px !important;
     }
-    
-    .product-price {
-        font-size: 16px !important;
+     .product-price {
+         font-size: 16px !important;
     }
-    
-    .artist-card {
-        margin-bottom: 3rem;
-        min-height: 380px;
+     .artist-card {
+         margin-bottom: 3rem;
+         min-height: 380px;
     }
-    
-    .artist-image-container {
-        height: 320px !important; /* Artist mobilde de büyük */
+     .artist-image-container {
+         height: 320px !important;
+        /* Artist mobilde de büyük */
     }
-    
-    .artist-name {
-        font-size: 17px !important;
+     .artist-name {
+         font-size: 17px !important;
     }
-    
-    .artist-specialty {
-        font-size: 14px !important;
+     .artist-specialty {
+         font-size: 14px !important;
     }
-    
-    .trending-section,
-    .artists-section {
-        padding: 4rem 0 !important;
+     .trending-section, .artists-section {
+         padding: 4rem 0 !important;
     }
-    
-    .section-title {
-        margin-bottom: 3rem !important;
+     .section-title {
+         margin-bottom: 3rem !important;
     }
-    
-    .row.g-3 {
-        --bs-gutter-y: 2.5rem !important;
+     .row.g-3 {
+         --bs-gutter-y: 2.5rem !important;
     }
 }
-
-@media (max-width: 575px) {
-    .carousel-caption.custom-caption > div {
-        padding: 10px;
+ @media (max-width: 575px) {
+     .carousel-caption.custom-caption > div {
+         padding: 10px;
     }
-    
-    .p-text {
-        font-size: 14px;
+     .p-text {
+         font-size: 14px;
     }
-    
-    .h2-text {
-        font-size: 18px;
+     .h2-text {
+         font-size: 18px;
     }
-    
-    .p-inside-text {
-        font-size: 12px;
+     .p-inside-text {
+         font-size: 12px;
     }
-    
-    .colorful-cards-container > div {
-        width: 100%;
+     .colorful-cards-container > div {
+         width: 100%;
     }
-    
-    .product-card {
-        min-height: 250px;
+     .product-card {
+         min-height: 250px;
     }
-    
-    .product-image-container {
-        height: 180px !important;
+     .product-image-container {
+         height: 180px !important;
     }
-    
-    .product-title {
-        font-size: 14px !important;
+     .product-name {
+         font-size: 14px !important;
     }
-    
-    .product-price {
-        font-size: 15px !important;
+     .product-price {
+         font-size: 15px !important;
     }
-    
-    .product-overlay button {
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 14px !important;
+     .action-btn {
+         width: 35px !important;
+         height: 35px !important;
+         font-size: 14px !important;
     }
-    
-    .artist-card {
-        min-height: 320px;
+     .artist-card {
+         min-height: 320px;
     }
-    
-    .artist-image-container {
-        height: 260px !important; /* Artist küçük ekranda da büyük */
+     .artist-image-container {
+         height: 260px !important;
+        /* Artist küçük ekranda da büyük */
     }
-    
-    .artist-name {
-        font-size: 16px !important;
+     .artist-name {
+         font-size: 16px !important;
     }
-    
-    .artist-specialty {
-        font-size: 13px !important;
+     .artist-specialty {
+         font-size: 13px !important;
     }
 }
-
-.icon-conf {
-    height: auto;
-    width: clamp(400px, 20vh, 500px);
+ .icon-conf {
+     height: auto;
+     width: clamp(400px, 20vh, 500px);
 }
-
-.divider-line {
-    display: inline-block;
-    max-width: calc(100vw - 150px);
-    width: clamp(150vw, 60vw, 200px);
-    height: 2px;
-    background-color: "#E3E3E3";
-    margin-left: calc(30px - 40px);;
-    vertical-align: middle;
-    flex-shrink: 0;
+ .divider-line {
+     display: inline-block;
+     max-width: calc(100vw - 150px);
+     width: clamp(150vw, 60vw, 200px);
+     height: 2px;
+     background-color: "#E3E3E3";
+     margin-left: calc(30px - 40px);
+    ;
+     vertical-align: middle;
+     flex-shrink: 0;
 }
-
-.placeholder-box { 
-    width: clamp(70px, 15vw,200px);
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right:  auto;
-    height: 60px; 
-    background-color: #999; 
+ .placeholder-box {
+     width: clamp(70px, 15vw,200px);
+     margin-top: 5px;
+     margin-left: auto;
+     margin-right: auto;
+     height: 60px;
+     background-color: #999;
 }
-.fs1-text{
-    font-size: clamp(40px, 5vw, 50px);
+ .fs1-text{
+     font-size: clamp(40px, 5vw, 50px);
 }
-
-#artistsCarousel .carousel-indicators button {
-    width: 12px !important;
-    height: 12px !important;
-    border-radius: 50% !important;
-    border: none !important;
-    opacity: 1 !important;
+ #artistsCarousel .carousel-indicators button {
+     width: 12px !important;
+     height: 12px !important;
+     border-radius: 50% !important;
+     border: none !important;
+     opacity: 1 !important;
 }
-
-#artistsCarousel .carousel-indicators button.active {
-    opacity: 1 !important;
-    background-color: #000 !important;
+ #artistsCarousel .carousel-indicators button.active {
+     opacity: 1 !important;
+     background-color: #000 !important;
 }
-
-.btn-new-arrivals{
-    color:  black;
+ .btn-new-arrivals{
+     color: black;
 }
-.btn-new-arrivals:hover{
-    color: #000000;
-    background-color: #999999;
+ .btn-new-arrivals:hover{
+     color: #000000;
+     background-color: #999999;
 }
-
-.insta-placeholder-box{
-    aspect-ratio: 1;
-    border-radius: 8px;
-    display: flex;
-    height: 200px;
-    align-items: end;
-    justify-content: end;
-    margin-bottom: 15px;
-    padding: 5px 10px;
-    width: 90%;
-    background-color: #999; 
+ .insta-placeholder-box{
+     aspect-ratio: 1;
+     border-radius: 8px;
+     display: flex;
+     height: 200px;
+     align-items: end;
+     justify-content: end;
+     margin-bottom: 15px;
+     padding: 5px 10px;
+     width: 90%;
+     background-color: #999;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import EcommerceFilter from "..//OrderDetailsPage/OrderDetailsPage";
+
 
 const ProductCard = ({ product, onAddToCart, onToggleWishlist, onQuickView }) => {
   return (
@@ -255,7 +255,7 @@ const CollectionPage = () => {
   };
 
   return (
-    <div className="row collection-page">
+    <div className="collection-page">
       <style jsx>{`
       
         .collection-page {
@@ -293,7 +293,7 @@ const CollectionPage = () => {
         }
 
         .filters-container {
-         
+        padding-left: 300px;  
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -360,7 +360,7 @@ const CollectionPage = () => {
         }
 
         .products-grid {
-        
+        padding-left: 300px; 
           display: flex;
           flex-wrap: wrap;
           gap: 20px;
@@ -571,78 +571,75 @@ const CollectionPage = () => {
           }
         }
       `}</style>
-  <div className='col-lg-8 col-md-12'>
-    
-    <div className="page-header">
-      <h1 className="page-title">NEW ARRIVAL</h1>
-      <EcommerceFilter></EcommerceFilter>
-    </div>
-  </div>
-  <div className='col-lg-4 col-md-12'>
-    <div className="filters-container">
-      <div className="search-container">
-        <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.35-4.35"></path>
-        </svg>
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
+
+      <div className="page-header">
+        <h1 className="page-title">NEW ARRIVAL</h1>
       </div>
 
-      <div className="filter-controls">
-        <div className="filter-group">
-          <span className="filter-label">Show:</span>
-          <select 
-            className="filter-select"
-            value={itemsPerPage}
-            onChange={handleItemsPerPageChange}
-          >
-            <option value={15}>15 per page</option>
-            <option value={25}>25 per page</option>
-            <option value={35}>35 per page</option>
-            <option value={50}>50 per page</option>
-          </select>
+      <div className="filters-container">
+        <div className="search-container">
+          <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
         </div>
 
-        <div className="filter-group">
-          <span className="filter-label">Sort By:</span>
-          <select 
-            className="filter-select"
-            value={sortBy}
-            onChange={handleSortChange}
-          >
-            <option value="Position">Position</option>
-            <option value="Name">Name</option>
-            <option value="Price">Price</option>
-            <option value="Date">Date</option>
-          </select>
+        <div className="filter-controls">
+          <div className="filter-group">
+            <span className="filter-label">Show:</span>
+            <select 
+              className="filter-select"
+              value={itemsPerPage}
+              onChange={handleItemsPerPageChange}
+            >
+              <option value={15}>15 per page</option>
+              <option value={25}>25 per page</option>
+              <option value={35}>35 per page</option>
+              <option value={50}>50 per page</option>
+            </select>
+          </div>
+
+          <div className="filter-group">
+            <span className="filter-label">Sort By:</span>
+            <select 
+              className="filter-select"
+              value={sortBy}
+              onChange={handleSortChange}
+            >
+              <option value="Position">Position</option>
+              <option value="Name">Name</option>
+              <option value="Price">Price</option>
+              <option value="Date">Date</option>
+            </select>
+          </div>
         </div>
       </div>
+
       <div className="products-grid">
-  {currentProducts.map(product => (
-    <ProductCard
-      key={product.id}
-      product={product}
-      onAddToCart={handleAddToCart}
-      onToggleWishlist={handleToggleWishlist}
-      onQuickView={handleQuickView}
-    />
-  ))}
-</div>
+        {currentProducts.map(product => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onAddToCart={handleAddToCart}
+            onToggleWishlist={handleToggleWishlist}
+            onQuickView={handleQuickView}
+          />
+        ))}
+      </div>
 
-{totalPages > 1 && (
-  <div className="pagination">
-    {renderPaginationItems()}
-  </div>
-)}
+      {totalPages > 1 && (
+        <div className="pagination">
+          {renderPaginationItems()}
+        </div>
+      )}
     </div>
-  </div>
-</div>
   );
 };
 

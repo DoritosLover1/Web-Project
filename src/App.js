@@ -50,7 +50,7 @@ function App() {
                 <Route path='/account'>
                   <Route path='checkout-page' element={<CheckOut/>}></Route>
                   <Route path="contact-details" element={<ContactDetails></ContactDetails>}></Route>
-                  <Route path="add-address" element={<AddAddressPage/>}></Route>
+                  <Route path="add-address" element={<AddAddressPage></AddAddressPage>}></Route>
                   <Route path='wishlist' element={<WishlistPage></WishlistPage>}></Route>
                   <Route path='empty-wishlist' element={<EmptyWishlistPage></EmptyWishlistPage>}></Route>
                   <Route path="order-page" element={<OrderPage></OrderPage>}></Route>

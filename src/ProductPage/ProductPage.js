@@ -8,7 +8,7 @@ const [activeTab, setActiveTab] = useState('details');
 const {id} = useParams();
 const [products, setProducts] = useState(null);
 const [comments, setComments] = useState([]);
-const [relatedProducts, setRelatedProducts] = useState([]); // Dinamik hale getirdik
+const [relatedProducts, setRelatedProducts] = useState([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
@@ -79,10 +79,7 @@ const handleViewProduct = (productId) =>{
    navigate(`/product-page/${productId}`);
 };
 
-const [selectedImage, setSelectedImage] = useState(0);
 const [quantity, setQuantity] = useState(1);
-const [selectedColor, setSelectedColor] = useState('');
-const [selectedSize, setSelectedSize] = useState('');
 const [liked, setLiked] = useState(false)
 
 const renderStars = (rating) => {
@@ -335,16 +332,15 @@ return (
             comments.map((comment, index) => (
             <div key={comment.comment_id || index} className="mb-4 border-bottom pb-3">
             <div className="d-flex justify-content-between text-muted small mb-1">
-                <span>Customer #{comment.customer_id}</span>
+                <span>{comment.first_name} {comment.last_name}</span>
                 <span>{comment.date ? new Date(comment.date).toLocaleDateString('en-US') : 'Date unknown'}</span>
             </div>
             <div className="d-flex">
                 <div className="rounded-circle bg-dark text-white d-flex justify-content-center align-items-center me-3" style={{ width: '40px', height: '40px' }}>
-                C{comment.customer_id}
+                {comment.first_name[0]}.{comment.last_name[0]}.
             </div>
             <div>
                 <div className="fw-bold">
-                    Customer #{comment.customer_id}
                     <span className="text-warning small ms-2">
                     {renderStars(comment.rating || 0)}
                     </span>

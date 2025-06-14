@@ -400,9 +400,6 @@ async function setHomeAddress(addressId, token) {
                             >
                               Remove
                             </button>
-                            <button className="btn btn-link text-dark p-0 text-decoration-none small fw-bold">
-                              Edit
-                            </button>
                             {!address.is_default && (
                               <button 
                                 className="btn btn-link text-dark p-0 text-decoration-none small fw-bold"

@@ -28,6 +28,7 @@ import OrderPage from './OrdersPage/OrdersPage';
 import OrderDetailsPage from './OrderDetailsPage/OrderDetailsPage';
 import CartPage from './CartPage/Cart';
 import CollectionPage from './CollectionPage/CollectionPage';
+import CollectionPage2 from './CollectionPage2/CollectionPage2';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
                 <Route path="/order-details" element={<OrderDetailsPage></OrderDetailsPage>}></Route>
                 <Route path="/cart-page" element={<CartPage></CartPage>}></Route>
                 <Route path="/collection-page" element={<CollectionPage></CollectionPage>}></Route>
+                <Route path="/collection-page2" element={<CollectionPage2></CollectionPage2>}></Route>
               </Routes>
           </main>
         <FooterCreate></FooterCreate>

@@ -7,12 +7,20 @@ import { useAuth } from "..//ScriptsFolder/AuthContext";
 export default function MainHeader() {
   const [expanded, setExpanded] = useState(false);
   const [openBar, setOpenBar] = useState(false);
-  const {user, logout, loading} = useAuth();
+  const {user} = useAuth();
   const navigate = useNavigate();
 
   const handlePersonClick = () =>{
     if(user){
       navigate("/account/contact-details");
+    }else{
+      navigate("/sign-in");
+    }
+  }
+
+  const handleCartClick = () =>{
+    if(user){
+      navigate("/account/cart");
     }else{
       navigate("/sign-in");
     }
@@ -62,9 +70,9 @@ export default function MainHeader() {
                 </button>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <button className="nav-link" onClick={handleCartClick}>
                   <i className="bi bi-cart" style={{ fontSize: 25 }}></i>
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

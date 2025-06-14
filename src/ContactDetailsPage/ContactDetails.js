@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { useAuth } from "..//ScriptsFolder/AuthContext";
+import { useAuth, AuthProvider } from "..//ScriptsFolder/AuthContext";
 import Axios from "axios";
 
 export default function ContactDetailsPage() {
@@ -76,6 +76,10 @@ async function setHomeAddress(addressId, token) {
     navigate("/account/add-address");
   }
 
+  const handleHomePage = () =>{
+    navigate("/");
+  }
+
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [addresses, setAddresses] = useState([]);
@@ -143,6 +147,11 @@ async function setHomeAddress(addressId, token) {
     }
   };
 
+  const handleQuit = async () =>{
+    localStorage.clear();
+    navigate("/");
+  }
+
   if (loading) {
     return (
       <div className="container py-4">
@@ -156,9 +165,10 @@ async function setHomeAddress(addressId, token) {
     );
   }
 
-  if (!user) {
-    navigate("/404-error");
-  }
+ if (!user) {
+  setTimeout(() => navigate("/sign-in"), 0);
+  return null;
+}
 
   const fields = [
     { key: "first_name", label: "First Name", value: user.first_name },
@@ -184,7 +194,7 @@ async function setHomeAddress(addressId, token) {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb mb-0">
             <li className="breadcrumb-item">
-              <a href="#" className="text-muted text-decoration-none">
+              <a href="#" className="text-muted text-decoration-none" onClick={handleHomePage}>
                 Home
               </a>
             </li>
@@ -229,9 +239,9 @@ async function setHomeAddress(addressId, token) {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex align-items-center fw-bold text-muted" href="#">
+                <button className="btn nav-link d-flex align-items-center fw-bold text-muted" href="#" onClick={handleQuit}>
                   <i className="bi bi-box-arrow-right px-2"></i> Sign out
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

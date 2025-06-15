@@ -11,92 +11,11 @@ import pictureartist4 from "../assets/artists/Kanye_West.png";
 import pictureartist5 from "../assets/artists/nejat_isler.jpg";
 import pictureartist6 from "../assets/artists/volkan_konak.jpg";
 import { useState, useEffect } from 'react';
+import { useAuth } from '../ScriptsFolder/AuthContext';
 import Axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 const productsDatabase = {
-trending: [
-{
-id: 1,
-title: "Desire Walks On",
-artist: "Heart Way",
-price: "$00.00",
-image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop",
-likes: 24,
-views: 156,
-category: "trending"
-},
-{
-id: 2,
-title: "Lorem Ipsum",
-artist: "Lorem Ipsum",
-price: "$00.00",
-image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop",
-likes: 18,
-views: 89,
-category: "trending"
-},
-{
-id: 3,
-title: "Lorem Ipsum",
-artist: "Lorem Ipsum",  
-price: "$00.00",
-image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop",
-likes: 32,
-views: 201,
-category: "trending"
-},
-{
-id: 4,
-title: "Lorem Ipsum",
-artist: "Lorem Ipsum",
-price: "$00.00", 
-image: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f?w=300&h=300&fit=crop",
-likes: 15,
-views: 67,
-category: "trending"
-},
-{
-id: 5,
-title: "Lorem Ipsum",
-artist: "Lorem Ipsum",
-price: "$00.00",
-image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop",
-likes: 28,
-views: 134,
-category: "trending"
-},
-{
-id: 6,
-title: "Lorem Ipsum", 
-artist: "Lorem Ipsum",
-price: "$00.00",
-image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop",
-likes: 41,
-views: 298,
-category: "trending"
-},
-{
-id: 7,
-title: "Lorem Ipsum",
-artist: "Lorem Ipsum", 
-price: "$00.00",
-image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop",
-likes: 19,
-views: 76,
-category: "trending"
-},
-{
-id: 8,
-title: "Lorem Ipsum",
-artist: "Lorem Ipsum",
-price: "$00.00",
-image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop", 
-likes: 33,
-views: 187,
-category: "trending"
-}
-],
 artists: [
 {
 id: 1,
@@ -155,6 +74,7 @@ category: "artists"
 ]
 };
 export default function MainPage() {
+const { user, isAuthenticated } = useAuth();
 
 const navigate = useNavigate();
 const handleViewProduct = (productId) =>{
@@ -162,6 +82,7 @@ const handleViewProduct = (productId) =>{
 };
 
 const [products, setProducts] = useState([]);
+const [cartLoading, setCartLoading] = useState(false);
 useEffect(() => {
 const fetchProducts = async () => {
 try {
@@ -174,18 +95,42 @@ console.error('Ürünler alınamadı:', error);
 fetchProducts();
 }, []);
 
-const [likedItems, setLikedItems] = useState(new Set());
-const handleLike = (itemId) => {
-setLikedItems(prev => {
-const newSet = new Set(prev);
-if (newSet.has(itemId)) {
-newSet.delete(itemId);
-} else {
-newSet.add(itemId);
-}
-return newSet;
-});
+const handleAddToCart = async (productId) => {
+  try {
+    if (!isAuthenticated()) {
+      alert('Sepete ekleme için lütfen giriş yapın');
+      navigate('/sign-in');
+      return;
+    }
+
+    const customerId = user?.id || user?.customerId;
+    
+    if (!customerId) {
+      alert('Kullanıcı bilgisi bulunamadı');
+      return;
+    }
+    
+    const response = await Axios.post('http://localhost:5000/cart-add', {
+      customerId: customerId,
+      productId: productId,
+      quantity: 1
+    });
+    
+    console.log(response.data);
+    
+  } catch (error) {
+    console.error('Sepete ekleme hatası:', error);
+    
+    if (error.response) {
+      alert(`Hata: ${error.response.data.message || 'Sepete ekleme işlemi başarısız'}`);
+    } else if (error.request) {
+      alert('Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.');
+    } else {
+      alert('Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.');
+    }
+  }
 };
+
 return (
 <div className='d-flex flex-column'>
     <div className="d-flex justify-content-center align-items-center w-100">
@@ -305,7 +250,7 @@ return (
           <div className="product-actions">
             <button 
               className="action-btn"
-              onClick={() => ""}
+              onClick={() => handleAddToCart(product.id)}
               title="Add to Cart"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

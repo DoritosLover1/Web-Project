@@ -37,13 +37,13 @@ const Cart = () => {
 
   useEffect(() => {
     if (!authLoading && !user) {
-      navigate('/signin');
+      navigate('/sign-in');
     }
   }, [authLoading, user, navigate]);
 
   const fetchCart = async () => {
     try {
-      const response = await axios.get(`/cart/${user.id}`);
+      const response = await axios.get(`http://localhost:5000/cart/${user.id}`);
       if (response.data.success) {
         setCartItems(response.data.cartItems);
         setSummary(response.data.summary);
@@ -104,12 +104,6 @@ const Cart = () => {
           <span className="breadcrumb-separator">›</span>
           <span style={{ color: '#3C4242', fontWeight: 'bold' }}>Add To Cart</span>
         </nav>
-        <p className="cart-instructions">
-          Please fill in the fields below and click place order to complete your purchase!
-        </p>
-        <p className="login-prompt">
-          Already registered? <a href="#" className="login-link">Please login here</a>
-        </p>
       </div>
 
       <div className="cart-table-container">

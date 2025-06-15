@@ -15,7 +15,6 @@ import FooterCreate from '..//src/FooterSide/MainFooter';
 import CheckEmailPage from './CheckEmailPage/CheckEmailPage';
 import VerificationPage from './VerificationPage/VerificationPage';
 import ChangePasswordPage from './ChangePasswordPage/ChangePasswordPage';
-import EmptyCart from './EmptyCartPage/EmptyCart';
 import OrderConfirmPage from './OrderConfirmPage/OrderConfirmPage';
 import MainPage from './MainPage/Main';
 import ContactPage from './ContactPage/Contact';
@@ -57,7 +56,6 @@ function App() {
                   <Route path="order-page" element={<OrderPage></OrderPage>}></Route>
                   <Route path="order-details" element={<OrderDetailsPage></OrderDetailsPage>}></Route>
                   <Route path='confirm-order' element={<OrderConfirmPage/>}></Route>
-                  <Route path='empty-cart' element={<EmptyCart/>}></Route>
                   <Route path='cart' element={<Cart></Cart>}></Route>
                 </Route>
 

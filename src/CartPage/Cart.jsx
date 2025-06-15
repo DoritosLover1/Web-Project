@@ -1,76 +1,108 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Trash2, Minus, Plus } from 'lucide-react';
 import './Cart.css';
-import { 
-  updateQuantity, 
-  removeItem, 
-  calculateSub, 
-  calculateTotalShipping, 
-  calculateGrandTotal 
-} from './cartUtils.js';
+import './EmptyCart.css';
+import picture from "../assets/backgrounds/background_emptycart.png";
+import axios from 'axios';
+import { useAuth } from '../ScriptsFolder/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+const EmptyCart = ({ onContinueShopping }) => {
+  return (
+    <div className='d-flex justify-content-center align-items-center flex-grow-1 body-of-emptycart-wrapper'>
+      <div className='text-center image-container'>
+        <img src={picture} alt="Error Icon" />
+        <h1>Your cart is empty and sad</h1>
+        <p style={{ color: "#807D7E" }}>Add something to make it happy!</p>
+        <button
+          type='button'
+          className='btn btn-danger my-2 continue-btn'
+          style={{ fontSize: 20 }}
+          onClick={onContinueShopping}
+        >
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'Blue Flower Print Crop Top',
-      artist: 'Yellow',
-      format: 'M',
-      price: 29.00,
-      quantity: 1,
-      shipping: 'FREE',
-      image: '/api/placeholder/80/80'
-    },
-    {
-      id: 2,
-      name: 'Levender Hoodie',
-      artist: 'Levender',
-      format: 'XXL',
-      price: 119.00,
-      quantity: 2,
-      shipping: 'FREE',
-      image: '/api/placeholder/80/80'
-    },
-    {
-      id: 3,
-      name: 'Black Sweatshirt',
-      artist: 'Black',
-      format: 'XXL',
-      price: 123.00,
-      quantity: 2,
-      shipping: 5.00,
-      image: '/api/placeholder/80/80'
-    }
-  ]);
-
+  const { user, loading: authLoading } = useAuth();
+  const [cartItems, setCartItems] = useState([]);
   const [couponCode, setCouponCode] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [summary, setSummary] = useState({ subtotal: 0, shipping: 0, grandTotal: 0 });
+  const navigate = useNavigate();
 
-  const handleUpdateQuantity = (id, newQuantity) => {
-    setCartItems(items => updateQuantity(items, id, newQuantity));
+  useEffect(() => {
+    if (!authLoading && !user) {
+      navigate('/signin');
+    }
+  }, [authLoading, user, navigate]);
+
+  const fetchCart = async () => {
+    try {
+      const response = await axios.get(`/cart/${user.id}`);
+      if (response.data.success) {
+        setCartItems(response.data.cartItems);
+        setSummary(response.data.summary);
+      }
+    } catch (error) {
+      console.error('Cart fetch error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleRemoveItem = (id) => {
-    setCartItems(items => removeItem(items, id));
+  useEffect(() => {
+    if (user?.id) {
+      fetchCart();
+    }
+  }, [user]);
+
+  const updateCartItem = async (productId, quantity) => {
+    try {
+      await axios.put('/cart/update', {
+        customerId: user.id,
+        productId,
+        quantity
+      });
+      fetchCart();
+    } catch (error) {
+      console.error('Update error:', error);
+    }
   };
 
-  const subtotal = calculateSub(cartItems);
-  const totalShipping = calculateTotalShipping(cartItems);
-  const grandTotal = calculateGrandTotal(subtotal, totalShipping);
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    updateCartItem(productId, newQuantity);
+  };
+
+  const handleRemoveItem = (productId) => {
+    updateCartItem(productId, 0);
+  };
+
+  const handleContinueShopping = () => {
+    navigate("/");
+  };
 
   const applyCoupon = () => {
     console.log('Applying coupon:', couponCode);
-    // Coupon logic would go here
   };
+
+  if (loading || authLoading) return <div>Loading...</div>;
+
+  if (cartItems.length === 0) {
+    return <EmptyCart onContinueShopping={handleContinueShopping} />;
+  }
 
   return (
     <div className="cart-container">
-      {/* Header */}
       <div className="cart-header">
         <nav className="breadcrumb">
           <span>Home</span>
           <span className="breadcrumb-separator">›</span>
           <span style={{ color: '#3C4242', fontWeight: 'bold' }}>Add To Cart</span>
-
         </nav>
         <p className="cart-instructions">
           Please fill in the fields below and click place order to complete your purchase!
@@ -80,7 +112,6 @@ const Cart = () => {
         </p>
       </div>
 
-      {/* Cart Table */}
       <div className="cart-table-container">
         <div className="table-header">
           <div className="header-cell product-header">PRODUCT DETAILS</div>
@@ -101,41 +132,41 @@ const Cart = () => {
                 <p className="product-format">Format: {item.format}</p>
               </div>
             </div>
-            
+
             <div className="item-price">
               ${item.price.toFixed(2)}
             </div>
-            
+
             <div className="quantity-controls">
-              <button 
+              <button
                 className="quantity-btn"
-                onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
+                onClick={() => handleUpdateQuantity(item.id, item.product_quantity - 1)}
               >
                 <Minus size={16} />
               </button>
-              <span className="quantity-value">{item.quantity}</span>
-              <button 
+              <span className="quantity-value">{item.product_quantity}</span>
+              <button
                 className="quantity-btn"
-                onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
+                onClick={() => handleUpdateQuantity(item.id, item.product_quantity + 1)}
               >
                 <Plus size={16} />
               </button>
             </div>
-            
+
             <div className="item-shipping">
-              {item.shipping === 'FREE' ? (
+              {summary.shipping === 0 ? (
                 <span className="free-shipping">FREE</span>
               ) : (
-                <span className="paid-shipping">${item.shipping.toFixed(2)}</span>
+                <span className="paid-shipping">${summary.shipping.toFixed(2)}</span>
               )}
             </div>
-            
+
             <div className="item-subtotal">
-              ${(item.price * item.quantity).toFixed(2)}
+              ${(item.item_total).toFixed(2)}
             </div>
-            
+
             <div className="item-action">
-              <button 
+              <button
                 className="remove-btn"
                 onClick={() => handleRemoveItem(item.id)}
               >
@@ -146,7 +177,6 @@ const Cart = () => {
         ))}
       </div>
 
-      {/* Bottom Section */}
       <div className="cart-bottom">
         <div className="discount-section">
           <h3 className="discount-title">Discount Codes</h3>
@@ -163,7 +193,7 @@ const Cart = () => {
               Apply Coupon
             </button>
           </div>
-          <button className="continue-shopping-btn">
+          <button className="continue-shopping-btn" onClick={handleContinueShopping}>
             Continue Shopping
           </button>
         </div>
@@ -171,15 +201,15 @@ const Cart = () => {
         <div className="order-summary">
           <div className="summary-row">
             <span className="summary-label">Sub Total</span>
-            <span className="summary-value">${subtotal.toFixed(2)}</span>
+            <span className="summary-value">${summary.subtotal.toFixed(2)}</span>
           </div>
           <div className="summary-row">
             <span className="summary-label">Shipping</span>
-            <span className="summary-value">${totalShipping.toFixed(2)}</span>
+            <span className="summary-value">${summary.shipping.toFixed(2)}</span>
           </div>
           <div className="summary-row grand-total-row">
             <span className="summary-label grand-total-label">Grand Total</span>
-            <span className="summary-value grand-total-value">${grandTotal.toFixed(2)}</span>
+            <span className="summary-value grand-total-value">${summary.grandTotal.toFixed(2)}</span>
           </div>
           <button className="checkout-btn">
             Proceed To Checkout

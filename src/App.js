@@ -22,7 +22,6 @@ import CheckOut from './CheckOutPage/CheckOut';
 import ContactDetails from './ContactDetailsPage/ContactDetails';
 import AddAddressPage from './AddAddressPage/AddAddressPage';
 import WishlistPage from './WishlistPage/WishlistPage';
-import EmptyWishlistPage from './EmptyWishlistPage/EmptyWishlistPage';
 import OrderPage from './OrdersPage/OrdersPage';
 import OrderDetailsPage from './OrderDetailsPage/OrderDetailsPage';
 import {AuthProvider} from "..//src/ScriptsFolder/AuthContext";
@@ -53,7 +52,6 @@ function App() {
                   <Route path="contact-details" element={<ContactDetails></ContactDetails>}></Route>
                   <Route path="add-address" element={<AddAddressPage></AddAddressPage>}></Route>
                   <Route path='wishlist' element={<WishlistPage></WishlistPage>}></Route>
-                  <Route path='empty-wishlist' element={<EmptyWishlistPage></EmptyWishlistPage>}></Route>
                   <Route path="order-page" element={<OrderPage></OrderPage>}></Route>
                   <Route path="order-details" element={<OrderDetailsPage></OrderDetailsPage>}></Route>
                   <Route path='confirm-order' element={<OrderConfirmPage/>}></Route>

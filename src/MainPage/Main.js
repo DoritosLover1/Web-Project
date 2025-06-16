@@ -33,6 +33,7 @@ console.error('Ürünler alınamadı:', error);
 };
 fetchProducts();
 }, []);
+
 const [artists, setArtists] = useState([]);
 useEffect(() => {
 const fetchArtists = async () => {
@@ -45,6 +46,7 @@ console.error('Artistler alınamadı:', error);
 };
 fetchArtists();
 });
+
 const handleAddToCart = async (productId) => {
 try {
 if (!isAuthenticated()) {
@@ -74,6 +76,36 @@ alert('Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.');
 }
 }
 };
+
+const handleAddToWishlist = async (productId) => {
+    try {
+        if (!isAuthenticated()) {
+            alert('Favorilere ekleme için lütfen giriş yapın');
+            navigate('/sign-in');
+            return;
+        }
+
+        const customerId = user?.id || user?.customerId;
+        if (!customerId) {
+            alert('Kullanıcı bilgisi bulunamadı');
+            return;
+        }
+
+        const response = await Axios.post('http://localhost:5000/wishlist-add', {
+            customerId: customerId,
+            productId: productId
+        });
+
+    } catch (error) {
+        console.error('Wishlist\'e ekleme hatası:', error);
+        if (error.response?.data?.message) {
+            alert(error.response.data.message);
+        } else {
+            alert('Favorilere eklenirken bir hata oluştu');
+        }
+    }
+};
+
 return (
 <div className='d-flex flex-column'>
 
@@ -81,10 +113,10 @@ return (
       <section className="card w-100">
          <div id="carouselExampleIndicator" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
-               <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-               <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="1" aria-label="Slide 2"></button>
-               <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="2" aria-label="Slide 3"></button>
-               <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="3" aria-label="Slide 4"></button>
+               <button type="button" style={{width: "10px", height: "10px"}} data-bs-target="#carouselExampleIndicator" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+               <button type="button" style={{width: "10px", height: "10px"}} data-bs-target="#carouselExampleIndicator" data-bs-slide-to="1" aria-label="Slide 2"></button>
+               <button type="button" style={{width: "10px", height: "10px"}} data-bs-target="#carouselExampleIndicator" data-bs-slide-to="2" aria-label="Slide 3"></button>
+               <button type="button" style={{width: "10px", height: "10px"}} data-bs-target="#carouselExampleIndicator" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
             <div className="carousel-inner"  style={{height: '600px', objectFit: 'cover'}}>
             <div className="carousel-item active">
@@ -220,8 +252,8 @@ return (
                            </svg>
                         </button>
                         <button 
-                        className={`action-btn ${product.isWishlisted ? 'wishlisted' : ''}`}
-                        onClick={() =>""}
+                        className={"action-btn"}
+                        onClick={() =>handleAddToWishlist(product.id)}
                         title="Add to Wishlist"
                         >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill={product.isWishlisted ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
@@ -265,26 +297,28 @@ return (
    </section>
 </div>
 
-<div className='w-100 p-5' style={{backgroundColor: "#E3E3E3"}}>
-<section className="container-fluid h-100">
-   <div className='row h-100 align-items-center m-5'>
+<div className='w-100 p-5' style={{ backgroundColor: "#E3E3E3" }}>
+  <section className="container-fluid h-100">
+    <div className='row h-100 align-items-center m-5'>
       <div className='col-lg-6 col-12'>
-         <p className='fs1-text fw-bold fst-italic text-dark mt-5' style={{marginBottom: 0}}>NEW ARRIVALS</p>
-         <p className="text-muted lh-base">
-            Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. <br></br>Lorem Ipsum has been the
-            industry's standard <br></br>dummy text ever since the 1500s
-            when an unknown printer took a galley of type
-         </p>
-         <p className="text-muted lh-base">
-            Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. <br></br>Lorem Ipsum has been the
-            industry's standard.
-         </p>
-         <button className='btn btn-outline-secondary fw-bold btn-new-arrivals' style={{borderColor: "black", borderRadius: 0}}>Your Ends</button>
+        <p className='fs1-text fw-bold fst-italic text-dark mt-5' style={{ marginBottom: 0 }}>NEW ARRIVALS</p>
+        <p className="text-muted lh-base">
+          Discover the rhythm of the past with our newest vinyl arrivals. Carefully curated, each record is
+          a timeless piece ready to enrich your music collection.
+        </p>
+        <p className="text-muted lh-base">
+          Whether you're diving into the depths of classic rock or swaying to the smooth tones of jazz,
+          find the perfect vinyl that speaks to your soul. Explore now and let the music play.
+        </p>
+        <button
+          className='btn btn-outline-secondary fw-bold btn-new-arrivals'
+          style={{ borderColor: "black", borderRadius: 0 }}
+        >
+          Explore Now
+        </button>
       </div>
-   </div>
-</section>
+    </div>
+  </section>
 </div>
 
 <div className='artist-section'>
@@ -461,6 +495,7 @@ return (
     </div>
   </div>
 </div>
+
 {/*
 <div className='w-100 p-2 d-flex justify-content-center'>
    <div className='container-fluid'>
@@ -516,6 +551,7 @@ return (
       </div>
    </div>
 </div>
+
 </div>  
 );
 }

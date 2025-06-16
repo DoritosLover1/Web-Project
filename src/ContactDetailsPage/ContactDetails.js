@@ -152,6 +152,10 @@ async function setHomeAddress(addressId, token) {
     navigate("/");
   }
 
+  const handleWishList = async () =>{
+    navigate("/account/wishlist");
+  }
+
   if (loading) {
     return (
       <div className="container py-4">
@@ -211,45 +215,44 @@ async function setHomeAddress(addressId, token) {
       </div>
 
       <div className="row">
-        <div className="col-12 col-lg-4 mb-4">
-          <div className="bg-white p-4 h-100">
-            <div className="mb-4">
-              <h5 className="text-dark fw-bold fs-4">
-                <div className="border-start border-4 rounded-1 border-danger ps-2">
-                  Hello {user.first_name}
-                </div>
-              </h5>
-              <p className="text-muted small mb-0">Welcome to your Account</p>
-            </div>
-
-            <ul className="nav flex-column w-25">
-              <li className="nav-item mb-2">
-                <Link className="nav-link d-flex align-items-center fw-bold text-muted" href="#">
-                  <i className="bi bi-bag px-2"></i> My orders
-                </Link>
-              </li>
-              <li className="nav-item mb-2">
-                <Link className="nav-link d-flex align-items-center fw-bold text-muted" href="#">
-                  <i className="bi bi-heart px-2"></i> Wishlist
-                </Link>
-              </li>
-              <li className="nav-item border-start border-3 border-danger bg-light">
-                <Link className="nav-link d-flex align-items-center fw-bold text-muted" href="#">
-                  <i className="bi bi-person px-2"></i> My info
-                </Link>
-              </li>
-              <li className="nav-item">
-                <button className="btn nav-link d-flex align-items-center fw-bold text-muted" href="#" onClick={handleQuit}>
-                  <i className="bi bi-box-arrow-right px-2"></i> Sign out
-                </button>
-              </li>
-            </ul>
-          </div>
+        <div className="col-12 col-lg-3 mb-4">
+  <div className="bg-white p-4 h-100">
+    <div className="mb-4">
+      <h5 className="text-dark fw-bold fs-4">
+        <div className="border-start border-4 rounded-1 border-danger ps-2">
+          Hello {user.first_name}
         </div>
+      </h5>
+      <p className="text-muted small mb-0">Welcome to your Account</p>
+    </div>
+    <ul className="nav flex-column">
+      <li className="nav-item mb-2">
+        <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start">
+          <i className="bi bi-bag px-2"></i> My orders
+        </button>
+      </li>
+      <li className="nav-item mb-2">
+        <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start" onClick={handleWishList}>
+          <i className="bi bi-heart px-2"></i> Wishlist
+        </button>
+      </li>
+      <li className="nav-item border-start border-3 border-danger bg-light mb-2">
+        <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start">
+          <i className="bi bi-person px-2"></i> My info
+        </button>
+      </li>
+      <li className="nav-item">
+        <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start" onClick={handleQuit}>
+          <i className="bi bi-box-arrow-right px-2"></i> Sign out
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
 
         <div className="col-12 col-lg-8">
           <div className="bg-white p-4">
-            <h4 className="mb-4 fw-bold fs-4">My Info</h4>
+            <h4 className="mb-4 fw-bold fs-2">My Info 📜</h4>
             <h6 className="mb-4 fw-bold fs-5">Contact Details</h6>
             {user &&
               fields.map((item, idx) => {

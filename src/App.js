@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './HomePage/Home';
+
 import Error from './ErrorPage/Error';
 import SignIn from './SignInPage/SignIn';
 import SignUp from './SignUpPage/SignUp';
@@ -27,6 +27,7 @@ import OrderDetailsPage from './OrderDetailsPage/OrderDetailsPage';
 import {AuthProvider} from "..//src/ScriptsFolder/AuthContext";
 import Cart from './CartPage/Cart';
 import EcommerceCollectionPage from './CollectionPage/CollectionPage';
+import Contact from './ContactPage/Contact';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/sign-in" element={<SignIn/>}></Route>
                 <Route path="/sign-up" element={<SignUp/>}></Route>
                 <Route path="/404-error" element={<Error/>}></Route>
+                <Route path="/contact-us" element={<Contact></Contact>}></Route>
 
                 <Route path='/reset-password' element={<ResetPass/>}>
                   <Route path='check-email' element={<CheckEmailPage/>}>

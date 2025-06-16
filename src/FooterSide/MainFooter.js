@@ -15,7 +15,7 @@ const FooterCreate = () => {
             <ul className="list-unstyled">
               <li><Link className="custom-link" to="/">Main Page</Link></li>
               <li><Link className="custom-link" to="/404-error">About Us</Link></li>
-              <li><Link className="custom-link" to="/404-error">Contact</Link></li>
+              <li><Link className="custom-link" to="/contact-us">Contact</Link></li>
             </ul>
           </div>
           <div className="col-md-3">

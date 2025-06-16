@@ -102,8 +102,6 @@ async function setHomeAddress(addressId, token) {
 
     setUser(userData);
     setLoading(false);
-
-    // Fetch addresses
     fetchAddresses();
 
   }, [userDetails]);

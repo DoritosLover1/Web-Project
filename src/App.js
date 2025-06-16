@@ -27,6 +27,7 @@ import OrderPage from './OrdersPage/OrdersPage';
 import OrderDetailsPage from './OrderDetailsPage/OrderDetailsPage';
 import {AuthProvider} from "..//src/ScriptsFolder/AuthContext";
 import Cart from './CartPage/Cart';
+import EcommerceCollectionPage from './CollectionPage/CollectionPage';
 
 function App() {
   return (
@@ -58,7 +59,7 @@ function App() {
                   <Route path='confirm-order' element={<OrderConfirmPage/>}></Route>
                   <Route path='cart' element={<Cart></Cart>}></Route>
                 </Route>
-
+                <Route path='collection-page' element={<EcommerceCollectionPage></EcommerceCollectionPage>}></Route>
                 <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
                 <Route path='/contact-us' element={<ContactPage/>}></Route>
                 <Route path='/product-page/:id' element={<ProductPage/>}></Route>

@@ -3,7 +3,7 @@ import { Trash2, Minus, Plus } from 'lucide-react';
 import './Cart.css';
 import './EmptyCart.css';
 import picture from "../assets/backgrounds/background_emptycart.png";
-import axios from 'axios';
+import Axios from 'axios';
 import { useAuth } from '../ScriptsFolder/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -43,7 +43,7 @@ const Cart = () => {
 
   const fetchCart = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/cart/${user.id}`);
+      const response = await Axios.get(`http://localhost:5000/cart/${user.id}`);
       if (response.data.success) {
         setCartItems(response.data.cartItems);
         setSummary(response.data.summary);
@@ -63,7 +63,7 @@ const Cart = () => {
 
   const updateCartItem = async (productId, quantity) => {
     try {
-      await axios.put('/cart/update', {
+      await Axios.put('http://localhost:5000/cart/update', {
         customerId: user.id,
         productId,
         quantity

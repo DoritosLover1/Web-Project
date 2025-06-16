@@ -11,3 +11,13 @@ color: #FFFFFF;
 .with-fixed-footer {
   padding-bottom: 80px;
 }
+
+.custom-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.custom-link:hover {
+  color: #b0b0b0; /* Hafif grimsi renk */
+}

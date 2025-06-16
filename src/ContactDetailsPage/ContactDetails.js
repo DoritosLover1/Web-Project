@@ -203,7 +203,7 @@ async function setHomeAddress(addressId, token) {
                 My Account
               </a>
             </li>
-            <li className="breadcrumb-item active text-dark" aria-current="page">
+            <li className="breadcrumb-item active text-danger" aria-current="page">
               Personal Info
             </li>
           </ol>

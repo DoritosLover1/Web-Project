@@ -6,7 +6,6 @@ import { useAuth } from "..//ScriptsFolder/AuthContext";
 
 export default function MainHeader() {
   const [expanded, setExpanded] = useState(false);
-  const [openBar, setOpenBar] = useState(false);
   const {user} = useAuth();
   const navigate = useNavigate();
 
@@ -24,6 +23,10 @@ export default function MainHeader() {
     }else{
       navigate("/sign-in");
     }
+  }
+
+  const handleSearchClick = () =>{
+      navigate("/collection-page");
   }
 
   return (
@@ -46,18 +49,6 @@ export default function MainHeader() {
           </button>
 
           <div className={`collapse navbar-collapse ${expanded ? "show" : ""}`} id="navbarContent">
-            <div className={`flex-grow-1 collapse navbar-collapse ${openBar ? "show" : ""}`} id="searchBarContent">
-              <form className="d-flex mx-auto" role="search">
-                <input
-                  className="form-control me-2"
-                  name="searchBar"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                  style={{ minWidth: 0, maxWidth: 600 , width: 600}}
-                />
-              </form>
-            </div>
             <ul className="d-flex navbar-nav ms-auto">
               <li className="nav-item">
                 <button className="nav-link" onClick={handlePersonClick}>
@@ -65,7 +56,7 @@ export default function MainHeader() {
                 </button>
               </li>
               <li className="nav-item">
-                <button className="nav-link" onClick={() => setOpenBar(!openBar)}>
+                <button className="nav-link" onClick={handleSearchClick}>
                   <i className="bi bi-search" style={{ fontSize: 25 }}></i>
                 </button>
               </li>
@@ -90,13 +81,13 @@ export default function MainHeader() {
             <Link className="nav-link link-color" to="#">ARTISTS</Link>
           </li>
           <li className="nav-item col-md col-sm col text-center">
-              <Link className="nav-link link-color" to="#">SALE</Link>
+            <Link className="nav-link link-color" to="#">SALE</Link>
           </li>
           <li className="nav-item col-md col-sm col text-center">
-              <Link className="nav-link link-color" to="#">NEW ARRIVAL</Link>
+            <Link className="nav-link link-color" to="#">NEW ARRIVAL</Link>
           </li>
-          <li className="nav-itemcol-md col-sm col text-center">
-              <Link className="nav-link link-color" to="#">TOP SELLERS</Link>
+          <li className="nav-item col-md col-sm col text-center">
+            <Link className="nav-link link-color" to="#">TOP SELLERS</Link>
           </li>
           <li className="nav-item col-md col-sm col text-center">
             <Link className="nav-link link-color" to="#">GUIDES</Link>

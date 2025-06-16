@@ -5,7 +5,7 @@
   box-shadow: none !important;
 }
 
-#searchBarContent{
+#searchBarContent {
   max-height: 0;
   overflow: hidden;
   transition: max-height 1s ease-in-out;
@@ -19,24 +19,46 @@
   background-color: #F2F2F2;
 }
 
-.propagation-il-items{
+.propagation-il-items {
   text-align: center;
 }
 
-.link-color{
+.link-color {
   color: #4A494D !important;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
-.link-color:hover{
+
+.link-color:hover {
   color: #F2F2F2 !important;
   background-color: black;
 }
 
-.padding-remover{
+.padding-remover {
   padding-right: 0px;
   padding-left: 0px;
 }
 
-.row > *{
+.row > * {
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+
+.nav .nav-item .nav-link.link-color:active,
+.nav .nav-item .nav-link.link-color:focus {
+  color: #F2F2F2 !important;
+  background-color: #000 !important;
+}
+
+.nav .nav-item .nav-link.link-color:hover {
+  color: #F2F2F2 !important;
+  background-color: #000 !important;
+}
+
+.nav-link i {
+  color: #4A494D;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover i {
+  color: #F2F2F2 !important;
 }

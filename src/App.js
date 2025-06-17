@@ -26,7 +26,7 @@ import OrderPage from './OrdersPage/OrdersPage';
 import OrderDetailsPage from './OrderDetailsPage/OrderDetailsPage';
 import {AuthProvider} from "..//src/ScriptsFolder/AuthContext";
 import Cart from './CartPage/Cart';
-import EcommerceCollectionPage from './CollectionPage/CollectionPage';
+//import EcommerceCollectionPage from './CollectionPage/CollectionPage';
 import Contact from './ContactPage/Contact';
 
 function App() {
@@ -49,20 +49,16 @@ function App() {
                   </Route>
                 </Route>
 
-                <Route path='/account'>
-                  <Route path='checkout-page' element={<CheckOut/>}></Route>
-                  <Route path="contact-details" element={<ContactDetails></ContactDetails>}></Route>
-                  <Route path="add-address" element={<AddAddressPage></AddAddressPage>}></Route>
-                  <Route path='wishlist' element={<WishlistPage></WishlistPage>}></Route>
-                  <Route path="order-page" element={<OrderPage></OrderPage>}>
-                    <Route path="order-details" element={<OrderDetailsPage></OrderDetailsPage>}>
-                    </Route>
-                  </Route>
-                  <Route path='confirm-order' element={<OrderConfirmPage/>}></Route>
-                  <Route path='cart' element={<Cart></Cart>}></Route>
-                </Route>
+                <Route path='/account' element={<ContactDetails/>}></Route>
+                <Route path='/account/checkout-page' element={<CheckOut/>}></Route>
+                <Route path="/account/contact-details" element={<ContactDetails></ContactDetails>}></Route>
+                <Route path="/account/add-address" element={<AddAddressPage></AddAddressPage>}></Route>
+                <Route path='/account/wishlist' element={<WishlistPage></WishlistPage>}></Route>
+                <Route path="/account/order-page" element={<OrderPage></OrderPage>}></Route>
+                <Route path="/account/order-page/order-details" element={<OrderDetailsPage></OrderDetailsPage>}></Route>
+                <Route path='/account/confirm-order' element={<OrderConfirmPage/>}></Route>
+                <Route path='/account/cart' element={<Cart></Cart>}></Route>
                 
-                <Route path='collection-page' element={<EcommerceCollectionPage></EcommerceCollectionPage>}></Route>
                 <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
                 <Route path='/contact-us' element={<ContactPage/>}></Route>
                 <Route path='/product-page/:id' element={<ProductPage/>}></Route>

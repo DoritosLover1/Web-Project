@@ -22,7 +22,7 @@ navigate("/sign-in");
 }
 }
 const handleSearchClick = () =>{
-navigate("/collection-page");
+navigate("/404-error");
 }
 return (
 <div>

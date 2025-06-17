@@ -22,6 +22,7 @@ const handleViewProduct = (productId) =>{
 navigate(`/product-page/${productId}`);
 };
 const [products, setProducts] = useState([]);
+
 useEffect(() => {
 const fetchProducts = async () => {
 try {
@@ -105,6 +106,53 @@ const handleAddToWishlist = async (productId) => {
         }
     }
 };
+
+const handleSubscribe = async (event) => {
+  event.preventDefault();
+
+  const emailInput = document.getElementById("subscriberEmail");
+  const email = emailInput.value.trim();
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email) {
+    alert("Please enter your email address.");
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  try {
+    const response = await Axios.post("http://localhost:5000/subscribe", {
+      email: email
+    });
+
+    console.log(response.data);
+    alert("Subscription successful!");
+
+    emailInput.value = "";
+
+    const messageEl = document.getElementById("subscribeMessage");
+    if (messageEl) {
+      messageEl.style.display = "block";
+      messageEl.innerText = "You have successfully subscribed! 🎉";
+    }
+
+  } catch (error) {
+    console.error("Subscription error:", error);
+    if (error.response) {
+      alert(`Error: ${error.response.data.message || "Subscription failed"}`);
+    } else if (error.request) {
+      alert("Connection error. Please check your internet.");
+    } else {
+      alert("Unexpected error occurred. Please try again.");
+    }
+  }
+};
+
 
 return (
 <div className='d-flex flex-column'>
@@ -497,6 +545,7 @@ return (
 </div>
 
 {/*
+INSTAGRAM SAYFASI FOTOĞRAFLAR GELECEKTİ
 <div className='w-100 p-2 d-flex justify-content-center'>
    <div className='container-fluid'>
       <div className='row'>
@@ -540,16 +589,40 @@ return (
 </div>
 */}
 <div class="container py-5">
-   <div class="text-center mb-4">
-      <h1 class="fw-bold fst-italic">LOREM IPSUM IS SIMPLY DUMMY TEXT</h1>
-      <h4 class="fw-bold">Lorem Ipsum is simplys</h4>
-   </div>
-   <div class="row justify-content-center px-3">
+  <div class="text-center mb-4">
+    <h1 class="fw-bold fst-italic">Stay Updated with Our Latest News</h1>
+    <h4 class="fw-bold">Subscribe to our newsletter</h4>
+    <p class="text-muted">Enter your email to receive news and updates.</p>
+  </div>
+
+  <form onsubmit="subscribe(event)">
+    <div class="row justify-content-center px-3">
       <div class="col-lg-6 col-md-8 col-sm-10 d-flex p-0 border border-dark border-3">
-         <input type="email" class="form-control rounded-0 p-3 border-0" placeholder="Lorem Ipsum"/>
-         <button class="btn btn-dark fs-4 fw-bold rounded-0 w-25">With AS</button>
+        <input
+          type="email"
+          id="subscriberEmail"
+          class="form-control rounded-0 p-3 border-0"
+          placeholder="Enter your email address"
+          required
+        />
+        <button
+          type="submit"
+          class="btn btn-dark fs-4 fw-bold rounded-0 w-25"
+          onClick={handleSubscribe}
+        >
+          Subscribe
+        </button>
       </div>
-   </div>
+    </div>
+  </form>
+
+  <div
+    id="subscribeMessage"
+    class="text-center mt-3 fw-bold text-success"
+    style={{display: "none"}}
+  >
+    You have successfully subscribed! 🎉
+  </div>
 </div>
 
 </div>  

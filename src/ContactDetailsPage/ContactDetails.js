@@ -154,6 +154,11 @@ async function setHomeAddress(addressId, token) {
     navigate("/account/wishlist");
   }
 
+  const handleWithOrders = async () =>{
+    navigate("/account/order-page");
+  }
+
+
   if (loading) {
     return (
       <div className="container py-4">
@@ -225,7 +230,7 @@ async function setHomeAddress(addressId, token) {
     </div>
     <ul className="nav flex-column">
       <li className="nav-item mb-2">
-        <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start">
+        <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start" onClick={handleWithOrders}>
           <i className="bi bi-bag px-2"></i> My orders
         </button>
       </li>

@@ -21,6 +21,10 @@ export default function WishlistPage() {
     navigate("/account/contact-details");
   };
   
+  const handleWithOrders = async () =>{
+    navigate("/account/order-page");
+  }
+
   useEffect(() => {
     const fetchWishlist = async () => {
       if (authLoading) return;
@@ -116,14 +120,14 @@ export default function WishlistPage() {
             <div className="mb-4">
               <h5 className="text-dark fw-bold fs-4">
                 <div className="border-start border-4 rounded-1 border-danger ps-2">
-                  Hello {user.first_name || user.name}
+                  Hello {user.first_name || "name"}
                 </div>
               </h5>
               <p className="text-muted small mb-0">Welcome to your Account</p>
             </div>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start">
+                <button className="btn nav-link d-flex align-items-center fw-bold text-muted w-100 text-start" onClick={handleWithOrders}>
                   <i className="bi bi-bag px-2"></i> My orders
                 </button>
               </li>

@@ -54,11 +54,14 @@ function App() {
                   <Route path="contact-details" element={<ContactDetails></ContactDetails>}></Route>
                   <Route path="add-address" element={<AddAddressPage></AddAddressPage>}></Route>
                   <Route path='wishlist' element={<WishlistPage></WishlistPage>}></Route>
-                  <Route path="order-page" element={<OrderPage></OrderPage>}></Route>
-                  <Route path="order-details" element={<OrderDetailsPage></OrderDetailsPage>}></Route>
+                  <Route path="order-page" element={<OrderPage></OrderPage>}>
+                    <Route path="order-details" element={<OrderDetailsPage></OrderDetailsPage>}>
+                    </Route>
+                  </Route>
                   <Route path='confirm-order' element={<OrderConfirmPage/>}></Route>
                   <Route path='cart' element={<Cart></Cart>}></Route>
                 </Route>
+                
                 <Route path='collection-page' element={<EcommerceCollectionPage></EcommerceCollectionPage>}></Route>
                 <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
                 <Route path='/contact-us' element={<ContactPage/>}></Route>
